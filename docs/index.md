@@ -58,14 +58,13 @@ Concepção de sistema de automação industrial
 
 # Autores
 
-* Aluno 1
-* Aluno 2
-* Aluno 3
-* Aluno 4
-* Aluno 5
-* Aluno 6
-* Aluno 7
-* Aluno 8
+* Alysson Cordeiro
+* Giovana Rodrigues Araujo
+* Henrique Lemos Freire Matias
+* Lucas Henrique Sales de Souza
+* Lyorrei Shono Quintão
+* Mihaell Brenno Alves
+* Patricia Honorato Moreira
 
 
 # Visão Geral do Projeto
