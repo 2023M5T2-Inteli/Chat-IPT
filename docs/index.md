@@ -27,7 +27,6 @@ Concepção de sistema de automação industrial
     - [Objetivos específicos](#objetivos-específicos)
   - [Partes interessadas](#partes-interessadas)
 - [Análise do Problema](#análise-do-problema)
-  - [Análise da área de atuação](#análise-da-área-de-atuação)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
@@ -42,9 +41,6 @@ Concepção de sistema de automação industrial
 - [UX e UI Design](#ux-e-ui-design)
   - [Wireframe + Storyboard](#wireframe--storyboard)
   - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
-- [Projeto de Banco de Dados](#projeto-de-banco-de-dados)
-  - [Modelo Conceitual](#modelo-conceitual)
-  - [Modelo Lógico](#modelo-lógico)
 - [Testes de Hardware](#testes-de-hardware)
   - [Braço robótico](#braço-robótico)
     - [Alcance do braço](#alcance-do-braço)
@@ -57,10 +53,6 @@ Concepção de sistema de automação industrial
     - [Vibrador aquático](#vibrador-aquático)
     - [Buzzer](#buzzer)
     - [LED](#led)
-- [Teste de Software](#teste-de-software)
-  - [Testes Unitários](#testes-unitários)
-  - [Teste de Usabilidade](#teste-de-usabilidade)
-- [Análise de Dados](#análise-de-dados)
 - [Manuais](#manuais)
   - [Manual de Implantação](#manual-de-implantação)
   - [Manual do Usuário](#manual-do-usuário)
@@ -106,10 +98,6 @@ Concepção de sistema de automação industrial
 # Análise do Problema
 
 *Descrição_da_análise_do_problema*
-
-## Análise da área de atuação
-
-*Descrição_da_análise_da_área_de_atuação*
 
 ## Análise do cenário: Matriz SWOT
 
@@ -162,13 +150,6 @@ Nossa proposta de valor envolve automatizar o processo de separação de metais 
 
 ## Design de Interface - Guia de Estilos
 
-
-# Projeto de Banco de Dados
-
-## Modelo Conceitual
-
-## Modelo Lógico
-
 # Testes de Hardware
 
 ## Braço robótico
@@ -206,18 +187,6 @@ Ainda está em fase de testes, mas sabemos que não é difícil utilizá-lo.
 
 ### LED
 Ainda está em fase de testes, mas sabemos que não é difícil controlá-los.
-
-
-
-# Teste de Software
-
-## Testes Unitários
-
-## Teste de Usabilidade
-
-
-# Análise de Dados
-
 
 # Manuais
 
