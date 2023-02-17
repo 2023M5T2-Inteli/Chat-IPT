@@ -45,6 +45,18 @@ Concepção de sistema de automação industrial
 - [Projeto de Banco de Dados](#projeto-de-banco-de-dados)
   - [Modelo Conceitual](#modelo-conceitual)
   - [Modelo Lógico](#modelo-lógico)
+- [Testes de Hardware](#testes-de-hardware)
+  - [Braço robótico](#braço-robótico)
+    - [Alcance do braço](#alcance-do-braço)
+    - [Conexão com servidor](#conexão-com-servidor)
+  - [Eletroímã](#eletroímã)
+    - [Controle do campo magnético](#controle-do-campo-magnético)
+    - [Potência do eletroímã satisfatória](#potência-do-eletroímã-satisfatória)
+  - [Outros sensores](#outros-sensores)
+    - [Célula de carga](#célula-de-carga)
+    - [Vibrador aquático](#vibrador-aquático)
+    - [Buzzer](#buzzer)
+    - [LED](#led)
 - [Teste de Software](#teste-de-software)
   - [Testes Unitários](#testes-unitários)
   - [Teste de Usabilidade](#teste-de-usabilidade)
@@ -156,6 +168,45 @@ Nossa proposta de valor envolve automatizar o processo de separação de metais 
 ## Modelo Conceitual
 
 ## Modelo Lógico
+
+# Testes de Hardware
+
+## Braço robótico
+
+### Alcance do braço
+Primeiramente testamos se o braço robótico possui alcance suficiente para trabalhar nas três bandeijas.
+
+Os testes foram bem sucedidos, como pode ser visto no vídeo abaixo:
+<!-- vídeo com o teste -->
+
+### Conexão com servidor
+Ainda é necessário testar se é possível instanciar um servidor que se comunique com o braço para executar códigos que mexam ele.
+
+## Eletroímã
+
+### Controle do campo magnético
+Testamos se é possível controlar o campo magnético do eltroímã pelo raspberry pi pico.
+
+Assim como o vídeo abaixo, o teste foi bem sucedido:
+<!-- vídeo com o teste -->
+
+### Potência do eletroímã satisfatória
+Precisamos testar se o eletroímã tem potência suficiente para criar um campo magnético satisfatório que consiga pegar os materiais magnéticos nas bandeijas.
+
+## Outros sensores
+
+### Célula de carga
+Ainda está em fase de testes
+
+### Vibrador aquático
+Ainda está em fase de testes
+
+### Buzzer
+Ainda está em fase de testes, mas sabemos que não é difícil utilizá-lo.
+
+### LED
+Ainda está em fase de testes, mas sabemos que não é difícil controlá-los.
+
 
 
 # Teste de Software
