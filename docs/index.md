@@ -26,7 +26,6 @@ Concepção de sistema de automação industrial
     - [Objetivos gerais](#objetivos-gerais)
     - [Objetivos específicos](#objetivos-específicos)
   - [Partes interessadas](#partes-interessadas)
-- [Análise do Problema](#análise-do-problema)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
@@ -75,29 +74,25 @@ Concepção de sistema de automação industrial
 
 ## Empresa
 
-*Descrição_da_empresa*
+*O IPT é o Instituto de Pesquisas Tecnológicas, vinculado à Secretaria de Desenvolvimento Econômico do Estado de São Paulo e há 123 anos colabora para o processo de desenvolvimento do País.*
 
 ## O Problema
 
-*Descrição_do_problema*
+*O processo de separação magnética atualmente é manual, apresentando riscos de agilidade e precisão ao processo. Além disso, a constância da distância é imprecisa, considerando que esse fator é essencial para o campo eletromagnético e o próprio campo aplicado sobre as partículas também é impreciso, dificultando a determinação do campo necessário para a separação dos minerais.*
 
 ## Objetivos
 
 ### Objetivos gerais
 
-*Lista_de_objetivos_gerais*
+*Desenvolveremos um equipamento automatizado que tenha capacidade de aplicar um campo magnético constante, com intensidade e distância ajustáveis, ao longo de toda a amostra, promovendo, assim, uma separação dos minerais magnéticos, os quais serão depositados em um recipiente diferente dos minerais não magnéticos que permanecerão depositados na bandeja original.*
 
 ### Objetivos específicos
 
-*Lista_de_objetivos específicos*
+*<ul> <li> Controle do campo magnético sobre toda a amostra a fim de reduzir os erros de ensaio decorrentes da ação humana; </li> <li> Maior qualidade na execução do ensaio, principalmente no que tange a repetibilidade e reprodutibilidade; </li> <li> Maior flexibilidade de ensaios, pois o uso de eletroímãs ajustáveis dispensa a necessidade de se ter ímãs com o campo desejado; </li> <li> Determinação mais precisa do campo magnético adequado para diferentes ensaios. </li> </ul>*
 
 ## Partes interessadas
 
-*Lista_e_apresentação_das_partes_interessadas*
-
-# Análise do Problema
-
-*Descrição_da_análise_do_problema*
+*Laboratório de Processos Metalúrgicos*
 
 ## Análise do cenário: Matriz SWOT
 
@@ -111,7 +106,7 @@ Concepção de sistema de automação industrial
 <a href="https://miro.com/welcomeonboard/TXJwR01NMXBRZ0U4SXFvYml2S3J5UlRNdnlUdWhFM3dRRUpSTWdYaDgzdjhOUFU0aTZzcjN4MURmenhKNmpXQ3wzNDU4NzY0NTE5NDk4MTY1NjAxfDI=?share_link_id=204094303509" >
 <img src="./img/Chat_IPT___Proposta_de_Valor.jpg" alt="Proposta de Valor do GPT Robot" />
 </a>
-Nossa proposta de valor envolve automatizar o processo de separação de metais que o IPT faz, sem alterar sua metodologia. Além disso, ela conta com um dispositivo magnético (um eletroimã) e um braço robótico (magician lite). Nesse sentido, nossa solução levará precisão no projeto, tendo em vista que não será necessária a alucação de recurso humano para o processo de separação (o qual possui um erro humano atrelado); consistência, visto que garantimos que a ciclicidade do processo seja completamente idêntica em todos os ciclos; escalabilidade devido à variabilidade que nossos produtos podem ter em questão de usos; porfim, automação ao processo, já que não será mais executado por humanos. 
+*Nossa proposta de valor envolve automatizar o processo de separação de metais que o IPT faz, sem alterar sua metodologia. Além disso, ela conta com um dispositivo magnético (um eletroimã) e um braço robótico (magician lite). Nesse sentido, nossa solução levará precisão no projeto, tendo em vista que não será necessária a alucação de recurso humano para o processo de separação (o qual possui um erro humano atrelado); consistência, visto que garantimos que a ciclicidade do processo seja completamente idêntica em todos os ciclos; escalabilidade devido à variabilidade que nossos produtos podem ter em questão de usos; porfim, automação ao processo, já que não será mais executado por humanos.*
 
 ## Matriz de Risco
 
@@ -155,7 +150,7 @@ Nossa proposta de valor envolve automatizar o processo de separação de metais 
 ## Braço robótico
 
 ### Alcance do braço
-Primeiramente testamos se o braço robótico possui alcance suficiente para trabalhar nas três bandeijas.
+Primeiramente testamos se o braço robótico possui alcance suficiente para trabalhar nas três bandejas.
 
 Os testes foram bem sucedidos, como pode ser visto no vídeo abaixo:
 <!-- vídeo com o teste -->
@@ -172,7 +167,7 @@ Assim como o vídeo abaixo, o teste foi bem sucedido:
 <!-- vídeo com o teste -->
 
 ### Potência do eletroímã satisfatória
-Precisamos testar se o eletroímã tem potência suficiente para criar um campo magnético satisfatório que consiga pegar os materiais magnéticos nas bandeijas.
+Precisamos testar se o eletroímã tem potência suficiente para criar um campo magnético satisfatório que consiga pegar os materiais magnéticos nas bandejas.
 
 ## Outros sensores
 
