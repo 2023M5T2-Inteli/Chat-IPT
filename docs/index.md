@@ -142,6 +142,7 @@ Concepção de sistema de automação industrial
 # UX e UI Design
 
 ## Wireframe + Storyboard
+<img src="./img/Chat_IPT__Prototipo_Interface.png" alt="Protótipo de interface"/>
 
 ## Design de Interface - Guia de Estilos
 
