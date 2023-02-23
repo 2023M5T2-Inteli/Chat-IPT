@@ -37,6 +37,8 @@ Concepção de sistema de automação industrial
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
+    - [Croqui](#croqui)
+    - [Diagrama da solução](#diagrama-da-solução)
   - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
     - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
@@ -107,7 +109,7 @@ Concepção de sistema de automação industrial
 *Value_Proposition_Canvas*
 <br/>
 <a href="https://miro.com/welcomeonboard/TXJwR01NMXBRZ0U4SXFvYml2S3J5UlRNdnlUdWhFM3dRRUpSTWdYaDgzdjhOUFU0aTZzcjN4MURmenhKNmpXQ3wzNDU4NzY0NTE5NDk4MTY1NjAxfDI=?share_link_id=204094303509" >
-<img src="./img/Chat_IPT___Proposta_de_Valor.jpg" alt="Proposta de Valor do GPT Robot" />
+<img src="./img/Chat_IPT____Proposta_de_Valor.jpg" alt="Proposta de Valor do GPT Robot" />
 </a>
 *Nossa proposta de valor envolve automatizar o processo de separação de metais que o IPT faz, sem alterar sua metodologia. Além disso, ela conta com um dispositivo magnético (um eletroimã) e um braço robótico (magician lite). Nesse sentido, nossa solução levará precisão no projeto, tendo em vista que não será necessária a alucação de recurso humano para o processo de separação (o qual possui um erro humano atrelado); consistência, visto que garantimos que a ciclicidade do processo seja completamente idêntica em todos os ciclos; escalabilidade devido à variabilidade que nossos produtos podem ter em questão de usos; porfim, automação ao processo, já que não será mais executado por humanos.*
 
@@ -117,7 +119,7 @@ Concepção de sistema de automação industrial
 
 ## Oceano Azul
 
-<img src="./img/Chat_IPT__Oceano_Azul.png"
+<img src="./img/Chat_IPT___Oceano_Azul.png"
 alt="Gráfico do oceano azul"/>
 
 *Tendo em vista o gráfico acima, o qual compara nossa solução com o método tradicional e manual do IPT e com uma alternativa do mercado, a Grade Magnética, é necessário evidenciar 4 pontos importantes para nossa matriz de oceano azul:*
@@ -125,7 +127,7 @@ alt="Gráfico do oceano azul"/>
 
 ## Análise Financeira
 
-<img src="./img/Chat_IPT__Analise_Financeira.png" alt="Análise financeira do projeto"/>
+<img src="./img/Chat_IPT___Analise_Financeira.png" alt="Análise financeira do projeto"/>
 
 *Descrição da análise*
 
@@ -135,13 +137,13 @@ alt="Gráfico do oceano azul"/>
 
 ## Personas
 
-<img src="./img/Chat_IPT__Persona.png" alt="Persona Rodrigo (técnico)"/>
+<img src="./img/Chat_IPT___Persona.png" alt="Persona Rodrigo (técnico)"/>
 
 *Descrição da persona*
 
 ## Mapa de Jornada do Usuário
 
-<img src="./img/Chat_IPT__Jornada.png"
+<img src="./img/Chat_IPT___Jornada.png"
 alt="Mapa de Jornada de usuário"/>
 
 ## Histórias dos usuários (user stories)
@@ -153,12 +155,22 @@ alt="Mapa de Jornada de usuário"/>
 
 ## Módulos do Sistema e Visão Geral (Big Picture)
 
-<img src="./img/Chat_IPT__Diagrama.png" 
+### Croqui 
+
+<img src="./img/Chat_IPT___Croqui_V1.png"
+alt="Primeira versão do croqui"/>
+
+*Descrição do croqui*
+
+### Diagrama da solução
+
+<img src="./img/Chat_IPT___Diagrama.png" 
 alt="Diagrama da soluçao" />
 
 *Descrição do diagrama*
 
 ## Descrição dos Subsistemas
+
 
 
 
@@ -172,7 +184,7 @@ alt="Diagrama da soluçao" />
 
 ## Wireframe + Storyboard
 <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-<img src="./img/Chat_IPT__Prototipo_Interface.png" alt="Protótipo de interface"/>
+<img src="./img/Chat_IPT___Prototipo_Interface.png" alt="Protótipo de interface"/>
 </a>
 
 *O Wireframe para nossa aplicação web, por enquanto (SPRINT2), consiste em 3 (três) páginas de um aplicativo que será desenvolvido em Flutter.*
