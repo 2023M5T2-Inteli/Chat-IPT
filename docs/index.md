@@ -33,6 +33,7 @@ Concepção de sistema de automação industrial
   - [Análise Financeira](#análise-financeira)
 - [Requisitos do Sistema](#requisitos-do-sistema)
   - [Personas](#personas)
+  - [Mapa de Jornada do Usuário](#mapa-de-jornada-do-usuário)
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
@@ -138,6 +139,11 @@ alt="Gráfico do oceano azul"/>
 
 *Descrição da persona*
 
+## Mapa de Jornada do Usuário
+
+<img src="./img/Chat_IPT__Jornada.png"
+alt="Mapa de Jornada de usuário"/>
+
 ## Histórias dos usuários (user stories)
 
 *Descrição_das_histórias_dos_usuários*
@@ -147,7 +153,14 @@ alt="Gráfico do oceano azul"/>
 
 ## Módulos do Sistema e Visão Geral (Big Picture)
 
+<img src="./img/Chat_IPT__Diagrama.png" 
+alt="Diagrama da soluçao" />
+
+*Descrição do diagrama*
+
 ## Descrição dos Subsistemas
+
+
 
 ### Requisitos de software
 
