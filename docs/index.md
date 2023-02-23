@@ -29,6 +29,8 @@ Concepção de sistema de automação industrial
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
+  - [Oceano Azul](#oceano-azul)
+  - [Análise Financeira](#análise-financeira)
 - [Requisitos do Sistema](#requisitos-do-sistema)
   - [Personas](#personas)
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
@@ -112,6 +114,19 @@ Concepção de sistema de automação industrial
 
 *Matriz_de_risco*
 
+## Oceano Azul
+
+<img src="./img/Chat_IPT__Oceano_Azul.png"
+alt="Gráfico do oceano azul"/>
+
+*Tendo em vista o gráfico acima, o qual compara nossa solução com o método tradicional e manual do IPT e com uma alternativa do mercado, a Grade Magnética, é necessário evidenciar 4 pontos importantes para nossa matriz de oceano azul:*
+*<ul> <li> Primeiro, __aumentaremos__ a __consistência__ em relação aos métodos comparados, tendo em vista que o braço robótico, embora ajustável, executará todos os processos de maneira igual e consistente; </li> <li> Além disso, é evidente que precisamos __criar__, também, __facilidade na manutenção__ do hardware e do código que compõem o projeto; </li> <li> Outrossim, visto que o __preço__ de nossa solução é alto, precisamos encontrar formas de __reduzir__ esse fator; </li> <li> Por fim, __eliminaremos__ a necessidade de um __técnico de instalação__ do braço robótico por meio de um manual de instalação limpo e simples de compreender.</li>  </ul>*
+
+## Análise Financeira
+
+<img src="./img/Chat_IPT__Analise_Financeira.png" alt="Análise financeira do projeto"/>
+
+*Descrição da análise*
 
 # Requisitos do Sistema
 
@@ -121,7 +136,7 @@ Concepção de sistema de automação industrial
 
 <img src="./img/Chat_IPT__Persona.png" alt="Persona Rodrigo (técnico)"/>
 
-*Descriçaõ da persona*
+*Descrição da persona*
 
 ## Histórias dos usuários (user stories)
 
