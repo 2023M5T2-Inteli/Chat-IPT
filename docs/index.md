@@ -142,7 +142,13 @@ Concepção de sistema de automação industrial
 # UX e UI Design
 
 ## Wireframe + Storyboard
+<a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
 <img src="./img/Chat_IPT__Prototipo_Interface.png" alt="Protótipo de interface"/>
+</a>
+
+*O Wireframe para nossa aplicação web, por enquanto (SPRINT2), consiste em 3 (três) páginas de um aplicativo que será desenvolvido em Flutter.*
+
+*<ul> <li>A primeira página funciona como uma página inicial para o aplicativo, em que há um botão "Ligar" que ligará o braço robótico;</li> <li>A segunda página consiste em instruções para o usuário organizar as bandejas, de forma que o braço robótico reconheça cada uma;</li> <li>Por último, a terceira constitui-se de uma página dinâmica que apresenta o status em tempo real, com a opção de pular uma etapa do processo ou encerrá-lo imediatamente.</li> </ul>*
 
 ## Design de Interface - Guia de Estilos
 
