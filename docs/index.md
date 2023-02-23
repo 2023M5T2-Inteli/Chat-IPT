@@ -119,8 +119,9 @@ Concepção de sistema de automação industrial
 
 ## Personas
 
-*Descrição_das_personas*
+<img src="./img/Chat_IPT__Persona.png" alt="Persona Rodrigo (técnico)"/>
 
+*Descriçaõ da persona*
 
 ## Histórias dos usuários (user stories)
 
