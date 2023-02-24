@@ -31,4 +31,9 @@
 *.out
 *.app
 
+
 .env
+
+# Python
+*env
+
