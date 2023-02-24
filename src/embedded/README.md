@@ -12,7 +12,7 @@ py -m venv .env
 Run this code in your terminal in the root of this folder.
 For mac:
 ```bash
-source env/bin/activate
+source .env/bin/activate
 ```
 For windows:
 ```bash

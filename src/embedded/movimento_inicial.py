@@ -6,75 +6,80 @@ import pydobot
 available_ports = list_ports.comports()
 print(f'available ports: {[x.device for x in available_ports]}')
 port = available_ports[2].device
-
+print(available_ports)
 # Instance of your dobot connection
 device = pydobot.Dobot(port=port, verbose=False)
 
-# Defining home
-device_home = device.pose()
-
-#
-device_positon = device.pose()
-
-# Primeiro movimento (max "x")
-device.move_to(device_positon[0] + 65, device_positon[1] - 120,
-               device_positon[2] - 150, device_positon[3], wait=True)
-device_positon = device.pose()
-
-# # Segundo movimento (max "y")
-# device.move_to(device_positon[0], device_positon[1] - 120,
-#                device_positon[2], device_positon[3], wait=True)
-# device_positon = device.pose()
-
-# # Terceiro movimento (min "z")
-# device.move_to(device_positon[0], device_positon[1],
-#                device_positon[2] - 150, device_positon[3], wait=True)
-# device_positon = device.pose()
-
-# Quarto movimento (min "y")
-device.move_to(device_positon[0], device_positon[1] + 240,
-               device_positon[2], device_positon[3], wait=True)
-device_positon = device.pose()
-
-# Quarto movimento (second "x")
-device.move_to(device_positon[0] - 40, device_positon[1],
-               device_positon[2], device_positon[3], wait=True)
-device_positon = device.pose()
-
-# Quinto movimento (second "y")
-device.move_to(device_positon[0], device_positon[1] - 240,
-               device_positon[2], device_positon[3], wait=True)
-device_positon = device.pose()
-
-# Quarto movimento (third "x")
-device.move_to(device_positon[0] - 40, device_positon[1],
-               device_positon[2], device_positon[3], wait=True)
-device_positon = device.pose()
-
-# Quinto movimento (third "y")
-device.move_to(device_positon[0], device_positon[1] + 240,
-               device_positon[2], device_positon[3], wait=True)
-device_positon = device.pose()
-
-# Quarto movimento (fourth "x")
-device.move_to(device_positon[0] - 40, device_positon[1],
-               device_positon[2], device_positon[3], wait=True)
-device_positon = device.pose()
-
-# Quinto movimento (fourth "y")
-device.move_to(device_positon[0], device_positon[1] - 240,
-               device_positon[2], device_positon[3], wait=True)
-device_positon = device.pose()
-
-# move_to(x, y, z, r, wait=False) queues a translation in dobot to given coordinates
-
-# x: float x cartesian coordinate to move
-# y: float y cartesian coordinate to move
-# z: float z cartesian coordinate to move
-# r: float r effector rotation
-# wait: bool waits until command has been executed to return to process
+(x, y, z, r, j1, j2, j3, j4) = device.pose()
 
 
-# Back to home
-device.move_to(device_home[0], device_home[1], device_home[2], device_home[3])
+def first_tray():
+    print(f'x:{x} y:{y} z:{z} r:{r} j1:{j1} j2:{j2} j3:{j3} j4:{j4}')
+
+    # Return to home
+    device.move_to(228, 0, 151, 0, wait=True)
+
+    device.move_to(203, -283,
+               109, -53, wait=True)
+    
+    device.move_to(-94, -333,
+               85, -105, wait=True)
+    
+    device.move_to(112, -331,
+               75, -71, wait=True)
+
+    device.move_to(112, -254,
+               82, -65, wait=True)
+
+    device.move_to(-96, -261,
+               80, -110, wait=True)
+
+    device.move_to(-96, -198,
+               90, -115, wait=True)
+
+    device.move_to(113, -212,
+               87, -61, wait=True)
+
+    device.move_to(203, -283,
+            109, -53, wait=True)
+    
+def second_tray():
+    # Return to home
+    device.move_to(228, 0, 151, 0, wait=True)
+
+    device.move_to(237, -70, 28, -16, wait=True)
+
+    device.move_to(235, 88, 24, 21, wait=True)
+
+    device.move_to(237, -70, 28, -16, wait=True)
+
+    device.move_to(235, 88, 24, 21, wait=True)
+
+    device.move_to(237, -70, 28, -16, wait=True)
+
+    device.move_to(235, 88, 24, 21, wait=True)
+
+    # Return to home
+    device.move_to(228, 0, 151, 0, wait=True)
+
+
+
+def third_tray():
+
+    device.move_to(211, 224, 86, 46, wait=True)
+    device.move_to(114, 250, 20, 65, wait=True)
+    device.move_to(-29, 256, 20, 96, wait=True)
+    device.move_to(114, 250, 20, 65, wait=True)
+    device.move_to(-29, 256, 20, 96, wait=True)
+    device.move_to(114, 250, 20, 65, wait=True)
+    device.move_to(-29, 256, 20, 96, wait=True)
+
+    device.move_to(211, 224, 86, 46, wait=True)
+    # Return to home
+    device.move_to(228, 0, 151, 0, wait=True)
+
+first_tray()
+second_tray()
+third_tray()
+
 device.close()
