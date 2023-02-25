@@ -83,7 +83,11 @@ Concepção de sistema de automação industrial
 
 ## O Problema
 
-*O processo de separação magnética atualmente é manual, apresentando riscos de agilidade e precisão ao processo. Além disso, a constância da distância é imprecisa, considerando que esse fator é essencial para o campo eletromagnético e o próprio campo aplicado sobre as partículas também é impreciso, dificultando a determinação do campo necessário para a separação dos minerais.*
+O processo de separação de minerais realizado pelo IPT é manual, executado por meio de um técnico operador, que aproxima uma barra de ímã de ferrite, envolto em um saco plástico, do material que está submerso e espalhado em um recipente com água. 
+
+Nessa etapa, o operador aproxima o íma sobre um primeiro recipiente que contém toda a amostra, para em seguida, em um segundo recipiente, limpar as impurezas contidas na amostra. Por fim os minerais são depositados em um recipiente final, que também contém água. 
+
+Infere-se que esse processo é impreciso, sendo realizado diversas vezes e demandando treinamento apropriado do operador. Os metais não são totalmente retirados na primeira passagem pelo ferromagnético, em suma pela imprecisão do campo magnético do eletroímã devido a distância de manipulação, mas também pela necessidade de se testar diferentes campos por meio da troca de ímãs. 
 
 ## Objetivos
 
@@ -97,12 +101,11 @@ Concepção de sistema de automação industrial
 
 ## Partes interessadas
 
-*Laboratório de Processos Metalúrgicos*
+* IPT;
+* Laboratório de Processos Metalúrgicos;
+* Inteli.
 
 ## Análise do cenário: Matriz SWOT
-
-*Matriz_SWOT*
-
 
 ## Proposta de Valor: Value Proposition Canvas
 
@@ -115,7 +118,26 @@ Concepção de sistema de automação industrial
 
 ## Matriz de Risco
 
-*Matriz_de_risco*
+<img width="693" alt="matriz de risco" src="https://user-images.githubusercontent.com/99269584/221373748-9b2fa2d7-169c-47b1-82e6-fc9b0e694f41.png">
+
+RISCOS
+* Planejar um escopo maior do que o possível de entregar - Probabilidade: Médio; Impacto:	Alta
+* Não entregar o projeto completo (integração com web app e tal)	Médio	Muito Alta
+* Falta de acesso a um teste real poderá prejudicar a criação de um produto escalável - Probabilidade:	Muito Alta; Impacto:	Baixo
+* Demandar muito tempo para determinadas atividades do projeto e negligenciar outras (como na configuração microcontrolador para a web application ou no frontend do serviço) - Probabilidade:	Baixo; Impacto:	Alta
+* Parâmetros de medidas para relatórios de ensaio não bem definidos - Probabilidade:	Baixo; Impacto:	Muito Alta
+* Não ter a participação de todos no desenvolvimento do frontend e backend - Probabilidade:	Alta; Impacto:	Médio
+* Desacordo do grupo nas ferramentas utilizadas - Probabilidade:	Muito Baixo; Impacto:	Muito Baixo
+* Ausência de integrantes do grupo nos desenvolvimentos - Probabilidade:	Baixo; Impacto:	Médio
+* Dias das instruções de programação incompatíveis com o tempo de desenvolvimento desejado para entregas da SPRINT - Probabilidade: Médio; Impacto:	Médio
+* Erro na construção da peça de encaixe para o braço robôtico - Probabilidade:	Médio; Impacto:	Muito Alta
+
+OPORTUNIDADES
+* Suporte do inteli e professores altamente qualificados - Probabilidade: Muito Alta; Impacto:	Muito Alta
+* IPT ser um parceiro muito acessível e amigável em geral - Probabilidade:	Alta; Impacto:	Muito Alta
+* IPT ter conhecimento técnico e científico sobre o problema que estamos prototipando uma solução, nos auxiliará na resolução de possíveis dúvidas e sugestões de melhorias	- Probabilidade: Baixo; Impacto:	Alta
+* Desenvolver uma tecnologia escalável - Probabilidade: Médio; Impacto:	Muito Alta
+* Curva de aprendizado do python ser muito simples - Probabilidade:	Médio; Impacto:	Alta
 
 ## Oceano Azul
 
@@ -170,8 +192,6 @@ alt="Diagrama da soluçao" />
 *Descrição do diagrama*
 
 ## Descrição dos Subsistemas
-
-
 
 
 ### Requisitos de software
