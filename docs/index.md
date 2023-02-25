@@ -234,14 +234,23 @@ Ainda é necessário testar se é possível instanciar um servidor que se comuni
 
 ## Eletroímã
 
-### Controle do campo magnético
-Testamos se é possível controlar o campo magnético do eltroímã pelo raspberry pi pico.
+Um eletroímã utiliza corrente elétrica para gerar um campo magnético. Nesse projeto realizaremos o controle do eletroímã por meio do sinal PWM (modulação por largura de pulso), o qual possibilita controlar a força do campo magnético por meio da quantidade de energia que se é entregue ao sistema. 
 
-Assim como o vídeo abaixo, o teste foi bem sucedido:
-<!-- vídeo com o teste -->
+### Controle do eletroímã
+O primeiro teste realizado com eletroímã controlado pelo raspberry pi pico W, foi o de ligar e desligar o ímã. Para isso, conectamos o eletroímã a ponte H, um circuito eletrônico que controla a velocidade do motor variando a largura dos pulsos do sinal PWM.
 
-### Potência do eletroímã satisfatória
-Precisamos testar se o eletroímã tem potência suficiente para criar um campo magnético satisfatório que consiga pegar os materiais magnéticos nas bandejas.
+Ademais, nesse circuito, o eletroímã conectado a ponte H, é controlado pelo pino 0 do rapsberry pi pico W. Ao definir-se o valor de 0 no código, o eletroímã liga, e com 1, o eletroímã é desligado. Nesse ciclo o eletroímã liga por 1s e depois desliga por 1s. Na montagem realizada para este projeto, a ponte H recebe alimentação por uma fonte de 5v.
+
+No vídeo a seguir, se é demonstrado o teste realizado com uma moeda, que consistiu na montagem do eletroímã no braço robótico:
+https://user-images.githubusercontent.com/99269584/221374609-9ee725ef-596e-4a0a-968d-72518479a653.mp4
+
+### Controle de potência do eletroímã 
+
+Para realizar-se o teste de variação de força do campo magnético, delimitou-se uma rampa variando os valores do PWM de 0 até o máximo 65536, variando-se a largura do pulso de forma linear ao longo do tempo. Modificando-se a largura do pulso do sinal PWM, é possível controlar a corrente que passa pelo eletroímã, e portanto, controlar sua força magnética.  
+
+No teste realizado com uma moeda, o intervalo de tempo aplicado foi de 1ms, e observou-se que quanto mais próximo do valor máximo, maior era a aderância da moeda ao eletroímã. 
+
+Assim, por meio do teste, infere-se a possibilidade de implementação do sistema de controle da intensidade do eletroímã por meio da interface web desenvolvida. 
 
 ## Outros sensores
 
@@ -261,8 +270,10 @@ Precisamos testar se o eletroímã tem potência suficiente para criar um campo 
   
   Atualmente, apenas a ligação entre o dispositivo e o amplificador foram feitas, contudo, futuramente, serão contruídas as bases para a célula, sua calibração e implementação do algoritmo.
 
-### Vibrador aquático
+### Mini Bomba Motor D'água
 Ainda está em fase de testes
+
+## Sensor de distância ultrassônico
 
 ### Buzzer
 Ainda está em fase de testes, mas sabemos que não é difícil utilizá-lo.
