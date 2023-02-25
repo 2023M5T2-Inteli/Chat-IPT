@@ -220,7 +220,11 @@ Precisamos testar se o eletroímã tem potência suficiente para criar um campo 
 ## Outros sensores
 
 ### Célula de carga
-Ainda está em fase de testes
+  A célula de carga é utilizada para a medição de massa. Ela consiste em um dispositivo que, sob efeito de uma carga, se deforma, mas que volta a posição inicial por possuir um certo nível de elasticidade, já que é composta de aço ou alumínio. Esse movimento também é reproduzido por extensiômetros fixados ao dispositivo. Os extensiômetros são condutores elétricos que ao serem alongados ou comprimidos variam sua resistência, assim, somos capazes de determinar essa pequena deformação e traduzí-las por meio de um amplificador HX711.
+  
+  No projeto atual, o sensor de peso tem o objetivo de identificar a quantidade de material retirado pelo braço robótico, para que esse não seja sobrecarregado, já que sua força suporta até 250g. A célula de carga deverá ser posicionada abaixo da primeira bandeja e, através de um algoritmo, a diferença de massa entre o ínicio do movimento do braço e os instantes futuros determinará a quantidade de material retirado.
+  
+  Atualmente, apenas a ligação entre o dispositivo e o amplificador foram feitas, contudo, futuramente, serão contruídas as bases para a célula, sua calibração e implementação do algoritmo.
 
 ### Vibrador aquático
 Ainda está em fase de testes
