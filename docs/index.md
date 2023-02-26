@@ -271,7 +271,9 @@ Assim, por meio do teste, infere-se a possibilidade de implementação do sistem
   Atualmente, apenas a ligação entre o dispositivo e o amplificador foram feitas, contudo, futuramente, serão contruídas as bases para a célula, sua calibração e implementação do algoritmo.
 
 ### Mini Bomba Motor D'água
-Ainda está em fase de testes
+  Este atuador é usado para misturar a amostra na água em alguns momentos durante o processo de separação. É um componente utilizado para pressurizar, circular ou bombear água, dependendo da necessidade contextual do projeto. Em nosso caso, após o braço ter concluído o circuito na primeira bandeja, onde a bomba estará localizada, ela será ligada. Isso fará com que a água circule na primeira bandeja, iniciando o processo de mistura da amostra, garantindo uma maior qualidade nos testes ao evitar que materiais mais pesados fiquem depositados no fundo da bandeja.
+
+  Atualmente, tivemos problemas com o funcionamento do dispositivo. Em entregas futuras os primeiros testes e implementações serão feitos.
 
 ## Sensor de distância ultrassônico
 
