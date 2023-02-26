@@ -26,29 +26,37 @@ Concepção de sistema de automação industrial
     - [Objetivos gerais](#objetivos-gerais)
     - [Objetivos específicos](#objetivos-específicos)
   - [Partes interessadas](#partes-interessadas)
-- [Análise do Problema](#análise-do-problema)
-  - [Análise da área de atuação](#análise-da-área-de-atuação)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
+  - [Oceano Azul](#oceano-azul)
+  - [Análise Financeira](#análise-financeira)
 - [Requisitos do Sistema](#requisitos-do-sistema)
   - [Personas](#personas)
+  - [Mapa de Jornada do Usuário](#mapa-de-jornada-do-usuário)
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
+    - [Croqui](#croqui)
+    - [Diagrama da solução](#diagrama-da-solução)
   - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
     - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [UX e UI Design](#ux-e-ui-design)
   - [Wireframe + Storyboard](#wireframe--storyboard)
   - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
-- [Projeto de Banco de Dados](#projeto-de-banco-de-dados)
-  - [Modelo Conceitual](#modelo-conceitual)
-  - [Modelo Lógico](#modelo-lógico)
-- [Teste de Software](#teste-de-software)
-  - [Testes Unitários](#testes-unitários)
-  - [Teste de Usabilidade](#teste-de-usabilidade)
-- [Análise de Dados](#análise-de-dados)
+- [Testes de Hardware](#testes-de-hardware)
+  - [Braço robótico](#braço-robótico)
+    - [Alcance do braço](#alcance-do-braço)
+    - [Conexão com servidor](#conexão-com-servidor)
+  - [Eletroímã](#eletroímã)
+    - [Controle do campo magnético](#controle-do-campo-magnético)
+    - [Potência do eletroímã satisfatória](#potência-do-eletroímã-satisfatória)
+  - [Outros sensores](#outros-sensores)
+    - [Célula de carga](#célula-de-carga)
+    - [Vibrador aquático](#vibrador-aquático)
+    - [Buzzer](#buzzer)
+    - [LED](#led)
 - [Manuais](#manuais)
   - [Manual de Implantação](#manual-de-implantação)
   - [Manual do Usuário](#manual-do-usuário)
@@ -58,62 +66,92 @@ Concepção de sistema de automação industrial
 
 # Autores
 
-* Aluno 1
-* Aluno 2
-* Aluno 3
-* Aluno 4
-* Aluno 5
-* Aluno 6
-* Aluno 7
-* Aluno 8
+* Alysson Cordeiro
+* Giovana Rodrigues Araujo
+* Henrique Lemos Freire Matias
+* Lucas Henrique Sales de Souza
+* Lyorrei Shono Quintão
+* Mihaell Brenno Alves
+* Patricia Honorato Moreira
 
 
 # Visão Geral do Projeto
 
 ## Empresa
 
-*Descrição_da_empresa*
+*O IPT é o Instituto de Pesquisas Tecnológicas, vinculado à Secretaria de Desenvolvimento Econômico do Estado de São Paulo e há 123 anos colabora para o processo de desenvolvimento do País.*
 
 ## O Problema
 
-*Descrição_do_problema*
+O processo de separação de minerais realizado pelo IPT é manual, executado por meio de um técnico operador, que aproxima uma barra de ímã de ferrite, envolto em um saco plástico, do material que está submerso e espalhado em um recipente com água. 
+
+Nessa etapa, o operador aproxima o íma sobre um primeiro recipiente que contém toda a amostra, para em seguida, em um segundo recipiente, limpar as impurezas contidas na amostra. Por fim os minerais são depositados em um recipiente final, que também contém água. 
+
+Infere-se que esse processo é impreciso, sendo realizado diversas vezes e demandando treinamento apropriado do operador. Os metais não são totalmente retirados na primeira passagem pelo ferromagnético, em suma pela imprecisão do campo magnético do eletroímã devido a distância de manipulação, mas também pela necessidade de se testar diferentes campos por meio da troca de ímãs. 
 
 ## Objetivos
 
 ### Objetivos gerais
 
-*Lista_de_objetivos_gerais*
+*Desenvolveremos um equipamento automatizado que tenha capacidade de aplicar um campo magnético constante, com intensidade e distância ajustáveis, ao longo de toda a amostra, promovendo, assim, uma separação dos minerais magnéticos, os quais serão depositados em um recipiente diferente dos minerais não magnéticos que permanecerão depositados na bandeja original.*
 
 ### Objetivos específicos
 
-*Lista_de_objetivos específicos*
+*<ul> <li> Controle do campo magnético sobre toda a amostra a fim de reduzir os erros de ensaio decorrentes da ação humana; </li> <li> Maior qualidade na execução do ensaio, principalmente no que tange a repetibilidade e reprodutibilidade; </li> <li> Maior flexibilidade de ensaios, pois o uso de eletroímãs ajustáveis dispensa a necessidade de se ter ímãs com o campo desejado; </li> <li> Determinação mais precisa do campo magnético adequado para diferentes ensaios. </li> </ul>*
 
 ## Partes interessadas
 
-*Lista_e_apresentação_das_partes_interessadas*
-
-# Análise do Problema
-
-*Descrição_da_análise_do_problema*
-
-## Análise da área de atuação
-
-*Descrição_da_análise_da_área_de_atuação*
+* IPT;
+* Laboratório de Processos Metalúrgicos;
+* Inteli.
 
 ## Análise do cenário: Matriz SWOT
-
-*Matriz_SWOT*
-
 
 ## Proposta de Valor: Value Proposition Canvas
 
 *Value_Proposition_Canvas*
-
+<br/>
+<a href="https://miro.com/welcomeonboard/TXJwR01NMXBRZ0U4SXFvYml2S3J5UlRNdnlUdWhFM3dRRUpSTWdYaDgzdjhOUFU0aTZzcjN4MURmenhKNmpXQ3wzNDU4NzY0NTE5NDk4MTY1NjAxfDI=?share_link_id=204094303509" >
+<img src="./img/Chat_IPT___Proposta_de_Valor.jpg" alt="Proposta de Valor do GPT Robot" />
+</a>
+*Nossa proposta de valor envolve automatizar o processo de separação de metais que o IPT faz, sem alterar sua metodologia. Além disso, ela conta com um dispositivo magnético (um eletroimã) e um braço robótico (magician lite). Nesse sentido, nossa solução levará precisão no projeto, tendo em vista que não será necessária a alucação de recurso humano para o processo de separação (o qual possui um erro humano atrelado); consistência, visto que garantimos que a ciclicidade do processo seja completamente idêntica em todos os ciclos; escalabilidade devido à variabilidade que nossos produtos podem ter em questão de usos; porfim, automação ao processo, já que não será mais executado por humanos.*
 
 ## Matriz de Risco
 
-*Matriz_de_risco*
+<img width="693" alt="matriz de risco" src="https://user-images.githubusercontent.com/99269584/221373748-9b2fa2d7-169c-47b1-82e6-fc9b0e694f41.png">
 
+RISCOS
+* Planejar um escopo maior do que o possível de entregar - Probabilidade: Médio; Impacto:	Alta
+* Não entregar o projeto completo (integração com web app e tal)	Médio	Muito Alta
+* Falta de acesso a um teste real poderá prejudicar a criação de um produto escalável - Probabilidade:	Muito Alta; Impacto:	Baixo
+* Demandar muito tempo para determinadas atividades do projeto e negligenciar outras (como na configuração microcontrolador para a web application ou no frontend do serviço) - Probabilidade:	Baixo; Impacto:	Alta
+* Parâmetros de medidas para relatórios de ensaio não bem definidos - Probabilidade:	Baixo; Impacto:	Muito Alta
+* Não ter a participação de todos no desenvolvimento do frontend e backend - Probabilidade:	Alta; Impacto:	Médio
+* Desacordo do grupo nas ferramentas utilizadas - Probabilidade:	Muito Baixo; Impacto:	Muito Baixo
+* Ausência de integrantes do grupo nos desenvolvimentos - Probabilidade:	Baixo; Impacto:	Médio
+* Dias das instruções de programação incompatíveis com o tempo de desenvolvimento desejado para entregas da SPRINT - Probabilidade: Médio; Impacto:	Médio
+* Erro na construção da peça de encaixe para o braço robôtico - Probabilidade:	Médio; Impacto:	Muito Alta
+
+OPORTUNIDADES
+* Suporte do inteli e professores altamente qualificados - Probabilidade: Muito Alta; Impacto:	Muito Alta
+* IPT ser um parceiro muito acessível e amigável em geral - Probabilidade:	Alta; Impacto:	Muito Alta
+* IPT ter conhecimento técnico e científico sobre o problema que estamos prototipando uma solução, nos auxiliará na resolução de possíveis dúvidas e sugestões de melhorias	- Probabilidade: Baixo; Impacto:	Alta
+* Desenvolver uma tecnologia escalável - Probabilidade: Médio; Impacto:	Muito Alta
+* Curva de aprendizado do python ser muito simples - Probabilidade:	Médio; Impacto:	Alta
+
+## Oceano Azul
+
+<img src="./img/Chat_IPT___Oceano_Azul.png"
+alt="Gráfico do oceano azul"/>
+
+*Tendo em vista o gráfico acima, o qual compara nossa solução com o método tradicional e manual do IPT e com uma alternativa do mercado, a Grade Magnética, é necessário evidenciar 4 pontos importantes para nossa matriz de oceano azul:*
+*<ul> <li> Primeiro, __aumentaremos__ a __consistência__ em relação aos métodos comparados, tendo em vista que o braço robótico, embora ajustável, executará todos os processos de maneira igual e consistente; </li> <li> Além disso, é evidente que precisamos __criar__, também, __facilidade na manutenção__ do hardware e do código que compõem o projeto; </li> <li> Outrossim, visto que o __preço__ de nossa solução é alto, precisamos encontrar formas de __reduzir__ esse fator; </li> <li> Por fim, __eliminaremos__ a necessidade de um __técnico de instalação__ do braço robótico por meio de um manual de instalação limpo e simples de compreender.</li>  </ul>*
+
+## Análise Financeira
+
+<img src="./img/Chat_IPT___Analise_Financeira.png" alt="Análise financeira do projeto"/>
+
+*Descrição da análise*
 
 # Requisitos do Sistema
 
@@ -121,19 +159,46 @@ Concepção de sistema de automação industrial
 
 ## Personas
 
-*Descrição_das_personas*
+<img src="./img/Chat_IPT___Persona.png" alt="Persona Rodrigo (técnico)"/>
 
+*Descrição da persona*
+
+## Mapa de Jornada do Usuário
+
+<img src="./img/Chat_IPT___Jornada.png"
+alt="Mapa de Jornada de usuário"/>
 
 ## Histórias dos usuários (user stories)
 
-*Descrição_das_histórias_dos_usuários*
+* Eu, como técnico, quero poder automatizar a tarefa de manipulação de amostra de metais, para que eu possa alocar meu tempo em atividades mais valiosas.
+* Eu, como técnico, quero poder delegar a tarefa repetitiva de separação metálica para um braço mecânico, a fim de evitar o desgaste físico e mental que esse processo manual e repetitivo causa.
+* Eu, como técnico, gostaria de utilizar um braço mecânico preciso e confiável, para que eu possa realizar a tarefa de separação dos metais com eficiência e precisão, sem comprometer a qualidade dos resultados.
+* Eu, como técnico, quero poder anexar o braço mecânico à minha estação de trabalho, para que possa automatizar a separação de liga metálica da amostra através de um processo magnético.
+* Eu, como técnico, quero ter uma interface física, para controlar a movimentação precisa do braço mecânico.
+* Eu, como técnico, quero ter uma estrutura fácil de manutenção para garantir que o dispositivo possa ser mantido em boas condições de funcionamento ao longo do tempo.
+* Eu, como técnico, quero ter um encaixe para o braço mecânico criado a partir de modelagem 3D, para que possa garantir que o braço tenha uma interação perfeita com restante da estação e não prejudique o processo de separação de liga metálica.
 
 
 # Arquitetura do Sistema
 
 ## Módulos do Sistema e Visão Geral (Big Picture)
 
+### Croqui 
+
+<img src="./img/Chat_IPT___Croqui_V1.png"
+alt="Primeira versão do croqui"/>
+
+*Descrição do croqui*
+
+### Diagrama da solução
+
+<img src="./img/Chat_IPT___Diagrama.png" 
+alt="Diagrama da soluçao" />
+
+*Descrição do diagrama*
+
 ## Descrição dos Subsistemas
+
 
 ### Requisitos de software
 
@@ -144,26 +209,77 @@ Concepção de sistema de automação industrial
 # UX e UI Design
 
 ## Wireframe + Storyboard
+<a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+<img src="./img/Chat_IPT___Prototipo_Interface.png" alt="Protótipo de interface"/>
+</a>
+
+*O Wireframe para nossa aplicação web, por enquanto (SPRINT2), consiste em 3 (três) páginas de um aplicativo que será desenvolvido em Flutter.*
+
+*<ul> <li>A primeira página funciona como uma página inicial para o aplicativo, em que há um botão "Ligar" que ligará o braço robótico;</li> <li>A segunda página consiste em instruções para o usuário organizar as bandejas, de forma que o braço robótico reconheça cada uma;</li> <li>Por último, a terceira constitui-se de uma página dinâmica que apresenta o status em tempo real, com a opção de pular uma etapa do processo ou encerrá-lo imediatamente.</li> </ul>*
 
 ## Design de Interface - Guia de Estilos
 
+# Testes de Hardware
 
-# Projeto de Banco de Dados
+## Braço robótico
 
-## Modelo Conceitual
+### Alcance do braço
+Primeiramente testamos se o braço robótico possui alcance suficiente para trabalhar nas três bandejas.
 
-## Modelo Lógico
+Os testes foram bem sucedidos, como pode ser visto no vídeo abaixo:
+<!-- vídeo com o teste -->
 
+### Conexão com servidor
+Ainda é necessário testar se é possível instanciar um servidor que se comunique com o braço para executar códigos que mexam ele.
 
-# Teste de Software
+## Eletroímã
 
-## Testes Unitários
+Um eletroímã utiliza corrente elétrica para gerar um campo magnético. Nesse projeto realizaremos o controle do eletroímã por meio do sinal PWM (modulação por largura de pulso), o qual possibilita controlar a força do campo magnético por meio da quantidade de energia que se é entregue ao sistema. 
 
-## Teste de Usabilidade
+### Controle do eletroímã
+O primeiro teste realizado com eletroímã controlado pelo raspberry pi pico W, foi o de ligar e desligar o ímã. Para isso, conectamos o eletroímã a ponte H, um circuito eletrônico que controla a velocidade do motor variando a largura dos pulsos do sinal PWM.
 
+Ademais, nesse circuito, o eletroímã conectado a ponte H, é controlado pelo pino 0 do rapsberry pi pico W. Ao definir-se o valor de 0 no código, o eletroímã liga, e com 1, o eletroímã é desligado. Nesse ciclo o eletroímã liga por 1s e depois desliga por 1s. Na montagem realizada para este projeto, a ponte H recebe alimentação por uma fonte de 5v.
 
-# Análise de Dados
+No vídeo a seguir, se é demonstrado o teste realizado com uma moeda, que consistiu na montagem do eletroímã no braço robótico:
+https://user-images.githubusercontent.com/99269584/221374609-9ee725ef-596e-4a0a-968d-72518479a653.mp4
 
+### Controle de potência do eletroímã 
+
+Para realizar-se o teste de variação de força do campo magnético, delimitou-se uma rampa variando os valores do PWM de 0 até o máximo 65536, variando-se a largura do pulso de forma linear ao longo do tempo. Modificando-se a largura do pulso do sinal PWM, é possível controlar a corrente que passa pelo eletroímã, e portanto, controlar sua força magnética.  
+
+No teste realizado com uma moeda, o intervalo de tempo aplicado foi de 1ms, e observou-se que quanto mais próximo do valor máximo, maior era a aderância da moeda ao eletroímã. 
+
+Assim, por meio do teste, infere-se a possibilidade de implementação do sistema de controle da intensidade do eletroímã por meio da interface web desenvolvida. 
+
+## Outros sensores
+
+### Célula de carga
+  A célula de carga é utilizada para a medição de massa. Ela consiste em um dispositivo que, sob efeito de uma carga, se deforma, mas que volta a posição inicial por possuir um certo nível de elasticidade, já que é composta de aço ou alumínio. Esse movimento também é reproduzido por extensiômetros fixados ao dispositivo. Os extensiômetros são condutores elétricos que ao serem alongados ou comprimidos variam sua resistência, assim, somos capazes de determinar essa pequena deformação e traduzí-las por meio de um amplificador HX711.
+
+ 
+ ![image](./img/anatomia-celula.png)
+ <i>Fonte:</i> <a href="https://www.flintec.com/br/sensores-de-peso/celulas-de-carga/como-funciona-uma-c%C3%A9lula-de-carga"><i>Flintec</i></a>
+ 
+ 
+ ![image](./img/deformaçao-extensiometro.png)
+ <i>Fonte:</i> <a href="https://www.flintec.com/br/sensores-de-peso/celulas-de-carga/como-funciona-uma-c%C3%A9lula-de-carga"><i>Flintec</i></a>
+  
+  
+  No projeto atual, o sensor de peso tem o objetivo de identificar a quantidade de material retirado pelo braço robótico, para que esse não seja sobrecarregado, já que sua força suporta até 250g. A célula de carga deverá ser posicionada abaixo da primeira bandeja e, através de um algoritmo, a diferença de massa entre o ínicio do movimento do braço e os instantes futuros determinará a quantidade de material retirado.
+  
+  Atualmente, apenas a ligação entre o dispositivo e o amplificador foram feitas, contudo, futuramente, serão contruídas as bases para a célula, sua calibração e implementação do algoritmo.
+
+### Mini Bomba Motor D'água
+Ainda está em fase de testes
+
+## Sensor de distância ultrassônico
+
+### Buzzer
+Ainda está em fase de testes, mas sabemos que não é difícil utilizá-lo.
+
+### LED
+Ainda está em fase de testes, mas sabemos que não é difícil controlá-los.
 
 # Manuais
 
@@ -175,3 +291,29 @@ Concepção de sistema de automação industrial
 
 
 # Referências
+<!-- 
+Modelo:
+TÍTULO da matéria. Nome do site, ano. Disponível em: <URL>. Acesso em: dia, mês e ano. 
+ou
+SOBRENOME, Nome. Título da matéria. Nome do site, ano. Disponível em: <URL>. Acesso em: dia, mês e ano.
+-->
+
+Separação Magnética. Oximag, 2022. Disponível em: https://www.oximag.com/separacao-magnetica.html. Acesso em: 6/02/2023.
+
+Eletroimã / Solenóide 20mm 2,5Kg. Usinainfo. Disponível em: https://www.usinainfo.com.br/outros-modulos-arduino/eletroima-solenoide-20mm-25kg-2815.html. Acesso em: 7/02/2023.
+
+Pydobot. Python library for Dobot Magician. Github, 2021. Disponível em: https://github.com/luismesas/pydobot. Acesso em: 13/02/2023.
+
+SDK Updates. Raspberrypi forums, 2021. Disponível em: https://forums.raspberrypi.com/viewtopic.php?t=301936. Acesso em: 13/02/2023.
+
+McAleer, Kevin. Build your own web server using a Raspberry Pi Pico W using Phew!. Youtube. Disponível em: https://www.youtube.com/watch?v=0sPPxIq4hg8. Acesso em: 15/02/2023.
+
+rahulkhanna. Automatic Plant Watering System using Raspberry Pi Pico - Share Project - PCBWay. pcbway, 2021. Disponível em: https://www.pcbway.com/project/shareproject/Automatic_Plant_Watering_System_using_Raspberry_Pi_Pico.html. Acesso em: 17/02/2023.
+
+Schmidt, Stefan. Como uma célula de carga trabalha?. HBM. Disponível em: https://www.hbm.com/pt/6768/como-uma-celula-de-carga-trabalha/. Acesso em: 25/02/2023.
+
+Como funciona uma célula de carga?. Flintec. Disponível em: https://www.flintec.com/br/sensores-de-peso/celulas-de-carga/como-funciona-uma-c%C3%A9lula-de-carga. Acesso em: 25/02/2023.
+
+Ponte H – O que é e como funciona!. Disponível em: https://www.manualdaeletronica.com.br/ponte-h-o-que-e-como-funciona/. Acesso em: 25/02/2023
+
+Eletroímã. Dísponivel em: https://www.ufrgs.br/amlef/glossario/eletroima-2/. Acesso em 25/02/2023 
