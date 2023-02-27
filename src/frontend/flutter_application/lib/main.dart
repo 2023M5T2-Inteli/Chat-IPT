@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './widgets/home.dart';
+import 'widgets/pages/home.dart';
 import './utils/materialColor.dart';
 
 void main() {
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
           fontFamily: "Montserrat",
           scaffoldBackgroundColor: Colors.black),
       home: const MyHomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

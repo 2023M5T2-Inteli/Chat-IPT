@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/widgets/pages/instructions.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -56,7 +57,12 @@ class Home extends StatelessWidget {
                   style: ButtonStyle(
                       side: MaterialStateProperty.all<BorderSide>(
                           BorderSide(color: Colors.white, width: 2))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (ctxt) => Instructions()),
+                    );
+                  },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 100),
