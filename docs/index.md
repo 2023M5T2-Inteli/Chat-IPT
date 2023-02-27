@@ -238,7 +238,7 @@ Após a primeira passagem, verificamos que seria necessário a elevação da ban
 <!-- Vídeos dessa nova execução -->
 
 ### Conexão com servidor
-Para um conforto maior do usuário, almejamos criar um servidor embarcado em um microcontrolador com o objetivo de manejar os pedidos de movimentação do braço sem a necessidade de conexões externas a qualquer cabo. Ainda é necessário testar se é possível instanciar um servidor que se comunique com o braço para executar códigos que mexam ele.
+Planejamos criar um servidor que conseguirá receber requisições e se comunicar diretamente com o braço mecânico, executando movimentações e entendendo o status do processo de separação em tempo real. Esse servidor inicialmente estará rodando em um computador ligado via cabo ao braço, mas almejamos transportar esse servidor para um microcontrolador visando uma maior comodidade para o nosso usuário.
 
 ## Eletroímã
 
