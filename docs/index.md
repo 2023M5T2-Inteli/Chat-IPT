@@ -238,7 +238,7 @@ Após a primeira passagem, verificamos que seria necessário a elevação da ban
 <!-- Vídeos dessa nova execução -->
 
 ### Conexão com servidor
-Ainda é necessário testar se é possível instanciar um servidor que se comunique com o braço para executar códigos que mexam ele.
+Para um conforto maior do usuário, almejamos criar um servidor embarcado em um microcontrolador com o objetivo de manejar os pedidos de movimentação do braço sem a necessidade de conexões externas a qualquer cabo. Ainda é necessário testar se é possível instanciar um servidor que se comunique com o braço para executar códigos que mexam ele.
 
 ## Eletroímã
 
