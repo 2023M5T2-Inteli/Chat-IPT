@@ -222,15 +222,23 @@ alt="Diagrama da soluçao" />
 # Testes de Hardware
 
 ## Braço robótico
-
+A primeira item que analisamos no braço foi a seu tipo de conexão. A forma de conexão que iniciamente é a mais fácil é via usb. Através disso, o conectamos a um notebook, e via uma biblioteca em python conseguimos solicitar movimentos e utilizar todas as suas ferramentas. Os primeiro testes então ocorreram a partir desse tipo de conexão mas almejamos solicitar essas atividades através de um microcontrolador. 
 ### Alcance do braço
-Primeiramente testamos se o braço robótico possui alcance suficiente para trabalhar nas três bandejas.
+Primeiramente, seguindo o esquema de conexão mencionado anteriormente, testamos se o braço robótico possui alcance suficiente para trabalhar nas três bandejas. Para esse teste, alteramos manualmente no script a posição que estávamos solicitando para que o braço fosse sem alterar a sua altura. Assim que encontrávamos o ponto máximo para cada lado de movimento do braço, realizávamos a sua demarcação na mesa com uma caneta.
+Os testes foram bem sucedidos, como pode ser visto no vídeo abaixo: https://user-images.githubusercontent.com/99269584/221435514-a22eae79-256b-4c16-8d6d-9cd2edccdae1.mp4
 
-Os testes foram bem sucedidos, como pode ser visto no vídeo abaixo:
 <!-- vídeo com o teste -->
 
+### Posicionamento das bandejas
+Com o limite de operação do braço delimitado, posicionamos as bandejas dentro desse espaço e marcamos a distância que as bandejas deveriam ficar do braço para futuros teste.
+<!-- Foto das bandejas -->
+Logo em seguida, manualmente alterávamos no script as posições que o braço deveria trabalhar em cada canto da bandeja e a altura adequada também. A partir disso, consumíamos dessas demarcações dos cantos dos recipientes para realizar a movimentação adequada do braço simulando a passagem do imã. 
+<!-- Vídeo dessa execução -->
+Após a primeira passagem, verificamos que seria necessário a elevação da bandeja para um melhor contato com o imã. Assim, colocamos uma outra bandeja debaixo da primeira. Dessa maneira, conseguimos também posicionar a célula de carga abaixo da bandeja para coletar os dados de massa futuramente também.
+<!-- Vídeos dessa nova execução -->
+
 ### Conexão com servidor
-Ainda é necessário testar se é possível instanciar um servidor que se comunique com o braço para executar códigos que mexam ele.
+Para um conforto maior do usuário, almejamos criar um servidor embarcado em um microcontrolador com o objetivo de manejar os pedidos de movimentação do braço sem a necessidade de conexões externas a qualquer cabo. Ainda é necessário testar se é possível instanciar um servidor que se comunique com o braço para executar códigos que mexam ele.
 
 ## Eletroímã
 
@@ -250,7 +258,7 @@ Para realizar-se o teste de variação de força do campo magnético, delimitou-
 
 No teste realizado com uma moeda, o intervalo de tempo aplicado foi de 1ms, e observou-se que quanto mais próximo do valor máximo, maior era a aderância da moeda ao eletroímã. 
 
-Assim, por meio do teste, infere-se a possibilidade de implementação do sistema de controle da intensidade do eletroímã por meio da interface web desenvolvida. 
+Assim, por meio do teste, infere-se a possibilidade de implementação do sistema de controle da intensidade do eletroímã por meio da interface web desenvolvida, visto que os materiais magnéticos necessitam da aplicabilidade de diferentes intensidades no eletroímã para melhor aderência. 
 
 ## Outros sensores
 
@@ -276,12 +284,17 @@ Assim, por meio do teste, infere-se a possibilidade de implementação do sistem
   Atualmente, tivemos problemas com o funcionamento do dispositivo. Em entregas futuras os primeiros testes e implementações serão feitos.
 
 ## Sensor de distância ultrassônico
+  O sensor de distância ultrassônico é comumente utilizado para medir distâncias e evitar colisões. O seu princípio de funcionamento se baseia na emissão de um pequeno pulso sonoro de alta frequência que se propagará na velocidade do som no meio em que estiver inserido. Quando esse pulso atingir um objeto que estiver em sua trajetória um sinal de eco será refletido para o sensor. A partir disso, é possível de medir a distância do sensor até o objeto por meio do tempo entre a emissão e a recepção, e a velociade do som no meio em que foi emitida.
 
+  ![image](./img/docsity-sensor.png)
+ <i>Fonte:</i> <a href="https://www.docsity.com/pt/datasheet-sensor-ultrassonico/4938269/"><i>Docsity</i></a>
+
+  No projeto atual, esse sensor tem o objetivo de identificar a altura em que o braço está trabalhando e evitar possíveis colisões desse com obstáculos inesperados. Esse sensor deve ser posicionado logo abaixo do braço. Um algoritmo será desenvolvido para calcular a distância e realizar os movimentos necessários a partir de então.
+  O teste realiazado no vídeo a seguir, demonstra o funcionamento do sensor para determinar a distância: https://user-images.githubusercontent.com/99269584/221436545-522fa7b0-bcdd-4d4e-8931-6d5904714fe5.mp4
+
+  
 ### Buzzer
-Ainda está em fase de testes, mas sabemos que não é difícil utilizá-lo.
-
-### LED
-Ainda está em fase de testes, mas sabemos que não é difícil controlá-los.
+Será testado na próxima sprint quando o rapsberry pi pico for integrado com o braço robótico e interface web.
 
 # Manuais
 
