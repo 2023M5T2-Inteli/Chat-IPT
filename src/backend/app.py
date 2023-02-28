@@ -1,16 +1,17 @@
-from flask import Flask
+from flask import Flask, render_template
 from services.dobot import Dobot
 from flask_socketio import SocketIO, emit
+import time
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 dobot_instance = Dobot()
 
 
 @app.route("/")
 def home():
-    return "Hello, world!"
+    return render_template('index.html')
 
 
 @socketio.on('connect')
@@ -23,19 +24,20 @@ def handle_connect():
              "message": "Unable to connect with Dobot"})
 
 
-@socketio.on('start_cicle')
+@socketio.on('start_cycle')
 def handle_start_cicle() -> None:
     cicle_count = 0
-    emit("resposta", "Starting cicles")
+    emit("resposta", "Starting cycles")
     while cicle_count <= 20:
-        emit("estagio", {"estagio": 1})
-        dobot_instance.first_tray()
-        emit("estagio", {"estagio": 2})
-        dobot_instance.second_tray()
-        emit("estagio", {"estagio": 3})
-        dobot_instance.third_tray()
+        emit("stage", {"estagio": 1})
+        # dobot_instance.first_tray()
+        emit("stage", {"estagio": 2})
+        # dobot_instance.second_tray()
+        emit("stage", {"estagio": 3})
+        # dobot_instance.third_tray()
         cicle_count += 1
-        emit("cicle", {"cicle": cicle_count})
+        emit("cycle", {"cicle": cicle_count})
+        time.sleep(5)
 
 
 @socketio.on('emergency_stop')
