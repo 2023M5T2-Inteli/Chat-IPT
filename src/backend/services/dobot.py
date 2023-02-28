@@ -19,6 +19,7 @@ class Dobot:
 
     def end_connection(self) -> bool:
         try:
+            self.device.move_to(228, 0, 151, 0, wait=True)
             self.device.close()
             return True
         except:

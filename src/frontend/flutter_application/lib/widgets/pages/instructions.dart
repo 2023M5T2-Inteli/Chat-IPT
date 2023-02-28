@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../components/button.dart';
 import '../components/turnOffButton.dart';
 import './process.dart';
-import './home.dart';
 
 class Instructions extends StatelessWidget {
   const Instructions({super.key});

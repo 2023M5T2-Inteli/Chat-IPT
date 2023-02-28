@@ -1,10 +1,61 @@
 import 'package:flutter/material.dart';
+import '../components/stage.dart';
 import './instructions.dart';
 import '../components/button.dart';
 import '../components/turnOffButton.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
 
-class Process extends StatelessWidget {
+class Process extends StatefulWidget {
   const Process({super.key});
+
+  @override
+  State<Process> createState() => _ProcessState();
+}
+
+class _ProcessState extends State<Process> {
+  late IO.Socket socket;
+
+  @override
+  void initState() {
+    super.initState();
+    initSocket();
+  }
+
+  initSocket() {
+    print('Tentando se conectar');
+    socket = IO.io('http://localhost:3001', <String, dynamic>{
+      'autoConnect': false,
+      'transports': ['websocket'],
+    });
+    socket.connect();
+    socket.onConnect((_) {
+      print('Connection established');
+      //  Começando processo de separação
+      socket.emit('start_cycle');
+    });
+    socket.onDisconnect((_) => print('Connection Disconnection'));
+    socket.onConnectError((err) => print(err));
+    socket.onError((err) => print(err));
+
+    socket.on('stage', (data) {
+      print('stage');
+      print(data);
+      print('--------------');
+    });
+
+    socket.on('cycle', (data) {
+      print('cycle');
+      print(data);
+      print('--------------');
+    });
+  }
+
+  @override
+  void dispose() {
+    socket.disconnect();
+    socket.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,57 +128,10 @@ class Process extends StatelessWidget {
                     fontWeight: FontWeight.w400),
               ),
             ),
-            SizedBox(
-              height: 50,
-            ),
-            Text(
-              "Estágio",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              "3",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w400),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.7,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_back_ios),
-                    color: Colors.white,
-                    iconSize: 40,
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.stop),
-                    iconSize: 40,
-                    color: Colors.white,
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_forward_ios),
-                    color: Colors.white,
-                    iconSize: 40,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 60,
-            ),
+            Stage(),
             Button(
               buttonHandler: () {
+                socket.emit('emergency_stop');
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (ctxt) => Instructions()),

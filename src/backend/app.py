@@ -4,7 +4,8 @@ from flask_socketio import SocketIO, emit
 import time
 
 app = Flask(__name__)
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*",
+                    logger=True, engineio_logger=True)
 
 dobot_instance = Dobot()
 
@@ -26,18 +27,17 @@ def handle_connect():
 
 @socketio.on('start_cycle')
 def handle_start_cicle() -> None:
-    cicle_count = 0
+    cycle_count = 0
     emit("resposta", "Starting cycles")
-    while cicle_count <= 20:
-        emit("stage", {"estagio": 1})
-        # dobot_instance.first_tray()
-        emit("stage", {"estagio": 2})
-        # dobot_instance.second_tray()
-        emit("stage", {"estagio": 3})
-        # dobot_instance.third_tray()
-        cicle_count += 1
-        emit("cycle", {"cicle": cicle_count})
-        time.sleep(5)
+    while cycle_count < 20:
+        emit("stage", 1)
+        dobot_instance.first_tray()
+        emit("stage", 2)
+        dobot_instance.second_tray()
+        emit("stage", 3)
+        dobot_instance.third_tray()
+        cycle_count += 1
+        emit("cycle", cycle_count)
 
 
 @socketio.on('emergency_stop')
@@ -50,8 +50,8 @@ def handle_emergency_stop() -> None:
              "message": "Dobot didn't stop"})
 
 
-@socketio.on('disconnect_dobot')
-def handle_disconnect_dobot() -> None:
+@app.route('/disconnect_dobot')
+def handle_disconnect_dobot():
     response = dobot_instance.end_connection()
     if response:
         emit("resposta", "Dobot disconnected!")
