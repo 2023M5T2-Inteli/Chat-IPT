@@ -52,11 +52,23 @@ def handle_start_cicle() -> None:
 
 @socketio.on('stop')
 def handle_stop() -> None:
-    response = dobot_instance.stop()
-    if response:
+    dobot_instance.pause = True
+    while dobot_instance.pause == True:
+        response = dobot_instance.stop()
+        if response:
+            emit("resposta", "Dobot stoped!")
+        else:
+            emit("error", {"from": "stop", "message": "Dobot did not stop"})
+
+
+@socketio.on('reactivate')
+def handle_reactivate() -> None:
+    dobot_instance.pause = False
+
+    if dobot_instance.pause == False:
         emit("resposta", "Dobot stoped!")
     else:
-        emit("error", {"from": "stop", "message": "Dobot did not stop"})
+        emit("error", {"from": "reactivate", "message": "Dobot did not stop"})
 
 
 @socketio.on('emergency_stop')

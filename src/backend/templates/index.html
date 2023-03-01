@@ -37,6 +37,14 @@
         console.log("Enviando start_cycle");
         socket.emit("start_cycle");
       }
+      function enviarPauseCycle() {
+        console.log("Enviando stop");
+        socket.emit("stop");
+      }
+      function enviarReactivateCycle() {
+        console.log("Enviando reactivate");
+        socket.emit("reactivate");
+      }
     </script>
   </head>
   <body>
@@ -46,5 +54,7 @@
     <input type="text" id="mensagem" /> -->
     <button onclick="enviarEmergencyStop()">EMERGENCY STOP</button>
     <button onclick="enviarStartCycle()">START CYCLE</button>
+    <button onclick="enviarPauseCycle()">PAUSE CYCLE</button>
+    <button onclick="enviarReactivateCycle()">REACTIVATE CYCLE</button>
   </body>
 </html>

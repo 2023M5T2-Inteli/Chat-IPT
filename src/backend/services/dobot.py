@@ -8,6 +8,7 @@ class Dobot:
         self.cycle = 0
         self.stage = 0
         self.next_cord = {"x": 0, "y": 0, "z": 0, "r": 0}
+        self.pause = False
 
     def start_connection(self) -> bool:
         available_ports = list_ports.comports()
@@ -75,12 +76,13 @@ class Dobot:
 
     def stop(self) -> bool:
         try:
-            self.device.close()
-            self.start_connection()
+            self.device.wait(500)
+            # self.start_connection()
             return True
         except Exception as err:
             print(f"This error occuried: {err}")
             return False
+
 
     def emergency_stop(self) -> bool:
         try:
