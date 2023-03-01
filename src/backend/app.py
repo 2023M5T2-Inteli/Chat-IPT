@@ -4,8 +4,7 @@ from flask_socketio import SocketIO, emit
 import time
 
 app = Flask(__name__)
-socketio = SocketIO(app, cors_allowed_origins="*",
-                    logger=True, engineio_logger=True)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 dobot_instance = Dobot()
 
@@ -51,14 +50,25 @@ def handle_start_cicle() -> None:
     dobot_instance.stage = 0
 
 
-@socketio.on('emergency_stop')
-def handle_emergency_stop() -> None:
-    response = dobot_instance.emergency_stop()
+@socketio.on('stop')
+def handle_stop() -> None:
+    response = dobot_instance.stop()
     if response:
         emit("resposta", "Dobot stoped!")
     else:
+        emit("error", {"from": "stop", "message": "Dobot did not stop"})
+
+
+@socketio.on('emergency_stop')
+def handle_emergency_stop() -> None:
+    response = dobot_instance.emergency_stop()
+    print(response)
+    if response:
+        emit("resposta", "Emergency stop with success!")
+    else:
         emit("error", {"from": "emergency_stop",
-             "message": "Dobot didn't stop"})
+             "message": "Emergency stop did not finished with success"})
+
 
 @socketio.on('advance_stage')
 def handle_advance_stage() -> None:
@@ -72,6 +82,7 @@ def handle_advance_stage() -> None:
         case _:
             emit("error", "Trying to reach an impossible stage")
 
+
 @socketio.on('revert_stage')
 def handle_revert_stage() -> None:
     match dobot_instance.stage:
@@ -84,6 +95,7 @@ def handle_revert_stage() -> None:
         case _:
             emit("error", "Trying to reach an impossible stage")
 
+
 @app.route('/disconnect_dobot')
 def handle_disconnect_dobot():
     response = dobot_instance.end_connection()
@@ -95,7 +107,7 @@ def handle_disconnect_dobot():
         return
     else:
         emit("error", "Dobot did not disconnected!")
-    
+
 
 if __name__ == '__main__':
     socketio.run(app, port=3001)

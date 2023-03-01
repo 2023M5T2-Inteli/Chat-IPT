@@ -7,6 +7,7 @@ class Dobot:
     def __init__(self) -> None:
         self.cycle = 0
         self.stage = 0
+        self.next_cord = {"x": 0, "y": 0, "z": 0, "r": 0}
 
     def start_connection(self) -> bool:
         available_ports = list_ports.comports()
@@ -23,6 +24,8 @@ class Dobot:
 
     def end_connection(self) -> bool:
         try:
+            self.device.close()
+            self.start_connection()
             self.device.move_to(228, 0, 151, 0, wait=True)
             self.device.close()
             return True
@@ -70,9 +73,22 @@ class Dobot:
 
         self.device.move_to(211, 224, 86, 46, wait=True)
 
+    def stop(self) -> bool:
+        try:
+            self.device.close()
+            self.start_connection()
+            return True
+        except Exception as err:
+            print(f"This error occuried: {err}")
+            return False
+
     def emergency_stop(self) -> bool:
         try:
-            self.device.move_to(228, 0, 151, 0, wait=True)
+            self.device.close()
+            self.start_connection()
+            (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
+            # self.device.move_to(228, 0, 151, 0, wait=True)
+            self.device.move_to(x, y, 151, r, wait=True)
             return True
         except Exception as err:
             print(f"This error occuried: {err}")

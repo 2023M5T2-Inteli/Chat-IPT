@@ -24,18 +24,27 @@
         socket.on("error", function (mensagem) {
           console.log(mensagem);
         });
+        socket.on("resposta", function (mensagem) {
+          console.log(mensagem);
+        });
       });
-      function enviarMensagem() {
+      function enviarEmergencyStop() {
         // var mensagem = document.getElementById("mensagem").value;
-        socket.emit("start_cicle");
+        console.log("Enviando emergency_stop!");
+        socket.emit("emergency_stop");
+      }
+      function enviarStartCycle() {
+        console.log("Enviando start_cycle");
+        socket.emit("start_cycle");
       }
     </script>
   </head>
   <body>
     <h1>Exemplo WebSocket Flask</h1>
     <p>Esta é uma página que inclui uma conexão WebSocket.</p>
-    <p>Digite uma mensagem abaixo e clique no botão para enviar:</p>
-    <input type="text" id="mensagem" />
-    <button onclick="enviarMensagem()">Enviar</button>
+    <!-- <p>Digite uma mensagem abaixo e clique no botão para enviar:</p>
+    <input type="text" id="mensagem" /> -->
+    <button onclick="enviarEmergencyStop()">EMERGENCY STOP</button>
+    <button onclick="enviarStartCycle()">START CYCLE</button>
   </body>
 </html>
