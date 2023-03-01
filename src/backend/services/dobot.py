@@ -4,6 +4,10 @@ from serial.tools import list_ports
 
 class Dobot:
 
+    def __init__(self) -> None:
+        self.cycle = 0
+        self.stage = 0
+
     def start_connection(self) -> bool:
         available_ports = list_ports.comports()
         for port in available_ports:

@@ -29,15 +29,26 @@ def handle_connect():
 def handle_start_cicle() -> None:
     cycle_count = 0
     emit("resposta", "Starting cycles")
-    while cycle_count < 20:
-        emit("stage", 1)
-        dobot_instance.first_tray()
-        emit("stage", 2)
-        dobot_instance.second_tray()
-        emit("stage", 3)
-        dobot_instance.third_tray()
-        cycle_count += 1
+    while dobot_instance.stage < 60:
+        match dobot_instance.cycle:
+            case 0:
+                emit("stage", 1)
+                dobot_instance.first_tray()
+                dobot_instance.stage = 1
+            case 1:
+                emit("stage", 2)
+                dobot_instance.second_tray()
+                dobot_instance.stage = 2
+            case 2:
+                emit("stage", 3)
+                dobot_instance.third_tray()
+                dobot_instance.stage = 0
+            case _:
+                break
+        dobot_instance.cycle += 1
         emit("cycle", cycle_count)
+    dobot_instance.cycle = 0
+    dobot_instance.stage = 0
 
 
 @socketio.on('emergency_stop')
@@ -49,16 +60,42 @@ def handle_emergency_stop() -> None:
         emit("error", {"from": "emergency_stop",
              "message": "Dobot didn't stop"})
 
+@socketio.on('advance_stage')
+def handle_advance_stage() -> None:
+    match dobot_instance.stage:
+        case 0:
+            dobot_instance.stage = 1
+        case 1:
+            dobot_instance.stage = 2
+        case 2:
+            dobot_instance.stage = 0
+        case _:
+            emit("error", "Trying to reach an impossible stage")
+
+@socketio.on('revert_stage')
+def handle_revert_stage() -> None:
+    match dobot_instance.stage:
+        case 0:
+            dobot_instance.stage = 2
+        case 1:
+            dobot_instance.stage = 0
+        case 2:
+            dobot_instance.stage = 1
+        case _:
+            emit("error", "Trying to reach an impossible stage")
 
 @app.route('/disconnect_dobot')
 def handle_disconnect_dobot():
     response = dobot_instance.end_connection()
     if response:
         emit("resposta", "Dobot disconnected!")
+        dobot_instance.cycle = 0
+        dobot_instance.stage = 0
+        socketio.stop()
+        return
     else:
-        emit("error", {"from": "disconnect_dobot",
-             "message": "Dobot did not disconnected!"})
-
+        emit("error", "Dobot did not disconnected!")
+    
 
 if __name__ == '__main__':
     socketio.run(app, port=3001)
