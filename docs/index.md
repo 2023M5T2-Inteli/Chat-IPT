@@ -151,7 +151,7 @@ Tendo em vista o gráfico acima, o qual compara nossa solução com o método tr
 
 <img src="./img/Chat_IPT___Analise_Financeira.png" alt="Análise financeira do projeto"/>
 
-*Descrição da análise*
+Nessa primeira análise, pode-se notar que, com um investimento inicial de R$15.112,26 (quinze mil, cento e doze reais e vinte e seis centavos), nossa solução pode já ser implementada no ambiente de separação de metais do IPT. Além disso, prevemos despesas operacionais que podem estar relacionadas com o valor da energia que os esquipamentos utilizam e com a reposição das peças que mais posuem chance de quebrar após um ano de uso com poucos cuidados.
 
 # Requisitos do Sistema
 
@@ -228,7 +228,7 @@ O Wireframe para nossa aplicação web, por enquanto (SPRINT2), consiste em 3 (t
 A primeira item que analisamos no braço foi a seu tipo de conexão. A forma de conexão que iniciamente é a mais fácil é via usb. Através disso, o conectamos a um notebook, e via uma biblioteca em python conseguimos solicitar movimentos e utilizar todas as suas ferramentas. Os primeiro testes então ocorreram a partir desse tipo de conexão mas almejamos solicitar essas atividades através de um microcontrolador. 
 ### Alcance do braço
 Primeiramente, seguindo o esquema de conexão mencionado anteriormente, testamos se o braço robótico possui alcance suficiente para trabalhar nas três bandejas. Para esse teste, alteramos manualmente no script a posição que estávamos solicitando para que o braço fosse sem alterar a sua altura. Assim que encontrávamos o ponto máximo para cada lado de movimento do braço, realizávamos a sua demarcação na mesa com uma caneta.
-Os testes foram bem sucedidos, como pode ser visto no vídeo abaixo: https://user-images.githubusercontent.com/99269584/221435514-a22eae79-256b-4c16-8d6d-9cd2edccdae1.mp4
+Os testes foram bem sucedidos, como pode ser visto no vídeo abaixo: [Teste sobre o alcance do braço.](https://user-images.githubusercontent.com/99269584/221435514-a22eae79-256b-4c16-8d6d-9cd2edccdae1.mp4)
 
 <!-- vídeo com o teste -->
 
