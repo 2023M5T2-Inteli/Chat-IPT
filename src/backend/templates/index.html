@@ -27,6 +27,12 @@
         socket.on("resposta", function (mensagem) {
           console.log(mensagem);
         });
+        socket.on("cycle", function (mensagem) {
+          console.log(`Está nesse cycle -> ${mensagem}`);
+        });
+        socket.on("stage", function (mensagem) {
+          console.log(`Está nesse stage -> ${mensagem}`);
+        });
       });
       function enviarEmergencyStop() {
         // var mensagem = document.getElementById("mensagem").value;
@@ -45,6 +51,14 @@
         console.log("Enviando reactivate");
         socket.emit("reactivate");
       }
+      function enviarAdvance() {
+        console.log("Avançando estágio...");
+        socket.emit("advance_stage").then(socket.emit("start_cycle"))
+      }
+      function enviarRevert() {
+        console.log("Retrocedento um estágio...");
+        socket.emit("revert_stage").then(socket.emit("start_cycle"));
+      }
     </script>
   </head>
   <body>
@@ -56,5 +70,9 @@
     <button onclick="enviarStartCycle()">START CYCLE</button>
     <button onclick="enviarPauseCycle()">PAUSE CYCLE</button>
     <button onclick="enviarReactivateCycle()">REACTIVATE CYCLE</button>
+    <div>
+      <button onclick="enviarRevert()">REVERT</button>
+      <button onclick="enviarAdvance()">ADVANCE</button>
+    </div>
   </body>
 </html>
