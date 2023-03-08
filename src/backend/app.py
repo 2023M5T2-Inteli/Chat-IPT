@@ -76,7 +76,8 @@ def handle_reactivate() -> None:
     if dobot_instance.pause == False:
         emit("resposta", "Dobot activated!")
     else:
-        emit("error", {"from": "reactivate", "message": "Dobot did not reactivate"})
+        emit("error", {"from": "reactivate",
+             "message": "Dobot did not reactivate"})
 
 
 @socketio.on('emergency_stop')
@@ -117,7 +118,7 @@ def handle_revert_stage() -> None:
         case 2:
             dobot_instance.cycle = 1
         case _:
-            emit("error", "Trying to reach an impossible stage")    
+            emit("error", "Trying to reach an impossible stage")
     dobot_instance.stage -= 1
     (x, y, z, r, j1, j2, j3, j4) = dobot_instance.device.pose()
     dobot_instance.device.move_to(x, y, 151, r)
@@ -138,4 +139,4 @@ def handle_disconnect_dobot():
 
 
 if __name__ == '__main__':
-    socketio.run(app, port=3001, debug=True)
+    socketio.run(app, host='0.0.0.0', port=3001, debug=True)
