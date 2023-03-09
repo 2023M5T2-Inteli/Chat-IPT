@@ -12,12 +12,16 @@ dobot_instance = Dobot()
 def home():
     return render_template('index.html')
 
-
 @socketio.on('connect')
+def handle_connect():
+    emit("response_connect", "Dobot connected!")
+    
+
+@socketio.on('dobot_connect')
 def handle_connect():
     response = dobot_instance.start_connection()
     if response:
-        emit("resposta", "Dobot connected!")
+        emit("response_dobot_connect", "Dobot connected!")
     else:
         emit("error", {"from": "connect",
              "message": "Unable to connect with Dobot"})
