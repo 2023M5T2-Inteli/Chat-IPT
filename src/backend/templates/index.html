@@ -19,46 +19,50 @@
       crossorigin="anonymous"
     ></script>
     <script type="text/javascript">
-      // var socket = io.connect("http://127.0.0.1:3001");
-      // $(document).ready(function () {
-      //   socket.on("error", function (mensagem) {
-      //     console.log(mensagem);
-      //   });
-      //   socket.on("resposta", function (mensagem) {
-      //     console.log(mensagem);
-      //   });
-      //   socket.on("cycle", function (mensagem) {
-      //     console.log(`Está nesse cycle -> ${mensagem}`);
-      //   });
-      //   socket.on("stage", function (mensagem) {
-      //     console.log(`Está nesse stage -> ${mensagem}`);
-      //   });
-      // });
-      // function enviarEmergencyStop() {
-      //   // var mensagem = document.getElementById("mensagem").value;
-      //   console.log("Enviando emergency_stop!");
-      //   socket.emit("emergency_stop");
-      // }
-      // function enviarStartCycle() {
-      //   console.log("Enviando start_cycle");
-      //   socket.emit("start_cycle");
-      // }
-      // function enviarPauseCycle() {
-      //   console.log("Enviando stop");
-      //   socket.emit("stop");
-      // }
-      // function enviarReactivateCycle() {
-      //   console.log("Enviando reactivate");
-      //   socket.emit("reactivate");
-      // }
-      // function enviarAdvance() {
-      //   console.log("Avançando estágio...");
-      //   socket.emit("advance_stage").then(socket.emit("start_cycle"))
-      // }
-      // function enviarRevert() {
-      //   console.log("Retrocedento um estágio...");
-      //   socket.emit("revert_stage").then(socket.emit("start_cycle"));
-      // }
+      var socket = io.connect("http://127.0.0.1:3001");
+      $(document).ready(function () {
+        socket.on("error", function (mensagem) {
+          console.log(mensagem);
+        });
+        socket.on("resposta", function (mensagem) {
+          console.log(mensagem);
+        });
+        socket.on("cycle", function (mensagem) {
+          console.log(`Está nesse cycle -> ${mensagem}`);
+        });
+        socket.on("stage", function (mensagem) {
+          console.log(`Está nesse stage -> ${mensagem}`);
+        });
+      });
+      function enviarEmergencyStop() {
+        // var mensagem = document.getElementById("mensagem").value;
+        console.log("Enviando emergency_stop!");
+        socket.emit("emergency_stop");
+      }
+      function enviarConnect() {
+        console.log("Enviando start_cycle");
+        socket.emit("dobot_connect");
+      }
+      function enviarStartCycle() {
+        console.log("Enviando start_cycle");
+        socket.emit("start_cycle");
+      }
+      function enviarPauseCycle() {
+        console.log("Enviando stop");
+        socket.emit("stop");
+      }
+      function enviarReactivateCycle() {
+        console.log("Enviando reactivate");
+        socket.emit("reactivate");
+      }
+      function enviarAdvance() {
+        console.log("Avançando estágio...");
+        socket.emit("advance_stage").then(socket.emit("start_cycle"))
+      }
+      function enviarRevert() {
+        console.log("Retrocedento um estágio...");
+        socket.emit("revert_stage").then(socket.emit("start_cycle"));
+      }
     </script>
   </head>
   <body>
@@ -66,7 +70,8 @@
     <p>Esta é uma página que inclui uma conexão WebSocket.</p>
     <!-- <p>Digite uma mensagem abaixo e clique no botão para enviar:</p>
     <input type="text" id="mensagem" /> -->
-    <!-- <button onclick="enviarEmergencyStop()">EMERGENCY STOP</button>
+    <button onclick="enviarEmergencyStop()">EMERGENCY STOP</button>
+    <button onclick="enviarConnect()">enviarConnect</button>
     <button onclick="enviarStartCycle()">START CYCLE</button>
     <button onclick="enviarPauseCycle()">PAUSE CYCLE</button>
     <button onclick="enviarReactivateCycle()">REACTIVATE CYCLE</button>
