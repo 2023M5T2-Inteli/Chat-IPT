@@ -34,7 +34,7 @@ class Dobot:
             print("Device unable to desconnected!")
             return False
 
-    def first_tray(self) -> None:
+    def first_tray(self, socketio) -> None:
 
         # self.device.move_to(203, -283,
         #                     109, -53, wait=True)
@@ -52,14 +52,18 @@ class Dobot:
         #                     87, -61, wait=True)
         # self.device.move_to(203, -283,
         #                     109, -53, wait=True)
+        # i = 0
         for cords in self.tray[0]:
-            if self.cycle != 0:
-                raise Exception("Stage changed!")
-            while self.pause:
-                continue
+            # i += 1
+            # if i % 3 == 0:
+            #     socketio.sleep(0)
+            # if self.stage != 0:
+            #     raise Exception("Stage changed!")
+            # while self.pause:
+            #     continue
             self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
 
-    def second_tray(self) -> None:
+    def second_tray(self, socketio) -> None:
 
         # self.device.move_to(237, -70, 28, -16, wait=True)
         # self.device.move_to(235, 88, 24, 21, wait=True)
@@ -67,15 +71,18 @@ class Dobot:
         # self.device.move_to(235, 88, 24, 21, wait=True)
         # self.device.move_to(237, -70, 28, -16, wait=True)
         # self.device.move_to(235, 88, 24, 21, wait=True)
-
+        # i = 0
         for cords in self.tray[1]:
-            if self.cycle != 1:
-                raise Exception("Stage changed!")
-            while self.pause:
-                continue
+            # i += 1
+            # if i % 3 == 0:
+            #     socketio.sleep(0)
+            # if self.stage != 1:
+            #     raise Exception("Stage changed!")
+            # while self.pause:
+            #     continue
             self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
 
-    def third_tray(self) -> None:
+    def third_tray(self, socketio) -> None:
 
         # self.device.move_to(211, 224, 86, 46, wait=True)
         # self.device.move_to(114, 250, 20, 65, wait=True)
@@ -86,18 +93,20 @@ class Dobot:
         # self.device.move_to(-29, 256, 20, 96, wait=True)
 
         # self.device.move_to(211, 224, 86, 46, wait=True)
-
+        # i = 0
         for cords in self.tray[2]:
-            if self.cycle != 2:
-                raise Exception("Stage changed!")
-            while self.pause:
-                continue
+            # i += 1
+            # if i % 3 == 0:
+            #     socketio.sleep(0)
+            # if self.stage != 2:
+            #     raise Exception("Stage changed!")
+            # while self.pause:
+            #     continue
             self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
 
     def stop(self) -> bool:
         try:
             self.device.wait(500)
-            # self.start_connection()
             return True
         except Exception as err:
             print(f"This error occuried: {err}")
