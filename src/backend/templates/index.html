@@ -39,6 +39,10 @@
         console.log("Enviando emergency_stop!");
         socket.emit("emergency_stop");
       }
+      function enviarConnect() {
+        console.log("Enviando start_cycle");
+        socket.emit("dobot_connect");
+      }
       function enviarStartCycle() {
         console.log("Enviando start_cycle");
         socket.emit("start_cycle");
@@ -67,6 +71,7 @@
     <!-- <p>Digite uma mensagem abaixo e clique no botão para enviar:</p>
     <input type="text" id="mensagem" /> -->
     <button onclick="enviarEmergencyStop()">EMERGENCY STOP</button>
+    <button onclick="enviarConnect()">enviarConnect</button>
     <button onclick="enviarStartCycle()">START CYCLE</button>
     <button onclick="enviarPauseCycle()">PAUSE CYCLE</button>
     <button onclick="enviarReactivateCycle()">REACTIVATE CYCLE</button>
