@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gpt_robot/widgets/pages/instructions.dart';
+import 'package:gpt_robot/widgets/pages/process.dart';
 import 'widgets/pages/home.dart';
 import './utils/materialColor.dart';
 
@@ -18,17 +20,12 @@ class MyApp extends StatelessWidget {
           primarySwatch: createMaterialColor(const Color(0xFF007D95)),
           fontFamily: "Montserrat",
           scaffoldBackgroundColor: Colors.black),
-      home: const MyHomePage(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => Home(),
+        '/instructions': (context) => Instructions(),
+        '/process': (context) => Process()
+      },
     );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Home();
   }
 }

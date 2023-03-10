@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
-class Stage extends StatefulWidget {
-  const Stage({super.key});
+class Stage extends StatelessWidget {
+  const Stage(
+      {super.key,
+      required this.isActive,
+      required this.decrementStage,
+      required this.incrementStage,
+      required this.pauseAndPlay,
+      required this.stage});
 
-  @override
-  State<Stage> createState() => _StageState();
-}
+  final bool isActive;
+  final int stage;
+  final Function decrementStage;
+  final Function pauseAndPlay;
+  final Function incrementStage;
 
-class _StageState extends State<Stage> {
-  int stage = 0;
-  bool isActive = true;
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -37,9 +42,7 @@ class _StageState extends State<Stage> {
             IconButton(
               onPressed: isActive
                   ? () {
-                      setState(() {
-                        stage--;
-                      });
+                      decrementStage();
                     }
                   : null,
               icon: Icon(Icons.arrow_back_ios),
@@ -47,17 +50,7 @@ class _StageState extends State<Stage> {
               iconSize: 40,
             ),
             IconButton(
-              onPressed: isActive
-                  ? () {
-                      setState(() {
-                        isActive = false;
-                      });
-                    }
-                  : () {
-                      setState(() {
-                        isActive = true;
-                      });
-                    },
+              onPressed: () => pauseAndPlay(),
               icon: isActive ? Icon(Icons.stop) : Icon(Icons.play_arrow),
               iconSize: 40,
               color: Colors.white,
@@ -65,9 +58,7 @@ class _StageState extends State<Stage> {
             IconButton(
               onPressed: isActive
                   ? () {
-                      setState(() {
-                        stage++;
-                      });
+                      incrementStage();
                     }
                   : null,
               icon: Icon(Icons.arrow_forward_ios),
