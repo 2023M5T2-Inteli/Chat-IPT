@@ -43,8 +43,7 @@ Concepção de sistema de automação industrial
     - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [UX e UI Design](#ux-e-ui-design)
-  - [Wireframe + Storyboard](#wireframe--storyboard)
-  - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
+  - [Frontend + Storyboard](#frontend--storyboard)
 - [Testes de Hardware](#testes-de-hardware)
   - [Braço robótico](#braço-robótico)
     - [Alcance do braço](#alcance-do-braço)
@@ -208,19 +207,17 @@ alt="Diagrama da soluçao" />
 
 # UX e UI Design
 
-## Wireframe + Storyboard
+## Frontend + Storyboard
 <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-<img src="./img/Chat_IPT___Prototipo_Interface.png" alt="Protótipo de interface"/>
+<img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
 </a>
 
-O Wireframe para nossa aplicação web, por enquanto (SPRINT2), consiste em 3 (três) páginas de um aplicativo que será desenvolvido em Flutter.
+A nossa aplicação web, por enquanto (SPRINT3), consiste em 3 (três) páginas de um aplicativo desenvolvido em Flutter.
 
 
 * A primeira página funciona como uma página inicial para o aplicativo, em que há um botão "Ligar" que ligará o braço robótico; 
-* A segunda página consiste em instruções para o usuário organizar as bandejas, de forma que o braço robótico reconheça cada uma. Além disso, há um botão "iniciar" que começa o processo de separação de metais com o braço robótico;
+* A segunda página consiste em instruções para o usuário organizar as bandejas, de forma que o braço robótico reconheça cada uma. Além disso, há um botão "iniciar" que começa o processo de separação de metais com o braço robótico. Outrossim, nesta página há uma footer bar que permite a variação da potência do eletroímã em Gauss;
 * Por último, a terceira constitui-se de uma página dinâmica que apresenta o status em tempo real, com a opção de pular uma etapa do processo ou encerrá-lo imediatamente.
-
-## Design de Interface - Guia de Estilos
 
 # Testes de Hardware
 
