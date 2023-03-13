@@ -296,18 +296,60 @@ Assim, por meio do teste, infere-se a possibilidade de implementação do sistem
 ### Buzzer
 Será testado na próxima sprint quando o rapsberry pi pico for integrado com o braço robótico e interface web.
 
+# Dispositivo Eletrônico
+Não houve a necessidade da utilização de mais de uma placa de cobre perfurada na união de todos os componentes utilizados na operação. O esquemático e o layout da placa são criados para a definição das ligações e das posições dos componentes.
+
+## Esquemático
+
+![image](./img/esquematico.png)
+<i>Esquemático</i>
+
+### Identificação das ligações
+
+|HX711|Microcontrolador|Cor da ligação|
+| :- | :- | :- |
+|GND|GND (porta 3)|Preto|
+|DT|GP2 (porta 4)|Verde|
+|SCK|GP3 (porta 5)|Azul|
+|VCC|VBUS (porta 40)|Vermelho|
+
+|HX711|Célula de carga|Cor da ligação|
+| :- | :- | :- |
+|E+|Fio vermelho|Rosa|
+|E-|Fio preto|Ciano|
+|A-|Fio verde|Laranja|
+|A+|Fio branco|Lilás|
+
+|Ponte H|Regulador de tensão|Cor da ligação|
+| :- | :- | :- |
+|GND (porta 8)|OUT-|Preto|
+|VSS (porta 9)|OUT+|Vermelho|
+
+|Ponte H|Eletroímas|Cor da ligação|
+| :- | :- | :- |
+|OUT 1|Negativo|Preto|
+|OUT 2|Positivo|Vermelho|
+
+|Ponte H|Microcontrolador|Cor da ligação|
+| :- | :- | :- |
+|ENA (porta 6)|GP0 (porta 1)|Amarelo|
+
+## Layout da placa
+
+![image](./img/layout placa.png)
+<i>Layout da placa</i>
+
 # Dispositivos Mecânicos
+Peças criadas para o suporte dos componentes eletrônicos.
 
 ## Lista de Peças
-
-
 
 |Peça|Quantidade|Descrição|
 | :- | :- | :- |
 |Suporte da Célula de Carga|1|Suporte necessário para o funcionamento correto do componente Célula de carga|
 |Base suporte para Eletroímã|1|Peça inferior (base) onde os eletroímãs serão sustentados|
 |Tampa suporte para Eletroímã|1|Peça superior (tampa) que será acoplada a base do suporte. A tampa terá uma haste para ser usada no braço robô assim como a caneta padrão do Dobot|
-|Caixa protetora para Placa|1|Caixa de MDF onde ficará nossa placa, protegendo de impactos e certo nível de umidade|
+|Caixa protetora para Placa|1|Caixa feita por um polímero onde ficará nossa placa, protegendo de impactos e certo nível de umidade|
 
 
 ## Lista de Materiais
@@ -315,7 +357,7 @@ Será testado na próxima sprint quando o rapsberry pi pico for integrado com o 
 
 |Material|Descrição|
 | :- | :- |
-|MDF|Usada para a construção da ‘Caixa Protetora p/ Placa’ e para o ‘Suporte da Célula de Carga’’|
+|Polímero (ainda não definido)|Usada para a construção da Caixa Protetora para Placa e para o Suporte da Célula de Carga|
 |ABS ou PA (Filamento de Impressão 3d)|Material plástico ou derivativo usado na impressão 3D. Os tipos escolhidos são ambos resistentes a certa temperatura |
 
 ## Desenho Técnico
@@ -345,14 +387,27 @@ Será testado na próxima sprint quando o rapsberry pi pico for integrado com o 
 ## Planejamento do Método de Fabricação
 
 ### Suporte Célula de Carga
-Para a construção do suporte da Célula de Carga, separamos 4 tábuas retangulares de MDF (medidas acima em “**Desenho Técnico**”) e parafusamos elas no local separado no próprio componente. Na extremidade sinalizada com a seta para cima, uma das tábuas será localizada acima do componente. Na extremidade contrária, a outra tábua de MDF será parafusada abaixo do componente. As duas últimas tábuas, de largura menor, formam uma base posicionada transversalmente em relação ás tábuas principais, dando contra-peso a estrutura, 
+Para a construção do suporte da Célula de Carga, inicialmente, montamos um protótipo, separamos 4 tábuas retangulares de MDF (medidas acima em “**Desenho Técnico**”) e parafusamos elas no local separado no próprio componente. Na extremidade sinalizada com a seta para cima, uma das tábuas será localizada acima do componente. Na extremidade contrária, a outra tábua de MDF será parafusada abaixo do componente. As duas últimas tábuas, de largura menor, formam uma base posicionada transversalmente em relação ás tábuas principais, dando contra-peso a estrutura. Futuramente, a utilização de algum polímero, como acrílico ou pvc, substituirá as, atuais, peças de MDF.
+
+![image](./img/suporte celula 1.jpg)
+<i>Imagem frontal/lateral</i>
+
+![image](./img/suporte celula 2.jpg)
+<i>Imagem top-down</i>
 
 ### Base suporte para Eletroímã
 A base de suporte para o Eletroímã consiste em uma caixa com a face superior aberta que segura os eletroímãs, sendo sustentado pela tampa dessa caixa. No centro há uma divisória de 4 pontas com um arco entre cada ponta adjacente, deixando o espaço necessário para os ímãs em formato de cilindro se encaixarem no suporte.
 
 A partir da modelagem 3D da peça, iremos imprimir usando um filamento com a característica de resistência à temperatura, visto que nos testes do Eletroímã, notamos que apesar de baixa, houve aumento da temperatura ao usarmos por algum tempo. Ao pesquisar alguns materiais chegamos em 2 possíveis candidatos. São eles, o Nylon de Poliamida, um termoplástico semi-cristalino com baixa densidade e alta estabilidade térmica, e o ABS (**acrilonitrila butadieno estireno**) que possui a resistência ao calor semelhante
+
 ### Tampa suporte para Eletroímã
 A tampa suporte para o eletroímã é a parte superior do conjunto de peças de suporte (base e tampa), ela tem a função de sustentar a base, conectar os fios do eletroímã ao controlador de potência, além de se acoplar ao robô através da haste cilíndrica similar a caneta padrão do dobot. Por se tratar de uma peça pertencente ao mesmo conjunto da peça anterior (Suporte ao Eletroímã), todas as informações dos planejamento de fabricação são as mesmas.
+
+### Base para os componentes eletrônicos
+Ao montarmos os componentes eletrônicos seguindo o esquemático, notamos que vários deles não poderiam ser soldados na placa de cobre perfurada, no entanto, não seria possível deixá-los soltos, tendo o risco do rompimentos dos fios, logo, uma base para a fixação foi criada por meio de uma placa de MDF. Porém, para ter uma vida útil melhor, essa placa deverá ser trocada por algum polímero e uma peça superior para a proteção será criada.
+
+![image](./img/base.jpg)
+<i>Imagem top-down</i>
 
 # Manuais
 
