@@ -432,6 +432,220 @@ Ao montarmos os componentes eletrônicos seguindo o esquemático, notamos que v�
 
 ## Manual de Implantação
 
+**Controle do Documento**
+
+**Histórico de revisões**
+
+|**Data**|**Autor**|**Versão**|**Resumo da atividade**|
+| :- | :- | :- | :- |
+|07/03/2023|Alysson Cordeiro|1\.2|<p>- Solução.</p><p>- Arquitetura da solução</p><p>- Componentes e Recurso.</p><p>- Guia de montagem.</p>|
+|||||
+|||||
+
+
+**Índice**
+
+
+[**1. Introdução](#_heading=h.2et92p0)	**3****
+
+[1.1. Solução](#_heading=h.tyjcwt)	3
+
+[1.2. Arquitetura da Solução](#_heading=h.3dy6vkm)	3
+
+[**2. Componentes e Recursos](_heading=h.1t3h5sf)	**4****
+
+[2.1. Componentes de hardware](#_heading=h.2s8eyo1)	4
+
+[2.2. Componentes externos](#_heading=h.17dp8vu)	4
+
+[2.3. Requisitos de conectividade](#_heading=h.3rdcrjn)	4
+
+[**3. Guia de Montagem](#_heading=h.26in1rg)	**5****
+
+[**4. Guia de Instalação]( h )	**6****
+
+[**5. Guia de Configuração](#_heading=h.44sinio)	**7****
+
+[**6. Guia de Operação](#_heading=h.z337ya)	**8****
+
+[**7. Troubleshooting]( h )	**9****
+
+[**8. Créditos](#_heading=h.2xcytpi)	**10****
+
+
+# **1. Introdução**
+**Informação inicial:** 
+
+- Por favor leia este manual cuidadosamente antes de utilizar seu aparelho de forma a garantir um uso seguro e adequado.
+- Este manual contém as informações básicas necessárias de especificações, instalação e operação do produto.
+## **1.1. Solução** 
+Desenvolver um equipamento automatizado que tenha capacidade de aplicar um campo magnético constante, com intensidade e distância ajustáveis, ao longo de todo a amostra promovendo assim uma separação dos minerais magnéticos, que serão depositados em um recipiente diferente dos minerais não magnéticos que permanecerão depositados na bandeja original.
+
+## **1.2. Arquitetura da Solução**
+
+
+Imagem 1: arquitetura da solução
+
+
+# **2. Componentes e Recursos**
+
+## **2.1. Componentes de hardware**
+1. **MICROCONTROLADOR:** o microcontrolador responsável pela atuação é o RASPBERRY PI PICO W com Wi-Fi RP2040 133MHZ detensão de alimentação é de 1.8-5.5v dc, cuja fabricante é a Newark Corporation, RS Components, Farnell element14. O microcontrolador será responsável pela intervenção entre a interface amigável e o braço robótico e seus adjacentes.
+1. **BUZZER:** emissor de som de baixo custo, utilizado para reproduzir tanto efeitos sonoros simples, como também a capacidade de emitir sons mais complexos como músicas. Funciona com tensão entre 3,5 e 5V.
+1. **PONTE H:** módulo ponte H L298N; 2 canais de 2A DC. Permite controlar a direção, velocidade e sentido de rotação de um motor elétrico. Servirá para controlar as rotações do braço robótico.
+1. **ELETROÍMÃ:** usado eletroímã solenóide redondo de.**  Atrai e separa o material ferromagnético do restante da amostra.
+1. **CONVERSOR AMPLIFICADOR:** responsável por traduzir os valores recebidos pela célula de carga para o microcontrolador.  Foi usado um conversor amplificador HX711. Tensão de trabalho 2,6 V ~ 5,5 VDC, de corrente de trabalho abaixo de 10mA.
+
+1. **CÉLULA DE CARGA:** É um sensor usado para medição de peso da amostra. Foi usado o sensor de 1kg.
+1. **REGULADOR DE TENSÃO:** regula uma tensão de entrada de para uma tensão de saída de 12V, usada pelo eletroímã. Usado o módulo Regulador de Tensão Step Up MT 3608.
+1. **BOTÃO:** botão para iniciar as tarefas do robô.
+1. **PCI:** a placa de circuito impresso (PCB) usada para conectar os componentes eletrônicos, como resistores, capacitores e, inclusive, usado para o microcontrolador. Vale ressaltar que a placa é universal e inflexível. Além do mais, no protótipo, foi usado a placa perfurada de 12cm x 18cm de material fenolite; marca: *piscaled*.
+
+## **2.2. Componentes externos**
+1. **COMPONENTE MOBILE:** será necessária, para interação com o robô, um celular com interface amigável.
+1. **BANDEJA:** deve ser usado 3 bandejas de plástico seco para não ter interferência no eletroímã.
+1. **BRAÇO ROBÓTICO:** automação responsável pela separação diretamente dos sedimentos magnéticos. É usado o braço robótico DOBOT MAGICIAN LITE da empresa Dobot company.
+
+
+|**Representação**|**Componentes**|**Quantidade**|**Descrição**|
+| :- | :-: | :- | :- |
+||Raspberry Pi Pico W com conexão wifi|1|Coletar e processar informações |
+||Placa de cobre perfurada|1|Conectar, por meio da solda, todos os componentes.|
+||Ponte H|1|Permite controlar a direção, velocidade e sentido de rotação de um motor elétrico. Servirá para controlar as rotações do braço robótico.|
+||Módulo Conversor Amplificador HX711|1|Responsável por traduzir os valores recebidos pela célula de carga para o microcontrolador|
+||Eletroímã|4|Atrai e separa o material ferromagnético do restante da amostra.|
+||Célula de carga 1kg|1|Medir a massa da amostra.|
+||Módulo Regulador de Tensão Step Up MT3608|1|Regula uma tensão de entrada de para uma tensão de saída de 12V, usada pelo eletroímã.|
+||Dobot Magitian Lite |1|Braço robótico utilizado na movimentação dos eletroímãs entre as bandejas.|
+||Buzzer|1|Anuncia o fim do procedimento.|
+||Push Button|1|Inicia o procedimento.|
+||Bandejas|3|Utilizadas para o depósito da amostra, da limpeza do material e o depósito desse.|
+||Polímero (ainda não definido)||Estrutura feita a partir de tal material para o suporte da célula de carga.|
+||Parafusos (tamanho ainda não definido)|≅ 2|Usado na montagem da balança.|
+||Porcas (tamanho ainda não definido)|≅ 2|Usada na montagem da balança.|
+||Arruelas (tamanho ainda não definido)|≅ 2|Usada na montagem da balança.|
+
+##
+## **2.3. Requisitos de conectividade**
+Liste aqui as redes, protocolos de rede e eventuais especificações de back-end, necessários para o funcionamento dos dispositivos.
+
+Exemplo de uso de imagem em coluna única:
+
+Figura 1: use sempre uma legenda e mencione o número
+
+` `da figura no corpo do texto. Cuidado para que detalhes 
+
+da imagem não fiquem ilegíveis, como na imagem.
+# **3. Guia de Montagem**
+Na guia de montagem vamos dividir 3 etapas: a etapa número 1 será para componentes relacionados ao PCI, a etapa número 2 será para outros componentes com ponte H e o regulador de tensão e  a etapa 3 montagem final dos hardwares.
+
+1. Primeira etapa: pegue a placa de circuito impresso (PCI) de 12cm x 18cm. E coloque um conector para que possa conectar o Raspberry Pi Pico W. Veja o exemplo da imagem abaixo:
+
+Imagem 3.1: placa de circuito impresso (PCI) com conector.
+
+`                                                          `Imagem 3.1                                                                                           
+
+Imagem 3.2: PCI com o Raspberry Pi Pico W
+
+#
+1. Em segundo passo, após encaixar o PCI na placa, solde o conector na placa com um jumpers: um na entrada; outro para o GND; e outros para os GPIOs.
+
+Imagem 3.3: soldagem dos jumpers com o conector
+
+1. Agora, vamos para a etapa número 2: primeiro, pegue a ponte H conecte um jumper no pino de entrada 5V. Em seguida, coloque um jumper no VCC, um no GND e outro no VLOGIC. E por fim, um fio na porta do OUT 1 na parte do MOTOR A. Veja o exemplo na imagem 3.4 e imagem 3.5:
+
+
+`                                           `Imagem 3.4
+
+
+`                                        `Imagem 3.5
+
+1. Para o regulador de tensão, é simples: ligue  a alimentação no borne de entrada, conectando a tensão positiva (2v - 24v DC) no IN+ e GND no IN-. Para visualizar a tensão de saída, conecte um multímetro no borne de saída (OUT+  e OUT-), na posição de medida de tensão contínua.
+
+
+Imagem 3.6: regulador de tensão step up.
+
+1. Para o conversor amplificador HX711 deverá ter 4 fios soldados nas portas E+, E-, A+ e  A- . Nas pontas dos fios devem estar soldados entre eles para facilitar a conexão. Essa fiação  conectará com a célula de carga, que detalharemos adiante no item 4. Guia de Instalação.
+
+
+`        `Imagem 3.7: conversor amplificador.
+
+
+1. Agora, conecte os eletroímãs solenóides com o “*conector”* de canetas do braço robótico.
+
+Imagem 3.8: eletroímãs desconectados.
+
+
+Imagem 3.9: eletroímãs conectados com o suporte de canetas do braço robótico.
+
+1. Conecte soldando a ponte H com os eletroímãs. Lembrando que a fiação que sai de um eletroimã deve estar conectado com VCC e GND juntos e outro eletroímã deve estar conectado com o fio do motor A: OUT 1.
+
+
+Imagem 3.10: conectando eletroímãs com a ponte H.
+
+1. Etapa 3: Para termos uma melhor experiência com a montagem, iremos usar um MDF para execução do programa.
+
+*obs: o apoio com MDF não será permanente, será usado uma outro componente de apoio, a qual não comprometa com o hardware.*
+
+Imagem 3.11: MDF sendo medido para que possa ser colado e parafusados os componentes que outrora montamos.
+
+
+Imagem 3.12: célula de peso no MDF.
+
+
+Imagem 3.13: conectando o microprocessador com a ponte H, conversor amplificador e regulador de tensão.
+
+
+Imagem 3.14: montagem completa do hardware..
+
+
+
+# **4. Guia de Instalação**
+### **(sprint 4)**
+Descreva passo-a-passo como instalar os dispositivos IoT no espaço físico adequado, conectando-os à rede, de acordo com o que foi levantado com seu parceiro de negócios.
+
+Não deixe de especificar propriedades, limites e alcances dos dispositivos em relação ao espaço destinado. 
+
+Especifique também como instalar softwares nos dispositivos. 
+
+Utilize fotografias, prints de tela e/ou desenhos técnicos para ilustrar o processo de instalação. 
+
+
+# **5. Guia de Configuração**
+### **(sprint 4)**
+Descreva passo-a-passo como configurar os dispositivos IoT utilizando os equipamentos devidos (ex. smartphone/computador acessando o servidor embarcado ou a página na nuvem). 
+
+Utilize fotografias, prints de tela e/ou desenhos técnicos para ilustrar o processo de configuração.
+
+
+# **6. Guia de Operação**
+### **(sprint 5)**
+Descreva os fluxos de operação entre interface e dispositivos IoT. Indique o funcionamento das telas, como fazer leituras dos dados dos sensores, como disparar ações através dos atuadores, como reconhecer estados do sistema. 
+
+Indique também informações relacionadas à imprecisão das eventuais localizações, e como o usuário deve contornar tais situações.
+
+Utilize fotografias, prints de tela e/ou desenhos técnicos para ilustrar os processos de operação.
+
+
+# **7. Troubleshooting**
+### **(sprint 5)**
+Liste as situações de falha mais comuns da sua solução (tais como falta de conectividade, falta de bateria, componente inoperante etc.) e indique ações para solução desses problemas. 
+
+
+|**#**|**Problema**|**Possível solução**|
+| :- | :- | :- |
+|1|||
+|2|||
+|3|||
+|4|||
+|5|||
+
+# **8. Créditos**
+### **(sprint 5)**
+Seção livre para você atribuir créditos à sua equipe e respectivas responsabilidades
+17
+
+
 ## Manual do Usuário
 
 ## Manual do Administrador
