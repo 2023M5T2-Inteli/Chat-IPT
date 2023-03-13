@@ -43,8 +43,7 @@ Concepção de sistema de automação industrial
     - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [UX e UI Design](#ux-e-ui-design)
-  - [Wireframe + Storyboard](#wireframe--storyboard)
-  - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
+  - [Frontend + Storyboard](#frontend--storyboard)
 - [Testes de Hardware](#testes-de-hardware)
   - [Braço robótico](#braço-robótico)
     - [Alcance do braço](#alcance-do-braço)
@@ -208,19 +207,17 @@ alt="Diagrama da soluçao" />
 
 # UX e UI Design
 
-## Wireframe + Storyboard
+## Frontend + Storyboard
 <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-<img src="./img/Chat_IPT___Prototipo_Interface.png" alt="Protótipo de interface"/>
+<img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
 </a>
 
-O Wireframe para nossa aplicação web, por enquanto (SPRINT2), consiste em 3 (três) páginas de um aplicativo que será desenvolvido em Flutter.
+A nossa aplicação web, por enquanto (SPRINT3), consiste em 3 (três) páginas de um aplicativo desenvolvido em Flutter.
 
 
 * A primeira página funciona como uma página inicial para o aplicativo, em que há um botão "Ligar" que ligará o braço robótico; 
-* A segunda página consiste em instruções para o usuário organizar as bandejas, de forma que o braço robótico reconheça cada uma. Além disso, há um botão "iniciar" que começa o processo de separação de metais com o braço robótico;
+* A segunda página consiste em instruções para o usuário organizar as bandejas, de forma que o braço robótico reconheça cada uma. Além disso, há um botão "iniciar" que começa o processo de separação de metais com o braço robótico. Outrossim, nesta página há uma footer bar que permite a variação da potência do eletroímã em Gauss;
 * Por último, a terceira constitui-se de uma página dinâmica que apresenta o status em tempo real, com a opção de pular uma etapa do processo ou encerrá-lo imediatamente.
-
-## Design de Interface - Guia de Estilos
 
 # Testes de Hardware
 
@@ -263,7 +260,7 @@ No teste realizado com uma moeda, o intervalo de tempo aplicado foi de 1ms, e ob
 
 Assim, por meio do teste, infere-se a possibilidade de implementação do sistema de controle da intensidade do eletroímã por meio da interface web desenvolvida, visto que os materiais magnéticos necessitam da aplicabilidade de diferentes intensidades no eletroímã para melhor aderência. 
 
-## Outros sensores
+## Outros sensores 
 
 ### Célula de carga
   A célula de carga é utilizada para a medição de massa. Ela consiste em um dispositivo que, sob efeito de uma carga, se deforma, mas que volta a posição inicial por possuir um certo nível de elasticidade, já que é composta de aço ou alumínio. Esse movimento também é reproduzido por extensiômetros fixados ao dispositivo. Os extensiômetros são condutores elétricos que ao serem alongados ou comprimidos variam sua resistência, assim, somos capazes de determinar essa pequena deformação e traduzí-las por meio de um amplificador HX711.
@@ -286,7 +283,7 @@ Assim, por meio do teste, infere-se a possibilidade de implementação do sistem
 
   Atualmente, tivemos problemas com o funcionamento do dispositivo. Em entregas futuras os primeiros testes e implementações serão feitos.
 
-## Sensor de distância ultrassônico
+### Sensor de distância ultrassônico
   O sensor de distância ultrassônico é comumente utilizado para medir distâncias e evitar colisões. O seu princípio de funcionamento se baseia na emissão de um pequeno pulso sonoro de alta frequência que se propagará na velocidade do som no meio em que estiver inserido. Quando esse pulso atingir um objeto que estiver em sua trajetória um sinal de eco será refletido para o sensor. A partir disso, é possível de medir a distância do sensor até o objeto por meio do tempo entre a emissão e a recepção, e a velociade do som no meio em que foi emitida.
 
   ![image](./img/Chat_IPT___Docsity_Sensor.png)
@@ -298,6 +295,64 @@ Assim, por meio do teste, infere-se a possibilidade de implementação do sistem
   
 ### Buzzer
 Será testado na próxima sprint quando o rapsberry pi pico for integrado com o braço robótico e interface web.
+
+# Dispositivos Mecânicos
+
+## Lista de Peças
+
+
+
+|Peça|Quantidade|Descrição|
+| :- | :- | :- |
+|Suporte da Célula de Carga|1|Suporte necessário para o funcionamento correto do componente Célula de carga|
+|Base suporte para Eletroímã|1|Peça inferior (base) onde os eletroímãs serão sustentados|
+|Tampa suporte para Eletroímã|1|Peça superior (tampa) que será acoplada a base do suporte. A tampa terá uma haste para ser usada no braço robô assim como a caneta padrão do Dobot|
+|Caixa protetora para Placa|1|Caixa de MDF onde ficará nossa placa, protegendo de impactos e certo nível de umidade|
+
+
+## Lista de Materiais
+
+
+|Material|Descrição|
+| :- | :- |
+|MDF|Usada para a construção da ‘Caixa Protetora p/ Placa’ e para o ‘Suporte da Célula de Carga’’|
+|ABS ou PA (Filamento de Impressão 3d)|Material plástico ou derivativo usado na impressão 3D. Os tipos escolhidos são ambos resistentes a certa temperatura |
+
+## Desenho Técnico
+### Suporte para a Célula de Carga
+
+![Desenho técnico do suporte para a célula de carga](./img/disp_mecanicos/suporte-celula-carga.jpg)
+
+### Suporte para o Eletroímã
+#### Base
+
+![Desenho técnico da base do suporte para o Eletroíma](./img/disp_mecanicos/base-suporte-ima.jpg)
+
+#### Tampa
+
+![Desenho técnico da parte superior do suporte para o Eletroíma](./img/disp_mecanicos/tampa-suporte-ima.jpg)
+
+## Modelagem 3D
+### Suporte para Eletroímã
+#### Base
+
+![Render 3D da base do suporte para o Eletroíma](./img/disp_mecanicos/render-base-eletroima.jpg)
+
+#### Tampa
+
+![Render 3D da base da parte superior do suporte para o Eletroíma](./img/disp_mecanicos/render-tampa-eletroima.jpg)
+
+## Planejamento do Método de Fabricação
+
+### Suporte Célula de Carga
+Para a construção do suporte da Célula de Carga, separamos 4 tábuas retangulares de MDF (medidas acima em “**Desenho Técnico**”) e parafusamos elas no local separado no próprio componente. Na extremidade sinalizada com a seta para cima, uma das tábuas será localizada acima do componente. Na extremidade contrária, a outra tábua de MDF será parafusada abaixo do componente. As duas últimas tábuas, de largura menor, formam uma base posicionada transversalmente em relação ás tábuas principais, dando contra-peso a estrutura, 
+
+### Base suporte para Eletroímã
+A base de suporte para o Eletroímã consiste em uma caixa com a face superior aberta que segura os eletroímãs, sendo sustentado pela tampa dessa caixa. No centro há uma divisória de 4 pontas com um arco entre cada ponta adjacente, deixando o espaço necessário para os ímãs em formato de cilindro se encaixarem no suporte.
+
+A partir da modelagem 3D da peça, iremos imprimir usando um filamento com a característica de resistência à temperatura, visto que nos testes do Eletroímã, notamos que apesar de baixa, houve aumento da temperatura ao usarmos por algum tempo. Ao pesquisar alguns materiais chegamos em 2 possíveis candidatos. São eles, o Nylon de Poliamida, um termoplástico semi-cristalino com baixa densidade e alta estabilidade térmica, e o ABS (**acrilonitrila butadieno estireno**) que possui a resistência ao calor semelhante
+### Tampa suporte para Eletroímã
+A tampa suporte para o eletroímã é a parte superior do conjunto de peças de suporte (base e tampa), ela tem a função de sustentar a base, conectar os fios do eletroímã ao controlador de potência, além de se acoplar ao robô através da haste cilíndrica similar a caneta padrão do dobot. Por se tratar de uma peça pertencente ao mesmo conjunto da peça anterior (Suporte ao Eletroímã), todas as informações dos planejamento de fabricação são as mesmas.
 
 # Manuais
 
