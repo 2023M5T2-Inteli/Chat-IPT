@@ -336,7 +336,7 @@ Não houve a necessidade da utilização de mais de uma placa de cobre perfurada
 
 ## Layout da placa
 
-![image](./img/layout placa.png)
+![image](./img/layout.png)
 <i>Layout da placa</i>
 
 # Dispositivos Mecânicos
