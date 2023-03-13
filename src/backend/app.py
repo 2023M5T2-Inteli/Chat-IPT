@@ -60,7 +60,7 @@ def handle_start_cicle() -> None:
         print(err)
         return
 
-@socketio.on('stop')
+@app.route('/stop')
 def handle_stop() -> None:
     print("stop")
     dobot_instance.pause = True
