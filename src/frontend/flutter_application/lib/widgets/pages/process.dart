@@ -28,10 +28,22 @@ class _ProcessState extends State<Process> {
     }
   }
 
+//   Future<http.Response> fetchAlbum() {
+//     return
+//   }
+
   void pauseAndPlay() {
     if (isActive) {
       print("paused");
-      socket.emit("stop");
+      //   final response =
+      //       await http.get(Uri.parse('http://192.168.197.134:3001/stop'));
+      //   if (response.statusCode == 200) {
+      //     print("Pausado");
+      //     setState(() {
+      //       isActive = false;
+      //     });
+      //   }
+      //   socket.emit("stop");
     } else {
       socket.emit("reactivate");
     }
