@@ -1,0 +1,9 @@
+version: '3'
+services:  
+  flask-back:
+    build: ./backend
+    ports:
+      - '3001:3001'
+    restart: always
+    volumes:
+      - $PWD/backend:/flask-app
