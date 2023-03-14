@@ -9,12 +9,6 @@ pwm.freq(1000)
 
 ssid = 'Galaxy A53 5G'
 password = 'qhvz8247'
-
-def connect():
-    #Connect to WLAN
-    wlan = network.WLAN(network.STA_IF)
-    wlan.active(True)
-    wlan.connect(ssid, password)
     
 def connect():
     #Connect to WLAN
