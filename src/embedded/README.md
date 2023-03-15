@@ -2,21 +2,21 @@
 Run this code on the root of the folder that you want to create the venv
 On mac:
 ```bash
-python3 -m venv .env
+python3 -m venv .venv
 ```
 On windows:
 ```bash
-py -m venv .env
+py -m venv .venv
 ```
 ## For activating the venv
 Run this code in your terminal in the root of this folder.
 For mac:
 ```bash
-source .env/bin/activate
+source .venv/bin/activate
 ```
 For windows:
 ```bash
-.\env\Scripts\activate
+.\.venv\Scripts\activate
 ```
 To leave the venv run:
 ```bash
