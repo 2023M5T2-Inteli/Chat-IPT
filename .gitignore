@@ -36,6 +36,8 @@
 
 .vscode
 
+*.DS_Store
+
 # Python
 *env
 *__pycache__
