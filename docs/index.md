@@ -354,6 +354,22 @@ O teste realiazado no vídeo a seguir, demonstra o funcionamento do sensor para 
 
 Será testado na próxima sprint quando o rapsberry pi pico for integrado com o braço robótico e interface web.
 
+## Tabela de testes
+
+|Componentes|Entrada|Saída esperada|Resultado|
+| :- | :- | :- | :- |
+|Braço robótico|Ativação por meio do aplicativo.|Movimentação feita corretamente pelas bandeja.|Percorreu todas as bandejas sem esbarrar ou travar.|
+|Eletroímã|Pelo código, inserção de diversos níveis de intensidade.)|Mudança da intensidade da atração do ímã proporcional ao valor inserido.|Tudo correto, o ímã mudou sua intensidade, contudo, a variável inserida não está em Gauss, logo, a conversão deve ser realizada.|
+|Bomba d'água|Conexão com uma fonte de 5V.)|Acionamento da bomba.|Ao ser conectada com as polaridades invertidas, a bomba acabou por queimar.|
+|Célula de carga e amplificador HX711|Inserção de algum objeto sob a célula de carga.|Demonstrar o valor da massa desse objeto.|Os valores foram demonstrados, mas a balança não está calibrada, logo, uma conversão deve ser realizada por meio de um peso exemplo.|
+|Sensor de distância ultrassônico|Aproximação de algum objeto do sensor.|Demonstrar valores proporcionais a distância real entre o objeto e o sensor.|Valores corretos foram mostrados em centímetros.|
+|Aplicativo|Movimentação do robô pelas bandejas.|Exibição correta do estágio do processo e do ciclo.|A exibição foi feita corretamente.|
+|Aplicativo|Ativação do botão de pause pelo aplicativo.|Parada do robô e permanência no estágio atual.||
+|Aplicativo|Ativação do botão de play pelo aplicativo.|Retorno da movimentação do estágio em que foi pausado.||
+|Aplicativo|Ativação do botão de avanço pelo aplicativo.|Avanço do estágio do processo, com o robô passando para a próxima bandeja e a mudança do estágio na interface.||
+|Aplicativo|Ativação do botão de retorno pelo aplicativo.|Retorno do estágio do processo, com o robô passando para a bandeja anterior e a mudança do estágio na interface.||
+|Aplicativo|Ativação do botão de parada de emergência pelo aplicativo.|Parada imediata do robô, depois, movimentação levemente para cima.||
+
 # Dispositivo Eletrônico
 Não houve a necessidade da utilização de mais de uma placa de cobre perfurada na união de todos os componentes utilizados na operação. O esquemático e o layout da placa são criados para a definição das ligações e das posições dos componentes.
 
