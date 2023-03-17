@@ -99,6 +99,7 @@ class Dobot:
                 self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
                 self.sio.sleep(0)
             self.stage += 1
+            self.cycle += 1
 
         except Exception as err:
             print(err)
