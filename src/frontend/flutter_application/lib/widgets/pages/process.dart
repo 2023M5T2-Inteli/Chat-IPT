@@ -43,7 +43,7 @@ class _ProcessState extends State<Process> {
       //       isActive = false;
       //     });
       //   }
-      //   socket.emit("stop");
+      socket.emit("stop");
     } else {
       socket.emit("reactivate");
     }
@@ -64,7 +64,7 @@ class _ProcessState extends State<Process> {
   initSocket() {
     print('Tentando se conectar...');
     // http://192.168.197.134:3001
-    socket = IO.io('http://192.168.197.134:3001', <String, dynamic>{
+    socket = IO.io('http://localhost:3001', <String, dynamic>{
       'autoConnect': false,
       'transports': ['websocket'],
     });
@@ -112,7 +112,7 @@ class _ProcessState extends State<Process> {
 
     socket.on('response_reactivate', (data) {
       setState(() {
-        isActive = false;
+        isActive = true;
       });
     });
 
@@ -134,7 +134,7 @@ class _ProcessState extends State<Process> {
     });
 
     socket.on('response_emergency_stop', (data) {
-      Navigator.pushNamed(context, '/instructions');
+      socket.disconnect();
     });
   }
 

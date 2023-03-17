@@ -13,9 +13,9 @@ class TurnOffButton extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacementNamed(
               context,
-              MaterialPageRoute(builder: (ctxt) => Home()),
+              '/',
             );
           },
           child: Image(

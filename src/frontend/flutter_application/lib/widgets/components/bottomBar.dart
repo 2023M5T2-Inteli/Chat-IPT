@@ -23,7 +23,7 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     List<Widget> items = [
       Text(
-        "CHAT GPT",
+        "CHAT IPT",
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
       ),
