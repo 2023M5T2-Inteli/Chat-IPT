@@ -32,8 +32,7 @@ def dobot_connect(sid):
 def handle_start_cicle(sid):
     print("Ciclo começando")
 
-    try:
-       while dobot_instance.cycle < 20:
+    while dobot_instance.cycle < 20:
         while dobot_instance.stage < 3:
             if dobot_instance.stage == 0:
                 # await sio.emit("stage", 1)
@@ -47,15 +46,12 @@ def handle_start_cicle(sid):
                 # await sio.emit("stage", 3)
                 # sio.sleep(0)
                 dobot_instance.third_tray(socketio=socketio)
-            dobot_instance.stage += 1
         dobot_instance.stage = 0
         dobot_instance.cycle += 1
-        # await sio.emit("cycle", dobot_instance.cycle + 1)
-        # sio.sleep(0)
+    # await sio.emit("cycle", dobot_instance.cycle + 1)
+    # sio.sleep(0)
 
-    except Exception as err:
-        print(err)
-        return
+   
     
 @sio.on('stop')
 def stop(sid):
@@ -80,30 +76,44 @@ def handle_emergency_stop(sid) -> None:
     dobot_instance.emergency_stop()
 
 
-# @socketio.on('advance_stage')
-# def handle_advance_stage() -> None:
-#     match dobot_instance.stage:
-#         case 0:
-#             dobot_instance.stage = 1
-#         case 1:
-#             dobot_instance.stage = 2
-#         case 2:
-#             dobot_instance.stage = 0
-#             dobot_instance.cycle += 1
+@sio.on('advance_stage')
+def handle_advance_stage(sid) -> None:
+    match dobot_instance.stage:
+        case 0:
+            dobot_instance.stage = 1
+        case 1:
+            dobot_instance.stage = 2
+        case 2:
+            dobot_instance.stage = 0
+            dobot_instance.cycle += 1
 
-#         case _:
-#             print('error: ')
-#     # dobot_instance.cycle += 1
-#     # (x, y, z, r, j1, j2, j3, j4) = dobot_instance.device.pose()
-#     # dobot_instance.device.move_to(x, y, 151, r)
-#     # dobot_instance.device.move_to(228, y, 151, r)
-#     sio.emit("response_advance_stage", "Advanced stage with success!")
+        case _:
+            print('error: ')
+    # dobot_instance.cycle += 1
+    # (x, y, z, r, j1, j2, j3, j4) = dobot_instance.device.pose()
+    # dobot_instance.device.move_to(x, y, 151, r)
+    # dobot_instance.device.move_to(228, y, 151, r)
+    # sio.emit("response_advance_stage", "Advanced stage with success!")
 
-    
+
+@sio.on('previous_stage')
+def handle_advance_stage(sid) -> None:
+    match dobot_instance.stage:
+        case 0:
+            dobot_instance.stage = 2
+            dobot_instance.cycle -= 1
+        case 1:
+            dobot_instance.stage = 0
+        case 2:
+            dobot_instance.stage = 1
+
+        case _:
+            print('error: ')
 
 @sio.event
 def disconnect(sid):
     print('Disconectado ao socket')
+    dobot_instance.emergency_stop()
 
 
 if __name__ == '__main__':

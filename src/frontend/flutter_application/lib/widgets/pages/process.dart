@@ -23,9 +23,10 @@ class _ProcessState extends State<Process> {
   bool isConnected = false;
 
   void decrementStage() {
-    if (stage > 0) {
-      socket.emit("revert_stage");
+    if (cycle == 1 && stage == 1) {
+      return;
     }
+    socket.emit("previous_stage");
   }
 
 //   Future<http.Response> fetchAlbum() {
@@ -50,9 +51,8 @@ class _ProcessState extends State<Process> {
   }
 
   void incrementStage() {
-    if (stage <= 2) {
-      socket.emit("advance_stage");
-    }
+    print('Passar estágio');
+    socket.emit("advance_stage");
   }
 
   @override
@@ -98,7 +98,6 @@ class _ProcessState extends State<Process> {
     });
 
     socket.onDisconnect((_) {
-      Navigator.pop(context);
       print('Disconnected');
     });
     // socket.onConnectError((err) => print("Erro" err));

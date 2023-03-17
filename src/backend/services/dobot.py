@@ -60,91 +60,48 @@ class Dobot:
             return False
 
     def first_tray(self, socketio) -> None:
-        # self.device.move_to(203, -283,
-        #                     109, -53, wait=True)
-        # self.device.move_to(-94, -333,
-        #                     85, -105, wait=True)
-        # self.device.move_to(112, -331,
-        #                     75, -71, wait=True)
-        # self.device.move_to(112, -254,
-        #                     82, -65, wait=True)
-        # self.device.move_to(-96, -261,
-        #                     80, -110, wait=True)
-        # self.device.move_to(-96, -198,
-        #                     90, -115, wait=True)
-        # self.device.move_to(113, -212,
-        #                     87, -61, wait=True)
-        # self.device.move_to(203, -283,
-        #                     109, -53, wait=True)
-        print(self.pause)
-        # i = 0
-        for cords in self.tray[0]:
-            # i += 1
-            # if i % 3 == 0:
-            #     socketio.sleep(0)
-            # if self.stage != 0:
-            #     raise Exception("Stage changed!")
-            while self.pause:
+        try:
+            for cords in self.tray[0]:
+                if self.stage != 0:
+                    raise Exception("Stage changed!")
+                while self.pause:
+                    self.sio.sleep(0)
+                    continue
+                self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
                 self.sio.sleep(0)
-                continue
-            self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
-            self.sio.sleep(0)
+            self.stage =1
+        except Exception as err:
+            print(err)
 
     def second_tray(self, socketio) -> None:
-
-        # self.device.move_to(237, -70, 28, -16, wait=True)
-        # self.device.move_to(235, 88, 24, 21, wait=True)
-        # self.device.move_to(237, -70, 28, -16, wait=True)
-        # self.device.move_to(235, 88, 24, 21, wait=True)
-        # self.device.move_to(237, -70, 28, -16, wait=True)
-        # self.device.move_to(235, 88, 24, 21, wait=True)
-        # i = 0
-        print(self.pause)
-        for cords in self.tray[1]:
-            # i += 1
-            # if i % 3 == 0:
-            #     socketio.sleep(0)
-            # if self.stage != 1:
-            #     raise Exception("Stage changed!")
-            while self.pause:
+        try:
+            for cords in self.tray[1]:
+                if self.stage != 1:
+                    raise Exception("Stage changed!")
+                while self.pause:
+                    self.sio.sleep(0)
+                    continue
+                self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
                 self.sio.sleep(0)
-                continue
-            self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
-            self.sio.sleep(0)
+            self.stage = 2
+
+        except Exception as err:
+            print(err)
 
     def third_tray(self, socketio) -> None:
-
-        # self.device.move_to(211, 224, 86, 46, wait=True)
-        # self.device.move_to(114, 250, 20, 65, wait=True)
-        # self.device.move_to(-29, 256, 20, 96, wait=True)
-        # self.device.move_to(114, 250, 20, 65, wait=True)
-        # self.device.move_to(-29, 256, 20, 96, wait=True)
-        # self.device.move_to(114, 250, 20, 65, wait=True)
-        # self.device.move_to(-29, 256, 20, 96, wait=True)
-
-        # self.device.move_to(211, 224, 86, 46, wait=True)
-        # i = 0
-        print(self.pause)
-        for cords in self.tray[2]:
-            # i += 1
-            # if i % 3 == 0:
-            #     socketio.sleep(0)
-            # if self.stage != 2:
-            #     raise Exception("Stage changed!")
-            while self.pause:
-                self.sio.sleep(0)
-                continue
-            self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
-            self.sio.sleep(0)
-
-    def stop(self) -> bool:
         try:
+            for cords in self.tray[2]:
+                if self.stage != 2:
+                    raise Exception("Stage changed!")
+                while self.pause:
+                    self.sio.sleep(0)
+                    continue
+                self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
+                self.sio.sleep(0)
+            self.stage += 1
 
-            # self.device.wait(500)
-            return True
         except Exception as err:
-            print(f"This error occuried: {err}")
-            return False
+            print(err)
 
     def emergency_stop(self) -> bool:
         try:
