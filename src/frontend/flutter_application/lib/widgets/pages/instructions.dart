@@ -8,7 +8,7 @@ class Instructions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageContainer(hasBottomBar: true, children: [
+    return PageContainer(hasBottomBar: true, hasSettings: true, children: [
       TurnOffButton(),
       Text(
         "Instruções",

@@ -20,12 +20,16 @@ class _ProcessState extends State<Process> {
   int cycle = 1;
   int stage = 1;
   bool isActive = true;
+  bool isLoading = false;
   bool isConnected = false;
 
   void decrementStage() {
     if (cycle == 1 && stage == 1) {
       return;
     }
+    setState(() {
+      isLoading = true;
+    });
     socket.emit("previous_stage");
   }
 
@@ -34,16 +38,10 @@ class _ProcessState extends State<Process> {
 //   }
 
   void pauseAndPlay() {
+    setState(() {
+      isLoading = true;
+    });
     if (isActive) {
-      print("paused");
-      //   final response =
-      //       await http.get(Uri.parse('http://192.168.197.134:3001/stop'));
-      //   if (response.statusCode == 200) {
-      //     print("Pausado");
-      //     setState(() {
-      //       isActive = false;
-      //     });
-      //   }
       socket.emit("stop");
     } else {
       socket.emit("reactivate");
@@ -51,7 +49,9 @@ class _ProcessState extends State<Process> {
   }
 
   void incrementStage() {
-    print('Passar estágio');
+    setState(() {
+      isLoading = true;
+    });
     socket.emit("advance_stage");
   }
 
@@ -106,12 +106,14 @@ class _ProcessState extends State<Process> {
     socket.on('response_stop', (data) {
       setState(() {
         isActive = false;
+        isLoading = false;
       });
     });
 
     socket.on('response_reactivate', (data) {
       setState(() {
         isActive = true;
+        isLoading = false;
       });
     });
 
@@ -120,15 +122,15 @@ class _ProcessState extends State<Process> {
       Navigator.pop(context);
     });
 
-    socket.on('response_advance_state', (data) {
+    socket.on('response_advance_stage', (data) {
       setState(() {
-        stage++;
+        isLoading = false;
       });
     });
 
-    socket.on('response_revert_stage', (data) {
+    socket.on('response_previous_stage', (data) {
       setState(() {
-        stage--;
+        isLoading = false;
       });
     });
 
@@ -152,7 +154,6 @@ class _ProcessState extends State<Process> {
     }
     return PageContainer(
       hasBottomBar: true,
-      hasSettings: true,
       children: [
         TurnOffButton(),
         Text(
@@ -175,6 +176,7 @@ class _ProcessState extends State<Process> {
             pauseAndPlay: pauseAndPlay,
             incrementStage: incrementStage,
             isActive: isActive,
+            isLoading: isLoading,
             stage: stage),
         Button(
           buttonHandler: () {
