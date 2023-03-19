@@ -7,16 +7,27 @@ class Stage extends StatelessWidget {
       required this.decrementStage,
       required this.incrementStage,
       required this.pauseAndPlay,
-      required this.stage});
+      required this.stage,
+      required this.isLoading});
 
   final bool isActive;
   final int stage;
   final Function decrementStage;
   final Function pauseAndPlay;
   final Function incrementStage;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
+    Widget middleIcon = Icon(Icons.stop);
+    if (!isActive) {
+      middleIcon = Icon(Icons.play_arrow);
+    }
+    if (isLoading) {
+      middleIcon = CircularProgressIndicator(
+        color: Colors.white,
+      );
+    }
     return Column(children: [
       SizedBox(
         height: 50,
@@ -40,7 +51,7 @@ class Stage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: isActive
+              onPressed: isActive && !isLoading
                   ? () {
                       decrementStage();
                     }
@@ -51,12 +62,12 @@ class Stage extends StatelessWidget {
             ),
             IconButton(
               onPressed: () => pauseAndPlay(),
-              icon: isActive ? Icon(Icons.stop) : Icon(Icons.play_arrow),
+              icon: middleIcon,
               iconSize: 40,
               color: Colors.white,
             ),
             IconButton(
-              onPressed: isActive
+              onPressed: isActive && !isLoading
                   ? () {
                       incrementStage();
                     }
