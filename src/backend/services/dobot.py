@@ -1,9 +1,7 @@
 import pydobot
 from serial.tools import list_ports
 
-
 class Dobot:
-
     def __init__(self, _sio) -> None:
         self._cycle = 0
         self._stage = 0
@@ -110,11 +108,6 @@ class Dobot:
 
             self.sio.emit("response_emergency_stop", "Emergency stop with success!")
             self.sio.sleep(5)
-            # self.start_connection()
-            # (x, y, z, r, j1, j2, j3, j4) = self.device.pose()
-            # # self.device.move_to(228, 0, 151, 0, wait=True)
-            # self.device.move_to(x, y, 151, r, wait=True)
-            # self.device.close()
 
             return True
         except Exception as err:
