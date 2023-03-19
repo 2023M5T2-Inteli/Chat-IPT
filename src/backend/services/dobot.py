@@ -16,8 +16,6 @@ class Dobot:
     @cycle.setter
     def cycle(self, novo_valor):
         self._cycle = novo_valor
-        # Aqui, você pode executar a função desejada, por exemplo:
-        print("A variável 'cycle' foi modificada para", novo_valor)
         self.sio.emit('cycle', novo_valor + 1)
         self.sio.sleep(0)
 
@@ -28,8 +26,6 @@ class Dobot:
     @stage.setter
     def stage(self, novo_valor):
         self._stage = novo_valor
-        # Aqui, você pode executar a função desejada, por exemplo:
-        print("A variável 'stage' foi modificada para", novo_valor)
         self.sio.emit('stage', novo_valor + 1)
         self.sio.sleep(0)
 
@@ -45,17 +41,6 @@ class Dobot:
                     f"Wrong port: {port.device}, trying another one...")
                 continue
         return False
-
-    def end_connection(self) -> bool:
-        try:
-            self.device.close()
-            self.start_connection()
-            self.device.move_to(228, 0, 151, 0, wait=True)
-            self.device.close()
-            return True
-        except:
-            print("Device unable to desconnected!")
-            return False
 
     def first_tray(self, socketio) -> None:
         try:

@@ -1,7 +1,5 @@
 import socketio
-import asyncio
 from services.dobot import Dobot
-from aiohttp import web
 import eventlet
 
 sio = socketio.Server(async_handlers=True, logger=True, ping_interval=120, ping_timeout=120)
@@ -67,7 +65,6 @@ def handle_advance_stage(sid) -> None:
         case _:
             print('error: ')
     sio.emit("response_advance_stage")
-
 
 @sio.on('previous_stage')
 def handle_advance_stage(sid) -> None:
