@@ -2,6 +2,7 @@ import socketio
 from services.dobot import Dobot
 import eventlet
 
+# setup do servidor
 sio = socketio.Server(async_handlers=True, logger=True, ping_interval=120, ping_timeout=120)
 app = socketio.WSGIApp(sio)
 
@@ -20,12 +21,13 @@ def dobot_connect(sid):
     else:
         print('Erro ao conectar com o robô')
 
+# Início do ensaio
 @sio.on('start_cycle')
 def handle_start_cicle(sid):
     print("Ciclo começando")
 
-    while dobot_instance.cycle < 20:
-        while dobot_instance.stage < 3:
+    while dobot_instance.cycle < 20: # esse 20 deveria ser uma variável que o cliente deve escolher antes do ciclo
+        while dobot_instance.stage < 3: 
             if dobot_instance.stage == 0:
                 dobot_instance.first_tray(socketio=socketio)
             elif dobot_instance.stage == 1:
@@ -61,7 +63,6 @@ def handle_advance_stage(sid) -> None:
         case 2:
             dobot_instance.stage = 0
             dobot_instance.cycle += 1
-
         case _:
             print('error: ')
     sio.emit("response_advance_stage")
