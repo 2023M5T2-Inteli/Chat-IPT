@@ -28,13 +28,9 @@ def handle_start_cicle(sid):
 
     while dobot_instance.cycle < 20: # esse 20 deveria ser uma variável que o cliente deve escolher antes do ciclo
         while dobot_instance.stage < 3: 
-            if dobot_instance.stage == 0:
-                dobot_instance.first_tray(socketio=socketio)
-            elif dobot_instance.stage == 1:
-                dobot_instance.second_tray(socketio=socketio)
-            elif dobot_instance.stage == 2:
-                dobot_instance.third_tray(socketio=socketio)
+            dobot_instance.tray(socketio=socketio)
         dobot_instance.stage = 0
+        dobot_instance.cycle += 1
     
 @sio.on('stop')
 def stop(sid):

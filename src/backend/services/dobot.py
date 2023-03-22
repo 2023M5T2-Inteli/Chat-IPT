@@ -1,5 +1,6 @@
 import pydobot
 from serial.tools import list_ports
+from pydobot import PTPMode
 
 class Dobot:
     def __init__(self, _sio) -> None:
@@ -8,7 +9,7 @@ class Dobot:
         self.pause = False
         self.sio = _sio
         self.tray = [
-            [{"x": 228, "y": 0,    "z": 151,"r": 0},         
+            [{"x": 228, "y": 0, "z": 151,"r": 0},         
              {"x": 203, "y": -283, "z": 109, "r": -53},
              {"x": -94, "y": -333, "z": 85, "r": -105},
              {"x": 112, "y": -331, "z": 75, "r": -71},
@@ -34,7 +35,8 @@ class Dobot:
              {"x": -29, "y": 256, "z": 20, "r": 96},
              {"x": 114, "y": 250, "z": 20, "r": 65},
              {"x": -29, "y": 256, "z": 20, "r": 96},
-             {"x": 211, "y": 224, "z": 86, "r": 46}]]
+             {"x": 211, "y": 224, "z": 86, "r": 46}]
+            ]
 
     @property
     def cycle(self):
@@ -68,50 +70,42 @@ class Dobot:
                     f"Wrong port: {port.device}, trying another one...")
                 continue
         return False
-
-    def first_tray(self, socketio) -> None:
+    
+    def change_tray(self, last_cords):
         try:
-            for cords in self.tray[0]:
-                if self.stage != 0:
-                    raise Exception("Stage changed!")
-                while self.pause:
-                    self.sio.sleep(0)
-                    continue
-                self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
+            while self.pause:
                 self.sio.sleep(0)
-            self.stage = 1
+                continue
+            self.device._set_ptp_cmd(last_cords['x'],
+                                     last_cords['y'],
+                                     last_cords['z'],
+                                     last_cords['r'],
+                                     mode=PTPMode.MOVJ_XYZ,
+                                     wait=True)
+            self.sio.sleep(0)
         except Exception as err:
             print(err)
 
-    def second_tray(self, socketio) -> None:
+    def tray(self, socketio) -> None:
         try:
-            for cords in self.tray[1]:
-                if self.stage != 1:
+            initial_stage = self.stage
+            for cords in self.tray[self.stage]:
+                if self.stage != initial_stage:
+                    self.change_tray(self.tray[(initial_stage+1)%3][0])
                     raise Exception("Stage changed!")
                 while self.pause:
                     self.sio.sleep(0)
                     continue
-                self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
-                self.sio.sleep(0)
-            self.stage = 2
-        except Exception as err:
-            print(err)
-
-    def third_tray(self, socketio) -> None:
-        try:
-            for cords in self.tray[2]:
-                if self.stage != 2:
-                    raise Exception("Stage changed!")
-                while self.pause:
-                    self.sio.sleep(0)
-                    continue
-                self.device.move_to(cords['x'], cords['y'], cords['z'], cords['r'], wait=True)
+                self.device.move_to(cords['x'],
+                                    cords['y'],
+                                    cords['z'],
+                                    cords['r'],
+                                    wait=True)
                 self.sio.sleep(0)
             self.stage += 1
-            self.cycle += 1
         except Exception as err:
             print(err)
-
+    
     def emergency_stop(self) -> bool:
         try:
             self.device.close()
