@@ -25,10 +25,10 @@ def dobot_connect(sid):
 @sio.on('start_cycle')
 def handle_start_cicle(sid):
     print("Ciclo começando")
-
+    
     while dobot_instance.cycle < 20: # esse 20 deveria ser uma variável que o cliente deve escolher antes do ciclo
         while dobot_instance.stage < 3: 
-            dobot_instance.tray(socketio=socketio)
+            dobot_instance.movement()
         dobot_instance.stage = 0
     
 @sio.on('stop')

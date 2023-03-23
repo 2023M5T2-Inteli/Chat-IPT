@@ -87,12 +87,14 @@ class Dobot:
         except Exception as err:
             print(err)
 
-    def tray(self, socketio) -> None:
+    def movement(self) -> None:
         try:
             initial_stage = self.stage
+
             for cords in self.tray[self.stage]:
                 if self.stage != initial_stage:
-                    # self.change_tray(self.tray[(initial_stage+1) % 3][0])
+                    
+                    self.change_tray(self.tray[(self.stage) % 3][0])
                     raise Exception("Stage changed!")
                 while self.pause:
                     self.sio.sleep(0)
@@ -103,9 +105,12 @@ class Dobot:
                                     cords['r'],
                                     wait=True)
                 self.sio.sleep(0)
-            self.stage += 1
+            
             if (self.stage == 2):
                 self.cycle += 1
+            
+            self.stage += 1
+            
         except Exception as err:
             print(err)
 
