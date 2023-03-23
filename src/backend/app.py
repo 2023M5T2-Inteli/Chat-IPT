@@ -30,7 +30,6 @@ def handle_start_cicle(sid):
         while dobot_instance.stage < 3: 
             dobot_instance.tray(socketio=socketio)
         dobot_instance.stage = 0
-        dobot_instance.cycle += 1
     
 @sio.on('stop')
 def stop(sid):
