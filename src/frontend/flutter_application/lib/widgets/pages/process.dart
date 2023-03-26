@@ -135,7 +135,7 @@ class _ProcessState extends State<Process> {
     });
 
     socket.on('response_emergency_stop', (data) {
-      socket.disconnect();
+      Navigator.pop(context);
     });
   }
 
