@@ -95,7 +95,7 @@ class Dobot:
                 if self.stage != initial_stage:
                     
                     self.change_tray(self.tray[(self.stage) % 3][0])
-                    raise Exception("Stage changed!")
+                    raise NameError("Stage changed!")
                 while self.pause:
                     self.sio.sleep(0)
                     continue
@@ -110,13 +110,14 @@ class Dobot:
                 self.cycle += 1
             
             self.stage += 1
-            
-        except Exception as err:
+        except NameError as err:
             print(err)
+       
 
     def emergency_stop(self) -> bool:
         try:
             self.device.close()
+            self.device = 0
 
             self.sio.emit("response_emergency_stop",
                           "Emergency stop with success!")

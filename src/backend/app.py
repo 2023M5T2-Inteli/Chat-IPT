@@ -1,5 +1,6 @@
 import socketio
 from services.dobot import Dobot
+from services.raspberry import Raspberry
 import eventlet
 
 # setup do servidor
@@ -25,10 +26,16 @@ def dobot_connect(sid):
 @sio.on('start_cycle')
 def handle_start_cicle(sid):
     print("Ciclo começando")
+    raspberry_instance = Raspberry()
+    raspberry_instance.send_command("60000")
     
     while dobot_instance.cycle < 20: # esse 20 deveria ser uma variável que o cliente deve escolher antes do ciclo
         while dobot_instance.stage < 3: 
-            dobot_instance.movement()
+            try:
+                dobot_instance.movement()
+            except Exception as err:
+                print("Botão de emergência acionado!")
+                return
         dobot_instance.stage = 0
     
 @sio.on('stop')
