@@ -1,6 +1,6 @@
 # Objetivo
 
-Essa pasta tem o objetivo de armazenar e organizar todos os códigos fonte, criados pela equipe, referênte às aplicações embarcadas. Ao decorrer do projeto precisamos testas vários scripts diferentes, e cada arquivo python é uma feature que precisamos testar ao longo do desenvolvimento. Ao final da sprint 5, organizaremos todos os código e arquivos.
+Essa pasta tem o objetivo de armazenar e organizar todos os códigos fonte, criados pela equipe, exclusivamente referente ao desenvolvimento dos códigos do Raspberry Pi Pico W . Ao decorrer do projeto precisamos testas vários scripts diferentes, e cada arquivo python é uma feature que precisamos testar ao longo do desenvolvimento. Ao final da sprint 5, essa pasta será excluida pois seu propósito é para apenas a organização do time. Na pasta `raspberry/test` contém um arquivo python responsável por apenas testarmos a conexão serial antes de implementarmos essa lógica em nosso backend.
 
 # Como rodar o projeto
 
