@@ -590,7 +590,7 @@ A primeira versão da base foi feita sem a soldagem dos componentes na placa de 
 ![image](./img/base.jpg)
 <i>Imagem top-down</i>
 
-###Segunda versão base para os componentes eletrônicos
+### Segunda versão base para os componentes eletrônicos
 
 Na segunda versão da base, perfuramos a placa e parafusamos os componentes que não poderiam ser soldados. Também adicionamos dois conectores de plug banana para recebimento de alimentação na ponte H. E utilizamos um pote de plástico para proteger a placa de cobre perfurada. Os próximos incluem tampar o pote com uma tampa e realizar furos de diâmetro pequeno para passagem dos cabos de rede, fonte de alimentação dos plugs e cabo usb que conecta-se com o Rapsberry Pi Pico W.
 
