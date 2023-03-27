@@ -58,6 +58,9 @@ Concepção de sistema de automação industrial
         -   [Mini Bomba Motor D'água](#mini-bomba-motor-dágua)
         -   [Sensor de distância ultrassônico](#sensor-de-distância-ultrassônico)
         -   [Buzzer](#buzzer)
+-   [Backend](#backend)      
+-   [Frontend](#frontend)      
+-   [Requisitos de conectividade](#requisitos-de-conectividade)      
 -   [Dispositivo Eletrônico](#dispositivo-eletrônico)
     -   [Esquemático](#esquemático)
         -   [Identificação das ligações](#identificação-das-ligações)
@@ -82,11 +85,6 @@ Concepção de sistema de automação industrial
     -   [**Lista de Materiais**](#lista-de-materiais-1)
     -   [](#)
 -   [**Planejamento do Método de Fabricação**](#planejamento-do-método-de-fabricação-1)
--   [](#-1)
--   [](#-2)
--   [](#-3)
--   [](#-4)
--   [](#-5)
     -   [Manual do Usuário](#manual-do-usuário)
     -   [Manual do Administrador](#manual-do-administrador)
 -   [Referências](#referências)
@@ -437,6 +435,16 @@ A segunda página é onde o usuário pode ver como deve ser posicionado o robô 
 A terceira página é o acompanhamento em tempo real do processo. Além disso, ela possui botões que permitem executar funções no robô que está realizando o processo, como a parada de emergência, pausa, play, passar o processo para o próximo estágio, voltar o estágio e desligar o robô. Esses botões são importantes para dar ao usuário o controle total sobre a operação e garantir que ele possa pará-la ou modificá-la a qualquer momento.
 
 Ao final da sprint 5, planejamos compilar o aplicativo e criar um APK para a utilização. Isso significa que o aplicativo será disponibilizado para download e poderá ser usado em dispositivos Android. Porém, é interessante ressaltar que aplicativos desenvolvidos em Flutter tem suporte tanto para IOS, quanto para Android. Cabe ao parceiro decidir qual formato é mais viável para o sistema em produção. Com o frontend bem desenvolvido e as funcionalidades implementadas, esperamos oferecer uma ótima experiência ao usuário e atender a todas as suas necessidades em relação ao processo de separação magnética.
+
+# Requisitos de conectividade
+O projeto apresentado requer uma conectividade estável e confiável entre todas as partes envolvidas, para garantir que as informações e comandos possam ser transmitidos de forma eficiente e segura.
+
+Em primeiro lugar, o backend do sistema precisa ser executado em um computador com recursos adequados para rotear a rede wifi e estabelecer uma conexão socket. É importante que o computador seja capaz de processar grandes quantidades de dados rapidamente, para garantir que as informações sejam transmitidas de forma eficiente entre o robô e o cliente.
+
+Em segundo lugar, o cliente precisa estar na mesma rede wifi que o servidor para se conectar por socket e emitir eventos. Isso significa que a rede wifi precisa ter uma conexão estável e forte o suficiente para permitir a comunicação entre os dois dispositivos sem interrupções ou perda de dados.
+
+Em síntese, é importante que todo o sistema esteja em uma rede local, que não precise estar conectada à internet para funcionar. Isso garante que as informações sejam mantidas seguras e protegidas, sem o risco de serem interceptadas por terceiros mal-intencionados. Com esses requisitos atendidos, o sistema poderá executar as tarefas de forma eficiente e segura, sem interrupções ou falhas na comunicação.
+
 
 # Dispositivo Eletrônico
 
