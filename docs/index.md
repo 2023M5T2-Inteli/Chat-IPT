@@ -438,7 +438,7 @@ Ao final da sprint 5, planejamos compilar o aplicativo e criar um APK para a uti
 
 # Dispositivo Eletrônico
 
-Não houve a necessidade da utilização de mais de uma placa de cobre perfurada na união de todos os componentes utilizados na operação. O esquemático e o layout da placa são criados para a definição das ligações e das posições dos componentes.
+A construção do um dispositivo eletrônico foi feito em uma placa de cobre, na qual o Raspberry Pi Pico foi soldado na placa e os componentes de ligação com os sensores foram parafusados e soldados na placa.
 
 ## Esquemático
 
@@ -479,6 +479,15 @@ Não houve a necessidade da utilização de mais de uma placa de cobre perfurada
 
 ![image](./img/layout.png)
 <i>Layout da placa</i>
+
+## Montagem placa de cobre
+
+A montagem da placa utilizada nesse projeto apresenta Raspberry Pi Pico W, ponte H e módulo HX711 soldados na placa. Também contém dois plugs banana fêmea que recebem VCC e GND para alimentar o circuito da ponte H. 
+
+![IMG_20230327_113725](https://user-images.githubusercontent.com/99269584/227995930-658e5e51-d1d3-4ea8-9571-769f59a470f0.jpg)
+
+No teste realizado, obervasse o funcionamento do circuito com alimentação de 10V para ponte H. O eletroímã é acionado via valores enviados pelo backend, a conexão com o Rapsberry Pi Pico W é feita via cabo USB. 
+https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4
 
 # Dispositivos Mecânicos
 
