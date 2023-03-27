@@ -496,6 +496,8 @@ A montagem da placa utilizada nesse projeto apresenta Raspberry Pi Pico W, ponte
 
 ![IMG_20230327_113725](https://user-images.githubusercontent.com/99269584/227995930-658e5e51-d1d3-4ea8-9571-769f59a470f0.jpg)
 
+No teste realizado, o funcionamento do circuito é feito por meio da alimentação de 10V para ponte H e com conexão via cabo USB com o Rapsberry Pi Pico W. https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4
+
 # Dispositivos Mecânicos
 
 Peças criadas para o suporte dos componentes eletrônicos.
@@ -582,7 +584,6 @@ Ao montarmos os componentes eletrônicos seguindo o esquemático, notamos que v�
 1. **CONVERSOR AMPLIFICADOR:** responsável por traduzir os valores recebidos pela célula de carga para o microcontrolador. Foi usado um conversor amplificador HX711. Tensão de trabalho 2,6 V ~ 5,5 VDC, de corrente de trabalho abaixo de 10mA.
 
 1. **CÉLULA DE CARGA:** É um sensor usado para medição de peso da amostra. Foi usado o sensor de 1kg.
-1. **REGULADOR DE TENSÃO:** regula uma tensão de entrada de para uma tensão de saída de 12V, usada pelo eletroímã. Usado o módulo Regulador de Tensão Step Up MT 3608.
 1. **BOTÃO:** botão para iniciar as tarefas do robô.
 1. **PCI:** a placa de circuito impresso (PCB) usada para conectar os componentes eletrônicos, como resistores, capacitores e, inclusive, usado para o microcontrolador. Vale ressaltar que a placa é universal e inflexível. Além do mais, no protótipo, foi usado a placa perfurada de 12cm x 18cm de material fenolite; marca: _piscaled_.
 1. **COMPONENTE MOBILE:** será necessária, para interação com o robô, um celular com interface amigável.
@@ -597,7 +598,6 @@ Ao montarmos os componentes eletrônicos seguindo o esquemático, notamos que v�
 |                   |    Módulo Conversor Amplificador HX711    | 1              | Responsável por traduzir os valores recebidos pela célula de carga para o microcontrolador                                               |
 |                   |                 Eletroímã                 | 4              | Atrai e separa o material ferromagnético do restante da amostra.                                                                         |
 |                   |            Célula de carga 1kg            | 1              | Medir a massa da amostra.                                                                                                                |
-|                   | Módulo Regulador de Tensão Step Up MT3608 | 1              | Regula uma tensão de entrada de para uma tensão de saída de 12V, usada pelo eletroímã.                                                   |
 |                   |            Dobot Magitian Lite            | 1              | Braço robótico utilizado na movimentação dos eletroímãs entre as bandejas.                                                               |
 |                   |                  Buzzer                   | 1              | Anuncia o fim do procedimento.                                                                                                           |
 |                   |                Push Button                | 1              | Inicia o procedimento.                                                                                                                   |
