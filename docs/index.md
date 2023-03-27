@@ -555,10 +555,10 @@ Peças criadas para o suporte dos componentes eletrônicos.
 ![Render 3D da base da parte superior do suporte para o Eletroíma](./img/disp_mecanicos/render-tampa-eletroima.jpg)
 
 ### Primeira versão do suporte para eletroímã
-
-![WhatsApp Image 2023-03-27 at 4 49 43 PM](https://user-images.githubusercontent.com/99269584/228050878-4ec2145a-3632-4460-bc63-f98fb702c5a8.jpeg)
  
  A primeira versão da base do eletroíma foi construída com o recorte de uma placa de cobre e montagem dos eletroímas parafusados. O eletroíma foi conectado aa ponte H por meio da extensão construída com fio de rede. 
+ 
+ ![WhatsApp Image 2023-03-27 at 4 49 43 PM](https://user-images.githubusercontent.com/99269584/228051480-8b6ef59c-575f-4d1b-86fe-8c3d50003c03.jpeg)
 
 ## Planejamento do Método de Fabricação
 
