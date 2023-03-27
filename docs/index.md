@@ -488,6 +488,8 @@ A montagem da placa utilizada nesse projeto apresenta Raspberry Pi Pico W, ponte
 
 ![IMG_20230327_113725](https://user-images.githubusercontent.com/99269584/227995930-658e5e51-d1d3-4ea8-9571-769f59a470f0.jpg)
 
+No teste realizado, o funcionamento do circuito é feito por meio da alimentação de 10V para ponte H e com conexão via cabo USB com o Rapsberry Pi Pico W. https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4
+
 # Dispositivos Mecânicos
 
 Peças criadas para o suporte dos componentes eletrônicos.
