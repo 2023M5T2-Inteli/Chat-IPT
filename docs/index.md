@@ -584,10 +584,18 @@ A tampa suporte para o eletroímã é a parte superior do conjunto de peças de 
 
 ### Base para os componentes eletrônicos
 
-Ao montarmos os componentes eletrônicos seguindo o esquemático, notamos que vários deles não poderiam ser soldados na placa de cobre perfurada, no entanto, não seria possível deixá-los soltos, tendo o risco do rompimentos dos fios, logo, uma base para a fixação foi criada por meio de uma placa de MDF. Porém, para ter uma vida útil melhor, essa placa deverá ser trocada por algum polímero e uma peça superior para a proteção será criada.
+#### Primeira versão base para os componentes eletrônicos
+A primeira versão da base foi feita sem a soldagem dos componentes na placa de cobre perfurada, mas como os fios não poderia ficar soltos pelo riscos sd eperfuração e danos no circuito, elaborou-se uma base para a fixação foi criada por meio de uma placa de MDF. Porém, para ter uma vida útil melhor, essa placa deverá ser trocada por algum polímero e uma peça superior para a proteção será criada.
 
 ![image](./img/base.jpg)
 <i>Imagem top-down</i>
+
+###Segunda versão base para os componentes eletrônicos
+
+Na segunda versão da base, perfuramos a placa e parafusamos os componentes que não poderiam ser soldados. Também adicionamos dois conectores de plug banana para recebimento de alimentação na ponte H. E utilizamos um pote de plástico para proteger a placa de cobre perfurada. Os próximos incluem tampar o pote com uma tampa e realizar furos de diâmetro pequeno para passagem dos cabos de rede, fonte de alimentação dos plugs e cabo usb que conecta-se com o Rapsberry Pi Pico W.
+
+![IMG_20230327_113725](https://user-images.githubusercontent.com/99269584/228053083-7250744f-570f-4b9f-8a60-1a458787f18a.jpg)
+
 
 ## **Lista de Materiais**
 
