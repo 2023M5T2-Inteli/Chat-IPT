@@ -19,87 +19,87 @@ Concepção de sistema de automação industrial
 
 **Conteúdo**
 
-- [Autores](#autores)
-- [Visão Geral do Projeto](#visão-geral-do-projeto)
-  - [Empresa](#empresa)
-  - [O Problema](#o-problema)
-  - [Objetivos](#objetivos)
-    - [Objetivos gerais](#objetivos-gerais)
-    - [Objetivos específicos](#objetivos-específicos)
-  - [Partes interessadas](#partes-interessadas)
-  - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
-  - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
-  - [Matriz de Risco](#matriz-de-risco)
-  - [Oceano Azul](#oceano-azul)
-  - [Análise Financeira](#análise-financeira)
-- [Requisitos do Sistema](#requisitos-do-sistema)
-  - [Personas](#personas)
-  - [Mapa de Jornada do Usuário](#mapa-de-jornada-do-usuário)
-  - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
-- [Arquitetura do Sistema](#arquitetura-do-sistema)
-  - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
-    - [Croqui](#croqui)
-    - [Diagrama da solução](#diagrama-da-solução)
-  - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
-    - [Requisitos de software](#requisitos-de-software)
-  - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [UX e UI Design](#ux-e-ui-design)
-  - [Frontend + Storyboard](#frontend--storyboard)
-- [Testes de Hardware](#testes-de-hardware)
-  - [Braço robótico](#braço-robótico)
-    - [Alcance do braço](#alcance-do-braço)
-    - [Posicionamento das bandejas](#posicionamento-das-bandejas)
-    - [Conexão com servidor](#conexão-com-servidor)
-  - [Eletroímã](#eletroímã)
-    - [Controle do eletroímã](#controle-do-eletroímã)
-    - [Controle de potência do eletroímã](#controle-de-potência-do-eletroímã)
-  - [Outros sensores](#outros-sensores)
-    - [Célula de carga](#célula-de-carga)
-    - [Mini Bomba Motor D'água](#mini-bomba-motor-dágua)
-    - [Sensor de distância ultrassônico](#sensor-de-distância-ultrassônico)
-    - [Buzzer](#buzzer)
-- [Dispositivo Eletrônico](#dispositivo-eletrônico)
-  - [Esquemático](#esquemático)
-    - [Identificação das ligações](#identificação-das-ligações)
-  - [Layout da placa](#layout-da-placa)
-- [Dispositivos Mecânicos](#dispositivos-mecânicos)
-  - [Lista de Peças](#lista-de-peças)
-  - [Lista de Materiais](#lista-de-materiais)
-  - [Desenho Técnico](#desenho-técnico)
-    - [Suporte para a Célula de Carga](#suporte-para-a-célula-de-carga)
-    - [Suporte para o Eletroímã](#suporte-para-o-eletroímã)
-      - [Base](#base)
-      - [Tampa](#tampa)
-  - [Modelagem 3D](#modelagem-3d)
-    - [Suporte para Eletroímã](#suporte-para-eletroímã)
-      - [Base](#base-1)
-      - [Tampa](#tampa-1)
-  - [Planejamento do Método de Fabricação](#planejamento-do-método-de-fabricação)
-    - [Suporte Célula de Carga](#suporte-célula-de-carga)
-    - [Base suporte para Eletroímã](#base-suporte-para-eletroímã)
-    - [Tampa suporte para Eletroímã](#tampa-suporte-para-eletroímã)
-    - [Base para os componentes eletrônicos](#base-para-os-componentes-eletrônicos)
-  - [**Lista de Materiais**](#lista-de-materiais-1)
-  - [](#)
-- [**Planejamento do Método de Fabricação**](#planejamento-do-método-de-fabricação-1)
-- [](#-1)
-- [](#-2)
-- [](#-3)
-- [](#-4)
-- [](#-5)
-  - [Manual do Usuário](#manual-do-usuário)
-  - [Manual do Administrador](#manual-do-administrador)
-- [Referências](#referências)
+-   [Autores](#autores)
+-   [Visão Geral do Projeto](#visão-geral-do-projeto)
+    -   [Empresa](#empresa)
+    -   [O Problema](#o-problema)
+    -   [Objetivos](#objetivos)
+        -   [Objetivos gerais](#objetivos-gerais)
+        -   [Objetivos específicos](#objetivos-específicos)
+    -   [Partes interessadas](#partes-interessadas)
+    -   [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
+    -   [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
+    -   [Matriz de Risco](#matriz-de-risco)
+    -   [Oceano Azul](#oceano-azul)
+    -   [Análise Financeira](#análise-financeira)
+-   [Requisitos do Sistema](#requisitos-do-sistema)
+    -   [Personas](#personas)
+    -   [Mapa de Jornada do Usuário](#mapa-de-jornada-do-usuário)
+    -   [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
+-   [Arquitetura do Sistema](#arquitetura-do-sistema)
+    -   [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
+        -   [Croqui](#croqui)
+        -   [Diagrama da solução](#diagrama-da-solução)
+    -   [Descrição dos Subsistemas](#descrição-dos-subsistemas)
+        -   [Requisitos de software](#requisitos-de-software)
+    -   [Tecnologias Utilizadas](#tecnologias-utilizadas)
+-   [UX e UI Design](#ux-e-ui-design)
+    -   [Frontend + Storyboard](#frontend--storyboard)
+-   [Testes de Hardware](#testes-de-hardware)
+    -   [Braço robótico](#braço-robótico)
+        -   [Alcance do braço](#alcance-do-braço)
+        -   [Posicionamento das bandejas](#posicionamento-das-bandejas)
+        -   [Conexão com servidor](#conexão-com-servidor)
+    -   [Eletroímã](#eletroímã)
+        -   [Controle do eletroímã](#controle-do-eletroímã)
+        -   [Controle de potência do eletroímã](#controle-de-potência-do-eletroímã)
+    -   [Outros sensores](#outros-sensores)
+        -   [Célula de carga](#célula-de-carga)
+        -   [Mini Bomba Motor D'água](#mini-bomba-motor-dágua)
+        -   [Sensor de distância ultrassônico](#sensor-de-distância-ultrassônico)
+        -   [Buzzer](#buzzer)
+-   [Dispositivo Eletrônico](#dispositivo-eletrônico)
+    -   [Esquemático](#esquemático)
+        -   [Identificação das ligações](#identificação-das-ligações)
+    -   [Layout da placa](#layout-da-placa)
+-   [Dispositivos Mecânicos](#dispositivos-mecânicos)
+    -   [Lista de Peças](#lista-de-peças)
+    -   [Lista de Materiais](#lista-de-materiais)
+    -   [Desenho Técnico](#desenho-técnico)
+        -   [Suporte para a Célula de Carga](#suporte-para-a-célula-de-carga)
+        -   [Suporte para o Eletroímã](#suporte-para-o-eletroímã)
+            -   [Base](#base)
+            -   [Tampa](#tampa)
+    -   [Modelagem 3D](#modelagem-3d)
+        -   [Suporte para Eletroímã](#suporte-para-eletroímã)
+            -   [Base](#base-1)
+            -   [Tampa](#tampa-1)
+    -   [Planejamento do Método de Fabricação](#planejamento-do-método-de-fabricação)
+        -   [Suporte Célula de Carga](#suporte-célula-de-carga)
+        -   [Base suporte para Eletroímã](#base-suporte-para-eletroímã)
+        -   [Tampa suporte para Eletroímã](#tampa-suporte-para-eletroímã)
+        -   [Base para os componentes eletrônicos](#base-para-os-componentes-eletrônicos)
+    -   [**Lista de Materiais**](#lista-de-materiais-1)
+    -   [](#)
+-   [**Planejamento do Método de Fabricação**](#planejamento-do-método-de-fabricação-1)
+-   [](#-1)
+-   [](#-2)
+-   [](#-3)
+-   [](#-4)
+-   [](#-5)
+    -   [Manual do Usuário](#manual-do-usuário)
+    -   [Manual do Administrador](#manual-do-administrador)
+-   [Referências](#referências)
 
 # Autores
 
-- Alysson Cordeiro
-- Giovana Rodrigues Araujo
-- Henrique Lemos Freire Matias
-- Lucas Henrique Sales de Souza
-- Lyorrei Shono Quintão
-- Mihaell Brenno Alves
-- Patricia Honorato Moreira
+-   Alysson Cordeiro
+-   Giovana Rodrigues Araujo
+-   Henrique Lemos Freire Matias
+-   Lucas Henrique Sales de Souza
+-   Lyorrei Shono Quintão
+-   Mihaell Brenno Alves
+-   Patricia Honorato Moreira
 
 # Visão Geral do Projeto
 
@@ -127,9 +127,9 @@ Desenvolveremos um equipamento automatizado que tenha capacidade de aplicar um c
 
 ## Partes interessadas
 
-- IPT;
-- Laboratório de Processos Metalúrgicos;
-- Inteli.
+-   IPT;
+-   Laboratório de Processos Metalúrgicos;
+-   Inteli.
 
 ## Análise do cenário: Matriz SWOT
 
@@ -147,24 +147,24 @@ Nossa proposta de valor envolve automatizar o processo de separação de metais 
 
 RISCOS
 
-- Planejar um escopo maior do que o possível de entregar - Probabilidade: Médio; Impacto: Alta
-- Não entregar o projeto completo (integração com web app e tal) Médio Muito Alta
-- Falta de acesso a um teste real poderá prejudicar a criação de um produto escalável - Probabilidade: Muito Alta; Impacto: Baixo
-- Demandar muito tempo para determinadas atividades do projeto e negligenciar outras (como na configuração microcontrolador para a web application ou no frontend do serviço) - Probabilidade: Baixo; Impacto: Alta
-- Parâmetros de medidas para relatórios de ensaio não bem definidos - Probabilidade: Baixo; Impacto: Muito Alta
-- Não ter a participação de todos no desenvolvimento do frontend e backend - Probabilidade: Alta; Impacto: Médio
-- Desacordo do grupo nas ferramentas utilizadas - Probabilidade: Muito Baixo; Impacto: Muito Baixo
-- Ausência de integrantes do grupo nos desenvolvimentos - Probabilidade: Baixo; Impacto: Médio
-- Dias das instruções de programação incompatíveis com o tempo de desenvolvimento desejado para entregas da SPRINT - Probabilidade: Médio; Impacto: Médio
-- Erro na construção da peça de encaixe para o braço robôtico - Probabilidade: Médio; Impacto: Muito Alta
+-   Planejar um escopo maior do que o possível de entregar - Probabilidade: Médio; Impacto: Alta
+-   Não entregar o projeto completo (integração com web app e tal) Médio Muito Alta
+-   Falta de acesso a um teste real poderá prejudicar a criação de um produto escalável - Probabilidade: Muito Alta; Impacto: Baixo
+-   Demandar muito tempo para determinadas atividades do projeto e negligenciar outras (como na configuração microcontrolador para a web application ou no frontend do serviço) - Probabilidade: Baixo; Impacto: Alta
+-   Parâmetros de medidas para relatórios de ensaio não bem definidos - Probabilidade: Baixo; Impacto: Muito Alta
+-   Não ter a participação de todos no desenvolvimento do frontend e backend - Probabilidade: Alta; Impacto: Médio
+-   Desacordo do grupo nas ferramentas utilizadas - Probabilidade: Muito Baixo; Impacto: Muito Baixo
+-   Ausência de integrantes do grupo nos desenvolvimentos - Probabilidade: Baixo; Impacto: Médio
+-   Dias das instruções de programação incompatíveis com o tempo de desenvolvimento desejado para entregas da SPRINT - Probabilidade: Médio; Impacto: Médio
+-   Erro na construção da peça de encaixe para o braço robôtico - Probabilidade: Médio; Impacto: Muito Alta
 
 OPORTUNIDADES
 
-- Suporte do inteli e professores altamente qualificados - Probabilidade: Muito Alta; Impacto: Muito Alta
-- IPT ser um parceiro muito acessível e amigável em geral - Probabilidade: Alta; Impacto: Muito Alta
-- IPT ter conhecimento técnico e científico sobre o problema que estamos prototipando uma solução, nos auxiliará na resolução de possíveis dúvidas e sugestões de melhorias - Probabilidade: Baixo; Impacto: Alta
-- Desenvolver uma tecnologia escalável - Probabilidade: Médio; Impacto: Muito Alta
-- Curva de aprendizado do python ser muito simples - Probabilidade: Médio; Impacto: Alta
+-   Suporte do inteli e professores altamente qualificados - Probabilidade: Muito Alta; Impacto: Muito Alta
+-   IPT ser um parceiro muito acessível e amigável em geral - Probabilidade: Alta; Impacto: Muito Alta
+-   IPT ter conhecimento técnico e científico sobre o problema que estamos prototipando uma solução, nos auxiliará na resolução de possíveis dúvidas e sugestões de melhorias - Probabilidade: Baixo; Impacto: Alta
+-   Desenvolver uma tecnologia escalável - Probabilidade: Médio; Impacto: Muito Alta
+-   Curva de aprendizado do python ser muito simples - Probabilidade: Médio; Impacto: Alta
 
 ## Oceano Azul
 
@@ -198,13 +198,13 @@ alt="Mapa de Jornada de usuário"/>
 
 ## Histórias dos usuários (user stories)
 
-- Eu, como técnico, quero poder automatizar a tarefa de manipulação de amostra de metais, para que eu possa alocar meu tempo em atividades mais valiosas.
-- Eu, como técnico, quero poder delegar a tarefa repetitiva de separação metálica para um braço mecânico, a fim de evitar o desgaste físico e mental que esse processo manual e repetitivo causa.
-- Eu, como técnico, gostaria de utilizar um braço mecânico preciso e confiável, para que eu possa realizar a tarefa de separação dos metais com eficiência e precisão, sem comprometer a qualidade dos resultados.
-- Eu, como técnico, quero poder anexar o braço mecânico à minha estação de trabalho, para que possa automatizar a separação de liga metálica da amostra através de um processo magnético.
-- Eu, como técnico, quero ter uma interface física, para controlar a movimentação precisa do braço mecânico.
-- Eu, como técnico, quero ter uma estrutura fácil de manutenção para garantir que o dispositivo possa ser mantido em boas condições de funcionamento ao longo do tempo.
-- Eu, como técnico, quero ter um encaixe para o braço mecânico criado a partir de modelagem 3D, para que possa garantir que o braço tenha uma interação perfeita com restante da estação e não prejudique o processo de separação de liga metálica.
+-   Eu, como técnico, quero poder automatizar a tarefa de manipulação de amostra de metais, para que eu possa alocar meu tempo em atividades mais valiosas.
+-   Eu, como técnico, quero poder delegar a tarefa repetitiva de separação metálica para um braço mecânico, a fim de evitar o desgaste físico e mental que esse processo manual e repetitivo causa.
+-   Eu, como técnico, gostaria de utilizar um braço mecânico preciso e confiável, para que eu possa realizar a tarefa de separação dos metais com eficiência e precisão, sem comprometer a qualidade dos resultados.
+-   Eu, como técnico, quero poder anexar o braço mecânico à minha estação de trabalho, para que possa automatizar a separação de liga metálica da amostra através de um processo magnético.
+-   Eu, como técnico, quero ter uma interface física, para controlar a movimentação precisa do braço mecânico.
+-   Eu, como técnico, quero ter uma estrutura fácil de manutenção para garantir que o dispositivo possa ser mantido em boas condições de funcionamento ao longo do tempo.
+-   Eu, como técnico, quero ter um encaixe para o braço mecânico criado a partir de modelagem 3D, para que possa garantir que o braço tenha uma interação perfeita com restante da estação e não prejudique o processo de separação de liga metálica.
 
 # Arquitetura do Sistema
 
@@ -232,7 +232,6 @@ _Descrição do diagrama_
 
 # UX e UI Design
 
-
 ## Frontend + Storyboard
 
 <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
@@ -241,12 +240,9 @@ _Descrição do diagrama_
 
 A nossa aplicação web, por enquanto (SPRINT3), consiste em 3 (três) páginas de um aplicativo desenvolvido em Flutter.
 
-
-
-* A primeira página funciona como uma página inicial para o aplicativo, em que há um botão "Ligar" que ligará o braço robótico; 
-* A segunda página consiste em instruções para o usuário organizar as bandejas, de forma que o braço robótico reconheça cada uma. Além disso, há um botão "iniciar" que começa o processo de separação de metais com o braço robótico. Outrossim, nesta página há uma footer bar que permite a variação da potência do eletroímã em Gauss;
-* Por último, a terceira constitui-se de uma página dinâmica que apresenta o status em tempo real, com a opção de pular uma etapa do processo ou encerrá-lo imediatamente.
-
+-   A primeira página funciona como uma página inicial para o aplicativo, em que há um botão "Ligar" que ligará o braço robótico;
+-   A segunda página consiste em instruções para o usuário organizar as bandejas. Além disso, há um botão "iniciar" que começa o processo de separação de metais com o braço robótico.
+-   Por último, a terceira constitui-se de uma página dinâmica que apresenta o status em tempo real do processo de separação magnética, com os seguintes botões para controlar o robô: pausar processo, voltar estágio, avançar estágio, parada de emergência e desligar.
 
 # Testes de Hardware
 
@@ -279,8 +275,8 @@ Após a primeira passagem, verificamos que seria necessário a elevação da ban
 
 Planejamos criar um servidor que conseguirá receber requisições e se comunicar diretamente com o braço mecânico, executando movimentações e entendendo o status do processo de separação em tempo real. Esse servidor inicialmente estará rodando em um computador ligado via cabo ao braço, mas almejamos transportar esse servidor para um microcontrolador visando uma maior comodidade para o nosso usuário.
 
-- Atualização sprint 3:  
-  Conseguimos criar um servidor embarcado no Raspberry Pi Pico W, o qual tinha a funcionalidade de receber um valor via uma requisição http que continha o valor que queríamos acionar o PWM. Os teste estam descritos da seção de testes do imã abaixo. O código da feature descrita pode ser encontrada em `src/embedded/websocketserver.py` .
+-   Atualização sprint 3:  
+    Conseguimos criar um servidor embarcado no Raspberry Pi Pico W, o qual tinha a funcionalidade de receber um valor via uma requisição http que continha o valor que queríamos acionar o PWM. Os teste estam descritos da seção de testes do imã abaixo. O código da feature descrita pode ser encontrada em `src/embedded/websocketserver.py` .
 
 ## Eletroímã
 
@@ -305,18 +301,18 @@ Assim, por meio do teste, infere-se a possibilidade de implementação do sistem
 
 #### _Controle de potência do eletroímã através de um servidor_
 
-- Na sprint 3, conseguimos criar um servidor embarcado no raspberry pi pico w, o qual recebia uma chamada http em uma porta que decidimos (no exemplo abaixo é a 80) um JSON. O código consistia em ficar em um while loop procurando por chamadas. Quando a recebia, fazia um loop para pegar os últimos caracteres das informações contidas na chamada http. Esse últimos caracteres eram delimitados entre '{' e '}', os quais representam o ínicio e o fim do JSON transmitido. Assim, armazenamos um JSON em formato de string em uma variável e utilizamos o método `.loads` da biblioteca `json` para converter a string em um JSON.  
-   ![image](../docs/img/codigoServidorEmbarcado/Captura_de%20_tela.png)
-  <i>Demonstração do código recebendo e estraindo o valor inserido no JSON</i>  
-   A partir desse valor recebido, o passamos para o pwm o qual foi configurado da seguinte forma:
-  ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_1.png)
-  E o imã então é ligado a partir desse linha:
-  ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_2.png)  
-   Nos teste que executamos, utilizamos o `Postman` para mandar os valores que queríamos que o imã fosse ligado.
-  ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_3.png)<i>Demonstração de como os dados eram enviados ao raspberry</i>  
-  Nesse teste conseguimos perceber a diferença da intensidade em que o imã puxava a moeda. Na próxima sprint imaginamos integrar essa funcionalidade já no backend.
+-   Na sprint 3, conseguimos criar um servidor embarcado no raspberry pi pico w, o qual recebia uma chamada http em uma porta que decidimos (no exemplo abaixo é a 80) um JSON. O código consistia em ficar em um while loop procurando por chamadas. Quando a recebia, fazia um loop para pegar os últimos caracteres das informações contidas na chamada http. Esse últimos caracteres eram delimitados entre '{' e '}', os quais representam o ínicio e o fim do JSON transmitido. Assim, armazenamos um JSON em formato de string em uma variável e utilizamos o método `.loads` da biblioteca `json` para converter a string em um JSON.  
+     ![image](../docs/img/codigoServidorEmbarcado/Captura_de%20_tela.png)
+    <i>Demonstração do código recebendo e estraindo o valor inserido no JSON</i>  
+     A partir desse valor recebido, o passamos para o pwm o qual foi configurado da seguinte forma:
+    ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_1.png)
+    E o imã então é ligado a partir desse linha:
+    ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_2.png)  
+     Nos teste que executamos, utilizamos o `Postman` para mandar os valores que queríamos que o imã fosse ligado.
+    ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_3.png)<i>Demonstração de como os dados eram enviados ao raspberry</i>  
+    Nesse teste conseguimos perceber a diferença da intensidade em que o imã puxava a moeda. Na próxima sprint imaginamos integrar essa funcionalidade já no backend.
 
-## Outros sensores 
+## Outros sensores
 
 ### Célula de carga
 
@@ -338,9 +334,9 @@ Este atuador é usado para misturar a amostra na água em alguns momentos durant
 
 Atualmente, tivemos problemas com o funcionamento do dispositivo. Em entregas futuras os primeiros testes e implementações serão feitos.
 
-
 ### Sensor de distância ultrassônico
-  O sensor de distância ultrassônico é comumente utilizado para medir distâncias e evitar colisões. O seu princípio de funcionamento se baseia na emissão de um pequeno pulso sonoro de alta frequência que se propagará na velocidade do som no meio em que estiver inserido. Quando esse pulso atingir um objeto que estiver em sua trajetória um sinal de eco será refletido para o sensor. A partir disso, é possível de medir a distância do sensor até o objeto por meio do tempo entre a emissão e a recepção, e a velociade do som no meio em que foi emitida.
+
+O sensor de distância ultrassônico é comumente utilizado para medir distâncias e evitar colisões. O seu princípio de funcionamento se baseia na emissão de um pequeno pulso sonoro de alta frequência que se propagará na velocidade do som no meio em que estiver inserido. Quando esse pulso atingir um objeto que estiver em sua trajetória um sinal de eco será refletido para o sensor. A partir disso, é possível de medir a distância do sensor até o objeto por meio do tempo entre a emissão e a recepção, e a velociade do som no meio em que foi emitida.
 
 O sensor de distância ultrassônico é comumente utilizado para medir distâncias e evitar colisões. O seu princípio de funcionamento se baseia na emissão de um pequeno pulso sonoro de alta frequência que se propagará na velocidade do som no meio em que estiver inserido. Quando esse pulso atingir um objeto que estiver em sua trajetória um sinal de eco será refletido para o sensor. A partir disso, é possível de medir a distância do sensor até o objeto por meio do tempo entre a emissão e a recepção, e a velociade do som no meio em que foi emitida.
 
@@ -356,21 +352,81 @@ Será testado na próxima sprint quando o rapsberry pi pico for integrado com o 
 
 ## Tabela de testes
 
-|Componentes|Entrada|Saída esperada|Resultado|
-| :- | :- | :- | :- |
-|Braço robótico|Ativação por meio do aplicativo.|Movimentação feita corretamente pelas bandeja.|Percorreu todas as bandejas sem esbarrar ou travar.|
-|Eletroímã|Pelo código, inserção de diversos níveis de intensidade.)|Mudança da intensidade da atração do ímã proporcional ao valor inserido.|Tudo correto, o ímã mudou sua intensidade, contudo, a variável inserida não está em Gauss, logo, a conversão deve ser realizada.|
-|Bomba d'água|Conexão com uma fonte de 5V.)|Acionamento da bomba.|Ao ser conectada com as polaridades invertidas, a bomba acabou por queimar.|
-|Célula de carga e amplificador HX711|Inserção de algum objeto sob a célula de carga.|Demonstrar o valor da massa desse objeto.|Os valores foram demonstrados, mas a balança não está calibrada, logo, uma conversão deve ser realizada por meio de um peso exemplo.|
-|Sensor de distância ultrassônico|Aproximação de algum objeto do sensor.|Demonstrar valores proporcionais a distância real entre o objeto e o sensor.|Valores corretos foram mostrados em centímetros.|
-|Aplicativo|Movimentação do robô pelas bandejas.|Exibição correta do estágio do processo e do ciclo.|A exibição foi feita corretamente.|
-|Aplicativo|Ativação do botão de pause pelo aplicativo.|Parada do robô e permanência no estágio atual.||
-|Aplicativo|Ativação do botão de play pelo aplicativo.|Retorno da movimentação do estágio em que foi pausado.||
-|Aplicativo|Ativação do botão de avanço pelo aplicativo.|Avanço do estágio do processo, com o robô passando para a próxima bandeja e a mudança do estágio na interface.||
-|Aplicativo|Ativação do botão de retorno pelo aplicativo.|Retorno do estágio do processo, com o robô passando para a bandeja anterior e a mudança do estágio na interface.||
-|Aplicativo|Ativação do botão de parada de emergência pelo aplicativo.|Parada imediata do robô, depois, movimentação levemente para cima.||
+| Componentes                          | Entrada                                                    | Saída esperada                                                                                                   | Resultado                                                                                                                            |
+| :----------------------------------- | :--------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| Braço robótico                       | Ativação por meio do aplicativo.                           | Movimentação feita corretamente pelas bandeja.                                                                   | Percorreu todas as bandejas sem esbarrar ou travar.                                                                                  |
+| Eletroímã                            | Pelo código, inserção de diversos níveis de intensidade.)  | Mudança da intensidade da atração do ímã proporcional ao valor inserido.                                         | Tudo correto, o ímã mudou sua intensidade, contudo, a variável inserida não está em Gauss, logo, a conversão deve ser realizada.     |
+| Bomba d'água                         | Conexão com uma fonte de 5V.)                              | Acionamento da bomba.                                                                                            | Ao ser conectada com as polaridades invertidas, a bomba acabou por queimar.                                                          |
+| Célula de carga e amplificador HX711 | Inserção de algum objeto sob a célula de carga.            | Demonstrar o valor da massa desse objeto.                                                                        | Os valores foram demonstrados, mas a balança não está calibrada, logo, uma conversão deve ser realizada por meio de um peso exemplo. |
+| Sensor de distância ultrassônico     | Aproximação de algum objeto do sensor.                     | Demonstrar valores proporcionais a distância real entre o objeto e o sensor.                                     | Valores corretos foram mostrados em centímetros.                                                                                     |
+| Aplicativo                           | Movimentação do robô pelas bandejas.                       | Exibição correta do estágio do processo e do ciclo.                                                              | A exibição foi feita corretamente.                                                                                                   |
+| Aplicativo                           | Ativação do botão de pause pelo aplicativo.                | Parada do robô e permanência no estágio atual.                                                                   |                                                                                                                                      |
+| Aplicativo                           | Ativação do botão de play pelo aplicativo.                 | Retorno da movimentação do estágio em que foi pausado.                                                           |                                                                                                                                      |
+| Aplicativo                           | Ativação do botão de avanço pelo aplicativo.               | Avanço do estágio do processo, com o robô passando para a próxima bandeja e a mudança do estágio na interface.   |                                                                                                                                      |
+| Aplicativo                           | Ativação do botão de retorno pelo aplicativo.              | Retorno do estágio do processo, com o robô passando para a bandeja anterior e a mudança do estágio na interface. |                                                                                                                                      |
+| Aplicativo                           | Ativação do botão de parada de emergência pelo aplicativo. | Parada imediata do robô, depois, movimentação levemente para cima.                                               |                                                                                                                                      |
+
+# Backend
+
+O backend da aplicação está localizado na pasta src/backend/app.py. Esse arquivo, quando executado, inicia um servidor socket na porta 3001. Nesse mesmo arquivo, criamos uma instância da classe "Dobot", a qual está localizada na pasta src/backend/services/dobot.py. Nessa classe, estão definidos diversas funções que utilizam da biblioteca "pydobot" para executar comandos no robô. No arquivo app.py, fazemos subscribe em diversos tópicos socket, cada um responsável por algum tipo de interação com o robô, ou seja, cada um chamando diferentes funções da classe Dobot.
+<br/>
+<br/>
+Segue a explicação de cada tópico:
+
+<ul>
+  <li>Connect: apenas faz um print no console mostrando que o cliente (aplicativo) conseguiu se conectar com o socket</li>
+  <li>
+    dobot_connect: Responsável por se conectar com o robô, por meio da função start_connection() definida na classe Dobot. <br/>
+    Esse tópico é executado quando o usuário pressiona o botão "Iniciar" da segunda página:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
+    </a>
+  </li>
+   <li>
+    start_cycle: Responsável por iniciar o processo de separação. Nesse tópico é feito um loop que executa a função movement definida na classe Dobot. Essa função é responsável por movimentar o robô por todos os seus estágios e ciclos.
+    <br/>
+    Esse tópico é executado automaticamente quando o usuário entra na página 3:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
+    </a>
+  </li>
+  <li>
+    stop: Responsável por pausar o processo de separação. 
+    <br/>
+    Esse tópico é executado quando o usuário pressiona o botão stop na página 3:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
+    </a>
+  </li>
+  <li>
+    reactivate: Responsável por retomar o processo de separação. 
+    <br/>
+    Esse tópico é executado quando o usuário pressiona o botão play na página 3:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
+    </a>
+  </li>
+  <li>
+    emergency_stop: Responsável por parar completamente o processo de separação. 
+    <br/>
+    Esse tópico é executado quando o usuário pressiona o botão "Parada de emergência" na página 3:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
+    </a>
+  </li>
+  <li>
+    advance_stage: Responsável por passar o processo de separação para o próximo ciclo. 
+  </li>
+  <li>
+    previous_stage: Responsável por passar o processo de separação para o ciclo anterior. 
+  </li>
+  <li>
+    disconnect: tópico executado quando o cliente se desconecta do socket. Nele, executamos a mesma função de parada de emergência do robô. 
+  </li>
+</ul>
 
 # Dispositivo Eletrônico
+
 Não houve a necessidade da utilização de mais de uma placa de cobre perfurada na união de todos os componentes utilizados na operação. O esquemático e o layout da placa são criados para a definição das ligações e das posições dos componentes.
 
 ## Esquemático
@@ -380,33 +436,33 @@ Não houve a necessidade da utilização de mais de uma placa de cobre perfurada
 
 ### Identificação das ligações
 
-|HX711|Microcontrolador|Cor da ligação|
-| :- | :- | :- |
-|GND|GND (porta 3)|Preto|
-|DT|GP2 (porta 4)|Verde|
-|SCK|GP3 (porta 5)|Azul|
-|VCC|VBUS (porta 40)|Vermelho|
+| HX711 | Microcontrolador | Cor da ligação |
+| :---- | :--------------- | :------------- |
+| GND   | GND (porta 3)    | Preto          |
+| DT    | GP2 (porta 4)    | Verde          |
+| SCK   | GP3 (porta 5)    | Azul           |
+| VCC   | VBUS (porta 40)  | Vermelho       |
 
-|HX711|Célula de carga|Cor da ligação|
-| :- | :- | :- |
-|E+|Fio vermelho|Rosa|
-|E-|Fio preto|Ciano|
-|A-|Fio verde|Laranja|
-|A+|Fio branco|Lilás|
+| HX711 | Célula de carga | Cor da ligação |
+| :---- | :-------------- | :------------- |
+| E+    | Fio vermelho    | Rosa           |
+| E-    | Fio preto       | Ciano          |
+| A-    | Fio verde       | Laranja        |
+| A+    | Fio branco      | Lilás          |
 
-|Ponte H|Regulador de tensão|Cor da ligação|
-| :- | :- | :- |
-|GND (porta 8)|OUT-|Preto|
-|VSS (porta 9)|OUT+|Vermelho|
+| Ponte H       | Regulador de tensão | Cor da ligação |
+| :------------ | :------------------ | :------------- |
+| GND (porta 8) | OUT-                | Preto          |
+| VSS (porta 9) | OUT+                | Vermelho       |
 
-|Ponte H|Eletroímas|Cor da ligação|
-| :- | :- | :- |
-|OUT 1|Negativo|Preto|
-|OUT 2|Positivo|Vermelho|
+| Ponte H | Eletroímas | Cor da ligação |
+| :------ | :--------- | :------------- |
+| OUT 1   | Negativo   | Preto          |
+| OUT 2   | Positivo   | Vermelho       |
 
-|Ponte H|Microcontrolador|Cor da ligação|
-| :- | :- | :- |
-|ENA (porta 6)|GP0 (porta 1)|Amarelo|
+| Ponte H       | Microcontrolador | Cor da ligação |
+| :------------ | :--------------- | :------------- |
+| ENA (porta 6) | GP0 (porta 1)    | Amarelo        |
 
 ## Layout da placa
 
@@ -414,32 +470,33 @@ Não houve a necessidade da utilização de mais de uma placa de cobre perfurada
 <i>Layout da placa</i>
 
 # Dispositivos Mecânicos
+
 Peças criadas para o suporte dos componentes eletrônicos.
 
 ## Lista de Peças
 
-|Peça|Quantidade|Descrição|
-| :- | :- | :- |
-|Suporte da Célula de Carga|1|Suporte necessário para o funcionamento correto do componente Célula de carga|
-|Base suporte para Eletroímã|1|Peça inferior (base) onde os eletroímãs serão sustentados|
-|Tampa suporte para Eletroímã|1|Peça superior (tampa) que será acoplada a base do suporte. A tampa terá uma haste para ser usada no braço robô assim como a caneta padrão do Dobot|
-|Caixa protetora para Placa|1|Caixa feita por um polímero onde ficará nossa placa, protegendo de impactos e certo nível de umidade|
-
+| Peça                         | Quantidade | Descrição                                                                                                                                          |
+| :--------------------------- | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Suporte da Célula de Carga   | 1          | Suporte necessário para o funcionamento correto do componente Célula de carga                                                                      |
+| Base suporte para Eletroímã  | 1          | Peça inferior (base) onde os eletroímãs serão sustentados                                                                                          |
+| Tampa suporte para Eletroímã | 1          | Peça superior (tampa) que será acoplada a base do suporte. A tampa terá uma haste para ser usada no braço robô assim como a caneta padrão do Dobot |
+| Caixa protetora para Placa   | 1          | Caixa feita por um polímero onde ficará nossa placa, protegendo de impactos e certo nível de umidade                                               |
 
 ## Lista de Materiais
 
-
-|Material|Descrição|
-| :- | :- |
-|Polímero (ainda não definido)|Usada para a construção da Caixa Protetora para Placa e para o Suporte da Célula de Carga|
-|ABS ou PA (Filamento de Impressão 3d)|Material plástico ou derivativo usado na impressão 3D. Os tipos escolhidos são ambos resistentes a certa temperatura |
+| Material                              | Descrição                                                                                                            |
+| :------------------------------------ | :------------------------------------------------------------------------------------------------------------------- |
+| Polímero (ainda não definido)         | Usada para a construção da Caixa Protetora para Placa e para o Suporte da Célula de Carga                            |
+| ABS ou PA (Filamento de Impressão 3d) | Material plástico ou derivativo usado na impressão 3D. Os tipos escolhidos são ambos resistentes a certa temperatura |
 
 ## Desenho Técnico
+
 ### Suporte para a Célula de Carga
 
 ![Desenho técnico do suporte para a célula de carga](./img/disp_mecanicos/suporte-celula-carga.jpg)
 
 ### Suporte para o Eletroímã
+
 #### Base
 
 ![Desenho técnico da base do suporte para o Eletroíma](./img/disp_mecanicos/base-suporte-ima.jpg)
@@ -449,7 +506,9 @@ Peças criadas para o suporte dos componentes eletrônicos.
 ![Desenho técnico da parte superior do suporte para o Eletroíma](./img/disp_mecanicos/tampa-suporte-ima.jpg)
 
 ## Modelagem 3D
+
 ### Suporte para Eletroímã
+
 #### Base
 
 ![Render 3D da base do suporte para o Eletroíma](./img/disp_mecanicos/render-base-eletroima.jpg)
@@ -461,6 +520,7 @@ Peças criadas para o suporte dos componentes eletrônicos.
 ## Planejamento do Método de Fabricação
 
 ### Suporte Célula de Carga
+
 Para a construção do suporte da Célula de Carga, inicialmente, montamos um protótipo, separamos 4 tábuas retangulares de MDF (medidas acima em “**Desenho Técnico**”) e parafusamos elas no local separado no próprio componente. Na extremidade sinalizada com a seta para cima, uma das tábuas será localizada acima do componente. Na extremidade contrária, a outra tábua de MDF será parafusada abaixo do componente. As duas últimas tábuas, de largura menor, formam uma base posicionada transversalmente em relação ás tábuas principais, dando contra-peso a estrutura. Futuramente, a utilização de algum polímero, como acrílico ou pvc, substituirá as, atuais, peças de MDF.
 
 ![image](./img/suporte celula 1.jpg)
@@ -470,75 +530,74 @@ Para a construção do suporte da Célula de Carga, inicialmente, montamos um pr
 <i>Imagem top-down</i>
 
 ### Base suporte para Eletroímã
+
 A base de suporte para o Eletroímã consiste em uma caixa com a face superior aberta que segura os eletroímãs, sendo sustentado pela tampa dessa caixa. No centro há uma divisória de 4 pontas com um arco entre cada ponta adjacente, deixando o espaço necessário para os ímãs em formato de cilindro se encaixarem no suporte.
 
 A partir da modelagem 3D da peça, iremos imprimir usando um filamento com a característica de resistência à temperatura, visto que nos testes do Eletroímã, notamos que apesar de baixa, houve aumento da temperatura ao usarmos por algum tempo. Ao pesquisar alguns materiais chegamos em 2 possíveis candidatos. São eles, o Nylon de Poliamida, um termoplástico semi-cristalino com baixa densidade e alta estabilidade térmica, e o ABS (**acrilonitrila butadieno estireno**) que possui a resistência ao calor semelhante
 
 ### Tampa suporte para Eletroímã
+
 A tampa suporte para o eletroímã é a parte superior do conjunto de peças de suporte (base e tampa), ela tem a função de sustentar a base, conectar os fios do eletroímã ao controlador de potência, além de se acoplar ao robô através da haste cilíndrica similar a caneta padrão do dobot. Por se tratar de uma peça pertencente ao mesmo conjunto da peça anterior (Suporte ao Eletroímã), todas as informações dos planejamento de fabricação são as mesmas.
 
 ### Base para os componentes eletrônicos
+
 Ao montarmos os componentes eletrônicos seguindo o esquemático, notamos que vários deles não poderiam ser soldados na placa de cobre perfurada, no entanto, não seria possível deixá-los soltos, tendo o risco do rompimentos dos fios, logo, uma base para a fixação foi criada por meio de uma placa de MDF. Porém, para ter uma vida útil melhor, essa placa deverá ser trocada por algum polímero e uma peça superior para a proteção será criada.
 
 ![image](./img/base.jpg)
 <i>Imagem top-down</i>
 
-
-
-
-
 ## **Lista de Materiais**
-
 
 1. **MICROCONTROLADOR:** o microcontrolador responsável pela atuação é o RASPBERRY PI PICO W com Wi-Fi RP2040 133MHZ detensão de alimentação é de 1.8-5.5v dc, cuja fabricante é a Newark Corporation, RS Components, Farnell element14. O microcontrolador será responsável pela intervenção entre a interface amigável e o braço robótico e seus adjacentes.
 1. **BUZZER:** emissor de som de baixo custo, utilizado para reproduzir tanto efeitos sonoros simples, como também a capacidade de emitir sons mais complexos como músicas. Funciona com tensão entre 3,5 e 5V.
 1. **PONTE H:** módulo ponte H L298N; 2 canais de 2A DC. Permite controlar a direção, velocidade e sentido de rotação de um motor elétrico. Servirá para controlar as rotações do braço robótico.
-1. **ELETROÍMÃ:** usado eletroímã solenóide redondo de.**  Atrai e separa o material ferromagnético do restante da amostra.
-1. **CONVERSOR AMPLIFICADOR:** responsável por traduzir os valores recebidos pela célula de carga para o microcontrolador.  Foi usado um conversor amplificador HX711. Tensão de trabalho 2,6 V ~ 5,5 VDC, de corrente de trabalho abaixo de 10mA.
+1. **ELETROÍMÃ:** usado eletroímã solenóide redondo de.\*\* Atrai e separa o material ferromagnético do restante da amostra.
+1. **CONVERSOR AMPLIFICADOR:** responsável por traduzir os valores recebidos pela célula de carga para o microcontrolador. Foi usado um conversor amplificador HX711. Tensão de trabalho 2,6 V ~ 5,5 VDC, de corrente de trabalho abaixo de 10mA.
 
 1. **CÉLULA DE CARGA:** É um sensor usado para medição de peso da amostra. Foi usado o sensor de 1kg.
 1. **REGULADOR DE TENSÃO:** regula uma tensão de entrada de para uma tensão de saída de 12V, usada pelo eletroímã. Usado o módulo Regulador de Tensão Step Up MT 3608.
 1. **BOTÃO:** botão para iniciar as tarefas do robô.
-1. **PCI:** a placa de circuito impresso (PCB) usada para conectar os componentes eletrônicos, como resistores, capacitores e, inclusive, usado para o microcontrolador. Vale ressaltar que a placa é universal e inflexível. Além do mais, no protótipo, foi usado a placa perfurada de 12cm x 18cm de material fenolite; marca: *piscaled*.
-2. **COMPONENTE MOBILE:** será necessária, para interação com o robô, um celular com interface amigável.
-3. **BANDEJA:** deve ser usado 3 bandejas de plástico seco para não ter interferência no eletroímã.
-4. **BRAÇO ROBÓTICO:** automação responsável pela separação diretamente dos sedimentos magnéticos. É usado o braço robótico DOBOT MAGICIAN LITE da empresa Dobot company.
+1. **PCI:** a placa de circuito impresso (PCB) usada para conectar os componentes eletrônicos, como resistores, capacitores e, inclusive, usado para o microcontrolador. Vale ressaltar que a placa é universal e inflexível. Além do mais, no protótipo, foi usado a placa perfurada de 12cm x 18cm de material fenolite; marca: _piscaled_.
+1. **COMPONENTE MOBILE:** será necessária, para interação com o robô, um celular com interface amigável.
+1. **BANDEJA:** deve ser usado 3 bandejas de plástico seco para não ter interferência no eletroímã.
+1. **BRAÇO ROBÓTICO:** automação responsável pela separação diretamente dos sedimentos magnéticos. É usado o braço robótico DOBOT MAGICIAN LITE da empresa Dobot company.
 
-
-|**Representação**|**Componentes**|**Quantidade**|**Descrição**|
-| :- | :-: | :- | :- |
-||Raspberry Pi Pico W com conexão wifi|1|Coletar e processar informações |
-||Placa de cobre perfurada|1|Conectar, por meio da solda, todos os componentes.|
-||Ponte H|1|Permite controlar a direção, velocidade e sentido de rotação de um motor elétrico. Servirá para controlar as rotações do braço robótico.|
-||Módulo Conversor Amplificador HX711|1|Responsável por traduzir os valores recebidos pela célula de carga para o microcontrolador|
-||Eletroímã|4|Atrai e separa o material ferromagnético do restante da amostra.|
-||Célula de carga 1kg|1|Medir a massa da amostra.|
-||Módulo Regulador de Tensão Step Up MT3608|1|Regula uma tensão de entrada de para uma tensão de saída de 12V, usada pelo eletroímã.|
-||Dobot Magitian Lite |1|Braço robótico utilizado na movimentação dos eletroímãs entre as bandejas.|
-||Buzzer|1|Anuncia o fim do procedimento.|
-||Push Button|1|Inicia o procedimento.|
-||Bandejas|3|Utilizadas para o depósito da amostra, da limpeza do material e o depósito desse.|
-||Polímero (ainda não definido)||Estrutura feita a partir de tal material para o suporte da célula de carga.|
-||Parafusos (tamanho ainda não definido)|≅ 2|Usado na montagem da balança.|
-||Porcas (tamanho ainda não definido)|≅ 2|Usada na montagem da balança.|
-||Arruelas (tamanho ainda não definido)|≅ 2|Usada na montagem da balança.|
+| **Representação** |              **Componentes**              | **Quantidade** | **Descrição**                                                                                                                            |
+| :---------------- | :---------------------------------------: | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+|                   |   Raspberry Pi Pico W com conexão wifi    | 1              | Coletar e processar informações                                                                                                          |
+|                   |         Placa de cobre perfurada          | 1              | Conectar, por meio da solda, todos os componentes.                                                                                       |
+|                   |                  Ponte H                  | 1              | Permite controlar a direção, velocidade e sentido de rotação de um motor elétrico. Servirá para controlar as rotações do braço robótico. |
+|                   |    Módulo Conversor Amplificador HX711    | 1              | Responsável por traduzir os valores recebidos pela célula de carga para o microcontrolador                                               |
+|                   |                 Eletroímã                 | 4              | Atrai e separa o material ferromagnético do restante da amostra.                                                                         |
+|                   |            Célula de carga 1kg            | 1              | Medir a massa da amostra.                                                                                                                |
+|                   | Módulo Regulador de Tensão Step Up MT3608 | 1              | Regula uma tensão de entrada de para uma tensão de saída de 12V, usada pelo eletroímã.                                                   |
+|                   |            Dobot Magitian Lite            | 1              | Braço robótico utilizado na movimentação dos eletroímãs entre as bandejas.                                                               |
+|                   |                  Buzzer                   | 1              | Anuncia o fim do procedimento.                                                                                                           |
+|                   |                Push Button                | 1              | Inicia o procedimento.                                                                                                                   |
+|                   |                 Bandejas                  | 3              | Utilizadas para o depósito da amostra, da limpeza do material e o depósito desse.                                                        |
+|                   |       Polímero (ainda não definido)       |                | Estrutura feita a partir de tal material para o suporte da célula de carga.                                                              |
+|                   |  Parafusos (tamanho ainda não definido)   | ≅ 2            | Usado na montagem da balança.                                                                                                            |
+|                   |    Porcas (tamanho ainda não definido)    | ≅ 2            | Usada na montagem da balança.                                                                                                            |
+|                   |   Arruelas (tamanho ainda não definido)   | ≅ 2            | Usada na montagem da balança.                                                                                                            |
 
 ##
 
-
 # **Planejamento do Método de Fabricação**
-No planejamento do método de fabricação, vamos dividir 3 etapas: a etapa número 1 será para componentes relacionados ao PCI, a etapa número 2 será para outros componentes com ponte H e o regulador de tensão e  a etapa 3 montagem final dos hardwares.
+
+No planejamento do método de fabricação, vamos dividir 3 etapas: a etapa número 1 será para componentes relacionados ao PCI, a etapa número 2 será para outros componentes com ponte H e o regulador de tensão e a etapa 3 montagem final dos hardwares.
 
 1. Primeira etapa: pegue a placa de circuito impresso (PCI) de 12cm x 18cm. E coloque um conector para que possa conectar o Raspberry Pi Pico W. Veja o exemplo da imagem abaixo:
 
 ![image](./img/manual/com-conector.jpg)
-<i>Imagem 3.1: placa de circuito impresso (PCI) com conector.<i>                                                                
+<i>Imagem 3.1: placa de circuito impresso (PCI) com conector.<i>
 
 ![image](./img/manual/rapsberry-conector.jpg)
 <i>Imagem 3.2: PCI com o Raspberry Pi Pico W<i>
 ![image](./img/manual/raps-conector-2.jpg)
 <i>Imagem 3.3<i>
+
 #
+
 1. Em segundo passo, após encaixar o PCI na placa, solde o conector na placa com um jumpers: um na entrada; outro para o GND; e outros para os GPIOs.
 
 ![image](./img/manual/soldagem.jpg)
@@ -546,27 +605,24 @@ Imagem 3.3: soldagem dos jumpers com o conector
 
 1. Agora, vamos para a etapa número 2: primeiro, pegue a ponte H conecte um jumper no pino de entrada 5V. Em seguida, coloque um jumper no VCC, um no GND e outro no VLOGIC. E por fim, um fio na porta do OUT 1 na parte do MOTOR A. Veja o exemplo na imagem 3.4 e imagem 3.5:
 
-
-![image](./img/manual/Imagem2023-03-12%20à(s)%2022.38.23.jpg)
+![image](<./img/manual/Imagem2023-03-12%20à(s)%2022.38.23.jpg>)
 <i>imagem 3.4<i>
 
 ![image](./img/manual/ponte2.jpg)
 
-
 #
 
-1. Para o regulador de tensão, é simples: ligue  a alimentação no borne de entrada, conectando a tensão positiva (2v - 24v DC) no IN+ e GND no IN-. Para visualizar a tensão de saída, conecte um multímetro no borne de saída (OUT+  e OUT-), na posição de medida de tensão contínua.
+1. Para o regulador de tensão, é simples: ligue a alimentação no borne de entrada, conectando a tensão positiva (2v - 24v DC) no IN+ e GND no IN-. Para visualizar a tensão de saída, conecte um multímetro no borne de saída (OUT+ e OUT-), na posição de medida de tensão contínua.
 
 ![image](./img/manual/reguladorTensao.jpg)
 <i>Imagem 3.6: regulador de tensão step up.<i>
 
-1. Para o conversor amplificador HX711 deverá ter 4 fios soldados nas portas E+, E-, A+ e  A- . Nas pontas dos fios devem estar soldados entre eles para facilitar a conexão. Essa fiação  conectará com a célula de carga, que detalharemos adiante no item 4. Guia de Instalação.
+1. Para o conversor amplificador HX711 deverá ter 4 fios soldados nas portas E+, E-, A+ e A- . Nas pontas dos fios devem estar soldados entre eles para facilitar a conexão. Essa fiação conectará com a célula de carga, que detalharemos adiante no item 4. Guia de Instalação.
 
 ![image](./img/manual/amplificador.jpg)
 <i>Imagem 3.7: conversor amplificador.<i>
 
-
-1. Agora, conecte os eletroímãs solenóides com o “*conector”* de canetas do braço robótico.
+1. Agora, conecte os eletroímãs solenóides com o “_conector”_ de canetas do braço robótico.
 
 ![image](./img/manual/sensor-separado.jpg)
 <i>Imagem 3.8: eletroímãs desconectados.<i>
@@ -575,16 +631,19 @@ Imagem 3.3: soldagem dos jumpers com o conector
 <i>Imagem 3.9: eletroímãs conectados com o suporte de canetas do braço robótico.<i>
 ![image](./img/manual/sensor-junto2.jpg)
 <i>Imagem 3.10<i>
+
 #
+
 1. Conecte soldando a ponte H com os eletroímãs. Lembrando que a fiação que sai de um eletroimã deve estar conectado com VCC e GND juntos e outro eletroímã deve estar conectado com o fio do motor A: OUT 1.
 
 ![image](./img/manual/ponte-junto-h.jpg)
 <i>Imagem 3.10: conectando eletroímãs com a ponte H.<i>
 
 #
+
 1. Etapa 3: Para termos uma melhor experiência com a montagem, iremos usar um MDF para execução do programa.
 
-*obs: o apoio com MDF não será permanente, será usado uma outro componente de apoio, a qual não comprometa com o hardware.*
+_obs: o apoio com MDF não será permanente, será usado uma outro componente de apoio, a qual não comprometa com o hardware._
 ![image](./img/manual/mdf.jpg)
 Imagem 3.11: MDF sendo medido para que possa ser colado e parafusados os componentes que outrora montamos.
 
