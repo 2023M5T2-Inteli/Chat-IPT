@@ -355,16 +355,16 @@ Será testado na próxima sprint quando o rapsberry pi pico for integrado com o 
 | Componentes                          | Entrada                                                    | Saída esperada                                                                                                   | Resultado                                                                                                                            |
 | :----------------------------------- | :--------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
 | Braço robótico                       | Ativação por meio do aplicativo.                           | Movimentação feita corretamente pelas bandeja.                                                                   | Percorreu todas as bandejas sem esbarrar ou travar.                                                                                  |
-| Eletroímã                            | Pelo código, inserção de diversos níveis de intensidade.)  | Mudança da intensidade da atração do ímã proporcional ao valor inserido.                                         | Tudo correto, o ímã mudou sua intensidade, contudo, a variável inserida não está em Gauss, logo, a conversão deve ser realizada.     |
-| Bomba d'água                         | Conexão com uma fonte de 5V.)                              | Acionamento da bomba.                                                                                            | Ao ser conectada com as polaridades invertidas, a bomba acabou por queimar.                                                          |
+| Eletroímã                            | Pelo código, inserção de diversos níveis de intensidade.  | Mudança da intensidade da atração do ímã proporcional ao valor inserido.                                         | Pela interface, as mudanças de intensidade não foram possíveis, contudo, por método hardcoding, o valor do campo magnético foi modificado.     |
+| Bomba d'água                         | Conexão com uma fonte de 5V.                              | Acionamento da bomba.                                                                                            | Ao ser conectada com as polaridades invertidas, a bomba acabou por queimar.                                                          |
 | Célula de carga e amplificador HX711 | Inserção de algum objeto sob a célula de carga.            | Demonstrar o valor da massa desse objeto.                                                                        | Os valores foram demonstrados, mas a balança não está calibrada, logo, uma conversão deve ser realizada por meio de um peso exemplo. |
 | Sensor de distância ultrassônico     | Aproximação de algum objeto do sensor.                     | Demonstrar valores proporcionais a distância real entre o objeto e o sensor.                                     | Valores corretos foram mostrados em centímetros.                                                                                     |
 | Aplicativo                           | Movimentação do robô pelas bandejas.                       | Exibição correta do estágio do processo e do ciclo.                                                              | A exibição foi feita corretamente.                                                                                                   |
-| Aplicativo                           | Ativação do botão de pause pelo aplicativo.                | Parada do robô e permanência no estágio atual.                                                                   |                                                                                                                                      |
-| Aplicativo                           | Ativação do botão de play pelo aplicativo.                 | Retorno da movimentação do estágio em que foi pausado.                                                           |                                                                                                                                      |
-| Aplicativo                           | Ativação do botão de avanço pelo aplicativo.               | Avanço do estágio do processo, com o robô passando para a próxima bandeja e a mudança do estágio na interface.   |                                                                                                                                      |
-| Aplicativo                           | Ativação do botão de retorno pelo aplicativo.              | Retorno do estágio do processo, com o robô passando para a bandeja anterior e a mudança do estágio na interface. |                                                                                                                                      |
-| Aplicativo                           | Ativação do botão de parada de emergência pelo aplicativo. | Parada imediata do robô, depois, movimentação levemente para cima.                                               |                                                                                                                                      |
+| Aplicativo                           | Ativação do botão de pause pelo aplicativo.                | Parada do robô e permanência no estágio atual.                                                                   | A priori, houve um problema com a biblioteca utilizada, mas ele já foi resolvido e o processo ocorre corretamente. |
+| Aplicativo                           | Ativação do botão de play pelo aplicativo.                 | Retorno da movimentação do estágio em que foi pausado.                                                           | A priori, houve um problema com a biblioteca utilizada, mas ele já foi resolvido e o processo ocorre corretamente. |
+| Aplicativo                           | Ativação do botão de avanço pelo aplicativo.               | Avanço do estágio do processo, com o robô passando para a próxima bandeja e a mudança do estágio na interface.   |  A priori, houve um problema com a biblioteca utilizada, mas ele já foi resolvido e o processo ocorre corretamente. |
+| Aplicativo                           | Ativação do botão de retorno pelo aplicativo.              | Retorno do estágio do processo, com o robô passando para a bandeja anterior e a mudança do estágio na interface. | A priori, houve um problema com a biblioteca utilizada, mas ele já foi resolvido e o processo ocorre corretamente. |
+| Aplicativo                           | Ativação do botão de parada de emergência pelo aplicativo. | Parada imediata do robô, depois, movimentação levemente para cima.                                               | A priori, houve um problema com a biblioteca utilizada, mas ele já foi resolvido e o processo ocorre corretamente.  |
 
 # Backend
 
@@ -523,8 +523,9 @@ Peças criadas para o suporte dos componentes eletrônicos.
 
 | Material                              | Descrição                                                                                                            |
 | :------------------------------------ | :------------------------------------------------------------------------------------------------------------------- |
-| Polímero (ainda não definido)         | Usada para a construção da Caixa Protetora para Placa e para o Suporte da Célula de Carga                            |
+| Chapa de polietileno 80cm x 40 cm         | Usada para a construção do Suporte da Célula de Carga                            |
 | ABS ou PA (Filamento de Impressão 3d) | Material plástico ou derivativo usado na impressão 3D. Os tipos escolhidos são ambos resistentes a certa temperatura |
+| Pote plástico com tampa 15cm x 20cm   | Usado para a construção da caixa protetora da placa. 
 
 ## Desenho Técnico
 
@@ -564,13 +565,18 @@ Peças criadas para o suporte dos componentes eletrônicos.
 
 ### Suporte Célula de Carga
 
-Para a construção do suporte da Célula de Carga, inicialmente, montamos um protótipo, separamos 4 tábuas retangulares de MDF (medidas acima em “**Desenho Técnico**”) e parafusamos elas no local separado no próprio componente. Na extremidade sinalizada com a seta para cima, uma das tábuas será localizada acima do componente. Na extremidade contrária, a outra tábua de MDF será parafusada abaixo do componente. As duas últimas tábuas, de largura menor, formam uma base posicionada transversalmente em relação ás tábuas principais, dando contra-peso a estrutura. Futuramente, a utilização de algum polímero, como acrílico ou pvc, substituirá as, atuais, peças de MDF.
+Para a construção do suporte da Célula de Carga, inicialmente, montamos um protótipo, separamos 4 tábuas retangulares de MDF (medidas acima em “**Desenho Técnico**”) e parafusamos elas no local separado no próprio componente. Na extremidade sinalizada com a seta para cima, uma das tábuas será localizada acima do componente. Na extremidade contrária, a outra tábua de MDF será parafusada abaixo do componente. As duas últimas tábuas, de largura menor, formam uma base posicionada transversalmente em relação ás tábuas principais, dando contra-peso a estrutura.
 
 ![image](./img/suporte celula 1.jpg)
 <i>Imagem frontal/lateral</i>
 
 ![image](./img/suporte celula 2.jpg)
 <i>Imagem top-down</i>
+
+A placa de polietileno foi escolhida por possuir uma boa resistência e ser um material de fácil acesso para o grupo. As chapas que devem ser parafusadas a célula de carga já foram cortadas, mas ainda não foram fixadas, já que houve a falta dos parafusos e porcas necessárias.
+
+![image](./img/placas celula de carga.jpg)
+<i>Placas de polietileno cortadas</i>
 
 ### Base suporte para Eletroímã
 
