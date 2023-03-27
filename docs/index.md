@@ -596,6 +596,22 @@ Na segunda versão da base, perfuramos a placa e parafusamos os componentes que 
 
 ![IMG_20230327_113725](https://user-images.githubusercontent.com/99269584/228053083-7250744f-570f-4b9f-8a60-1a458787f18a.jpg)
 
+## Testes dispositivos mecânicos
+
+### Primeira Versão
+
+O protótipo possui uma base com uma placa de cobre que contém os seguintes componentes: Raspberry Pi Pico W, ponte H, amplificador HX711 e dois plugs banana fêmea. Além disso, há um dispositivo eletromecânico feito para um eletroímã com placa de cobre, que está acoplado no braço robótico por meio de uma caneta. A ponte H se interliga ao dispositivo eletromecânico do eletroímã por meio de um cabo de rede.
+
+O principal objetivo do sistema é controlar o eletroímã e assegurar que o dispostivo esteja adequado no braço robótico. Nos passos a seguir, será descrito as respostas esperadas para cada um dos componentes e os testes realizados:
+
+| Dispositivo Eletromecânico | Descrição e Resultado Esperado | Testes |
+| --- | --- | --- |
+| Placa de Cobre Base | É a base do sistema, na qual os componentes são fixados. Foi-se avaliado a resistência da placa e sua estabilidade para comportar os componentes, com uma conexão elétrica confiável, evitando-se possíveis problemas de curto. No teste realizado o sistema apresentou curto circuito no modulador de eletricidade da ponte H. Com isso, foi-se descartado esse componente e optou-se por realizar ligação do VCC de 10V diretamente na ponte H. A ponte H não apresentou falhas após essa alteração e apresentou os resultados esperados no eletroímã. A conexão com o Raspberry Pi Pico W também não apresentou falhas. | O teste foi realizado conectando os componentes à placa de cobre base e realizando as conexões elétricas. Foram realizados testes de resistência e estabilidade da placa, bem como testes de curto circuito, após a alteração na conexão elétrica da ponte H. |
+| Base do Eletroímã | Esse componente é ativado pela passagem de energia elétrica por ele. Avaliou-se às alterações de corrente elétrica controladas pela ponte H, exercendo a força magnética esperada no dispositivo eletromecânico. Além disso, o eletroímã foi parafusado na placa de cobre de modo que não alterasse a sua força magnética. Para acoplamento no braço robótico, foi utilizada uma caneta em uma peça do próprio braço robótico. | O teste foi realizado aplicando diferentes correntes elétricas no eletroímã e avaliando a força magnética gerada no dispositivo eletromecânico. Também foi avaliada a fixação do eletroímã na placa de cobre e o acoplamento do dispositivo ao braço robótico. |
+
+
+Os funcionamento completo da primeira versão do dispositivo mecânico pode ser visto em: https://user-images.githubusercontent.com/99269584/228059827-2232d2e0-df46-40ca-83af-213a52a6a68e.mp4
+
 
 ## **Lista de Materiais**
 
