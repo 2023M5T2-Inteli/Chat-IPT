@@ -301,7 +301,7 @@ Assim, por meio do teste, infere-se a possibilidade de implementação do sistem
 
 #### _Controle de potência do eletroímã através de um servidor_
 
--   Na sprint 3, conseguimos criar um servidor embarcado no raspberry pi pico w, o qual recebia uma chamada http em uma porta que decidimos (no exemplo abaixo é a 80) um JSON. O código consistia em ficar em um while loop procurando por chamadas. Quando a recebia, fazia um loop para pegar os últimos caracteres das informações contidas na chamada http. Esse últimos caracteres eram delimitados entre '{' e '}', os quais representam o ínicio e o fim do JSON transmitido. Assim, armazenamos um JSON em formato de string em uma variável e utilizamos o método `.loads` da biblioteca `json` para converter a string em um JSON.  
+-   Foi desenvolvido um servidor embarcado no Raspberry Pi Pico W, o qual recebia uma chamada http em uma porta que decidimos (no exemplo abaixo é a 80) um JSON. O código consistia em ficar em um while loop procurando por chamadas. Quando a recebia, fazia um loop para pegar os últimos caracteres das informações contidas na chamada http. Esse últimos caracteres eram delimitados entre '{' e '}', os quais representam o ínicio e o fim do JSON transmitido. Assim, armazenamos um JSON em formato de string em uma variável e utilizamos o método `.loads` da biblioteca `json` para converter a string em um JSON.  
      ![image](../docs/img/codigoServidorEmbarcado/Captura_de%20_tela.png)
     <i>Demonstração do código recebendo e estraindo o valor inserido no JSON</i>  
      A partir desse valor recebido, o passamos para o pwm o qual foi configurado da seguinte forma:
@@ -310,7 +310,9 @@ Assim, por meio do teste, infere-se a possibilidade de implementação do sistem
     ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_2.png)  
      Nos teste que executamos, utilizamos o `Postman` para mandar os valores que queríamos que o imã fosse ligado.
     ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_3.png)<i>Demonstração de como os dados eram enviados ao raspberry</i>  
-    Nesse teste conseguimos perceber a diferença da intensidade em que o imã puxava a moeda. Na próxima sprint imaginamos integrar essa funcionalidade já no backend.
+    No teste realizado, obervasse o funcionamento do circuito com alimentação de 10V para ponte H. O eletroímã é acionado via valores enviados pelo backend, a conexão com o Rapsberry Pi Pico W é feita via cabo USB. 
+https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4
+    
 
 ## Outros sensores
 
@@ -485,9 +487,6 @@ A construção do um dispositivo eletrônico foi feito em uma placa de cobre, na
 A montagem da placa utilizada nesse projeto apresenta Raspberry Pi Pico W, ponte H e módulo HX711 soldados na placa. Também contém dois plugs banana fêmea que recebem VCC e GND para alimentar o circuito da ponte H. 
 
 ![IMG_20230327_113725](https://user-images.githubusercontent.com/99269584/227995930-658e5e51-d1d3-4ea8-9571-769f59a470f0.jpg)
-
-No teste realizado, obervasse o funcionamento do circuito com alimentação de 10V para ponte H. O eletroímã é acionado via valores enviados pelo backend, a conexão com o Rapsberry Pi Pico W é feita via cabo USB. 
-https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4
 
 # Dispositivos Mecânicos
 
