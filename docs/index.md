@@ -53,11 +53,12 @@ Concepção de sistema de automação industrial
   - [Eletroímã](#eletroímã)
     - [Controle do eletroímã](#controle-do-eletroímã)
     - [Controle de potência do eletroímã](#controle-de-potência-do-eletroímã)
+      - [_Controle de potência do eletroímã através de um servidor_](#controle-de-potência-do-eletroímã-através-de-um-servidor)
   - [Outros sensores](#outros-sensores)
     - [Célula de carga](#célula-de-carga)
-    - [Mini Bomba Motor D'água](#mini-bomba-motor-dágua)
     - [Sensor de distância ultrassônico](#sensor-de-distância-ultrassônico)
     - [Buzzer](#buzzer)
+  - [Tabela de testes](#tabela-de-testes)
 - [Dispositivo Eletrônico](#dispositivo-eletrônico)
   - [Esquemático](#esquemático)
     - [Identificação das ligações](#identificação-das-ligações)
@@ -76,6 +77,7 @@ Concepção de sistema de automação industrial
       - [Tampa](#tampa-1)
   - [Planejamento do Método de Fabricação](#planejamento-do-método-de-fabricação)
     - [Suporte Célula de Carga](#suporte-célula-de-carga)
+    - [Dispositivo para mexer a água.](#dispositivo-para-mexer-a-água)
     - [Base suporte para Eletroímã](#base-suporte-para-eletroímã)
     - [Tampa suporte para Eletroímã](#tampa-suporte-para-eletroímã)
     - [Base para os componentes eletrônicos](#base-para-os-componentes-eletrônicos)
@@ -332,12 +334,6 @@ No projeto atual, o sensor de peso tem o objetivo de identificar a quantidade de
 
 Atualmente, apenas a ligação entre o dispositivo e o amplificador foram feitas, contudo, futuramente, serão contruídas as bases para a célula, sua calibração e implementação do algoritmo.
 
-### Mini Bomba Motor D'água
-
-Este atuador é usado para misturar a amostra na água em alguns momentos durante o processo de separação. É um componente utilizado para pressurizar, circular ou bombear água, dependendo da necessidade contextual do projeto. Em nosso caso, após o braço ter concluído o circuito na primeira bandeja, onde a bomba estará localizada, ela será ligada. Isso fará com que a água circule na primeira bandeja, iniciando o processo de mistura da amostra, garantindo uma maior qualidade nos testes ao evitar que materiais mais pesados fiquem depositados no fundo da bandeja.
-
-Atualmente, tivemos problemas com o funcionamento do dispositivo. Em entregas futuras os primeiros testes e implementações serão feitos.
-
 
 ### Sensor de distância ultrassônico
   O sensor de distância ultrassônico é comumente utilizado para medir distâncias e evitar colisões. O seu princípio de funcionamento se baseia na emissão de um pequeno pulso sonoro de alta frequência que se propagará na velocidade do som no meio em que estiver inserido. Quando esse pulso atingir um objeto que estiver em sua trajetória um sinal de eco será refletido para o sensor. A partir disso, é possível de medir a distância do sensor até o objeto por meio do tempo entre a emissão e a recepção, e a velociade do som no meio em que foi emitida.
@@ -352,7 +348,7 @@ O teste realiazado no vídeo a seguir, demonstra o funcionamento do sensor para 
 
 ### Buzzer
 
-Será testado na próxima sprint quando o rapsberry pi pico for integrado com o braço robótico e interface web.
+Será testado nessa sprint quando o rapsberry pi pico for integrado com o braço robótico e interface web.
 
 ## Tabela de testes
 
@@ -437,7 +433,7 @@ Peças criadas para o suporte dos componentes eletrônicos.
 ## Desenho Técnico
 ### Suporte para a Célula de Carga
 
-![Desenho técnico do suporte para a célula de carga](./img/disp_mecanicos/suporte-celula-carga.jpg)
+
 
 ### Suporte para o Eletroímã
 #### Base
@@ -461,13 +457,42 @@ Peças criadas para o suporte dos componentes eletrônicos.
 ## Planejamento do Método de Fabricação
 
 ### Suporte Célula de Carga
+
+1° versão planejada:
+
 Para a construção do suporte da Célula de Carga, inicialmente, montamos um protótipo, separamos 4 tábuas retangulares de MDF (medidas acima em “**Desenho Técnico**”) e parafusamos elas no local separado no próprio componente. Na extremidade sinalizada com a seta para cima, uma das tábuas será localizada acima do componente. Na extremidade contrária, a outra tábua de MDF será parafusada abaixo do componente. As duas últimas tábuas, de largura menor, formam uma base posicionada transversalmente em relação ás tábuas principais, dando contra-peso a estrutura. Futuramente, a utilização de algum polímero, como acrílico ou pvc, substituirá as, atuais, peças de MDF.
 
-![image](./img/suporte celula 1.jpg)
+![Desenho técnico do suporte para a célula de carga](./img/disp_mecanicos/suporte-celula-carga.jpg)
+<i>Desenho fora da escala real</i>
+
+![image](./img/suporte_celula_1.jpg)
 <i>Imagem frontal/lateral</i>
 
-![image](./img/suporte celula 2.jpg)
+![image](./img/suporte_celula_2.jpg)
 <i>Imagem top-down</i>
+
+2° versão planejada:
+
+Apesar das informações obtida da 1° versão sobre o suporte da Célula de Carga, foi encontrado um pequeno erro na parte da fabricação do dispositivo. Ou seja, para que o sensor de peso - outro nome de identificação da célula - mostre o valor exato e confiável é preciso limitar e equilibrar suas pontas igualmente. Vamos ser mais didático para sua compreensão. Dentro da célula de carga existe um componente chamado "Strain Guage", esse componente tem uma "espécie" de um resistor lá dentro. E a resistência varia de acordo com a deformação. A célula que é utilizada no suporte tem dois Strain Guage de cada lado, por isso que foi colocado pequenas elevação. Veja a seguir:
+
+![image](./img/manual/elevacao_celula.jpg)
+<i>Imagem: Elevação nas pontas da cálula</i>
+
+A sua montagem foi de maneira bem simples: 
+
+Foram utilizado dois plásticos secos retangular. A célula foi parafusada no centro. Veja na imagem a seguir:
+
+![image](./img/manual/celular_montagem.jpg)
+<i>Imagem: Montagem</i>
+
+### Dispositivo para mexer a água.
+
+Foi usado o Mini Bomba Motor D'água. Este atuador é usado para misturar a amostra na água em alguns momentos durante o processo de separação. É um componente utilizado para pressurizar, circular ou bombear água, dependendo da necessidade contextual do projeto. No caso do protótipo, foi usado parte do motor e será usado com um helice de duas pás. Veja o exemplo a seguir:
+
+
+![image](./img/manual/motor.jpg)
+<i>Imagem</i>
+
 
 ### Base suporte para Eletroímã
 A base de suporte para o Eletroímã consiste em uma caixa com a face superior aberta que segura os eletroímãs, sendo sustentado pela tampa dessa caixa. No centro há uma divisória de 4 pontas com um arco entre cada ponta adjacente, deixando o espaço necessário para os ímãs em formato de cilindro se encaixarem no suporte.
