@@ -546,19 +546,21 @@ Peças criadas para o suporte dos componentes eletrônicos.
 
 ### Suporte para Eletroímã
 
-#### Base
+#### Base - 1° Versão
 
 ![Render 3D da base do suporte para o Eletroíma](./img/disp_mecanicos/render-base-eletroima.jpg)
 
-#### Tampa
+#### Tampa - 1° Versão
 
 ![Render 3D da base da parte superior do suporte para o Eletroíma](./img/disp_mecanicos/render-tampa-eletroima.jpg)
 
-### Primeira versão do suporte para eletroímã
- 
- A primeira versão da base do eletroíma foi construída com o recorte de uma placa de cobre e montagem dos eletroímas parafusados. O eletroíma foi conectado aa ponte H por meio da extensão construída com fio de rede. 
- 
- ![WhatsApp Image 2023-03-27 at 4 49 43 PM](https://user-images.githubusercontent.com/99269584/228051480-8b6ef59c-575f-4d1b-86fe-8c3d50003c03.jpeg)
+#### Base - 2° Versão
+
+![Render 3D da base do suporte para o Eletroíma](./img/disp_mecanicos/inventor-base.jpg)
+
+#### Tampa - 2° Versão
+
+![Render 3D da base da parte superior do suporte para o Eletroíma](./img/disp_mecanicos/inventor-tampa.jpg)
 
 ## Planejamento do Método de Fabricação
 
@@ -581,6 +583,18 @@ A partir da modelagem 3D da peça, iremos imprimir usando um filamento com a car
 ### Tampa suporte para Eletroímã
 
 A tampa suporte para o eletroímã é a parte superior do conjunto de peças de suporte (base e tampa), ela tem a função de sustentar a base, conectar os fios do eletroímã ao controlador de potência, além de se acoplar ao robô através da haste cilíndrica similar a caneta padrão do dobot. Por se tratar de uma peça pertencente ao mesmo conjunto da peça anterior (Suporte ao Eletroímã), todas as informações dos planejamento de fabricação são as mesmas.
+
+### Primeira versão construída do suporte para eletroímã
+ 
+ A primeira versão da base do eletroíma foi construída com o recorte de uma placa de cobre e montagem dos eletroímas parafusados. O eletroíma foi conectado aa ponte H por meio da extensão construída com fio de rede. Tal versão foi pensada para uma rapida prottipação e testes dos eletroímas acoplados no braço robótico
+ 
+ ![WhatsApp Image 2023-03-27 at 4 49 43 PM](https://user-images.githubusercontent.com/99269584/228051480-8b6ef59c-575f-4d1b-86fe-8c3d50003c03.jpeg)
+
+ ### Segunda versão do suporte para eletroíma
+
+ A segunda versão do suporte já foi impressa a partir da segunda versão do modelo 3D. O modelo foi pensado para sustentar até 4 imãs, havendo o espaço exato para encaixe, não necessitando parafusos além da tampa. Há 4 espaços entre os encaixes para os imãs e a haste do suporte para que a fiação passe por dentro da haste, facilitando o manuseio deles. Já a haste nessa versão foi passada para a própria base, isso foi pensado para facilitar a sustentação do conjunto da peça pelo robô (na outra versão ela estava localizada na tampa). Há também 4 buracos para parafusos M3 para vedação da tampa e do suporte, evitando que entre água no momento da separação magnética. Devido a alguns erros de medidas em relação a tampa, essa versão ainda não foi testada acoplada ao braço robótico.
+
+ ![Foto do conjunto Base e Tampa impresso em 3D](./img/disp_mecanicos/ft-part-impressa.jpg)
 
 ### Base para os componentes eletrônicos
 
