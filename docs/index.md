@@ -566,15 +566,15 @@ Peças criadas para o suporte dos componentes eletrônicos.
 
 Para a construção do suporte da Célula de Carga, inicialmente, montamos um protótipo, separamos 4 tábuas retangulares de MDF (medidas acima em “**Desenho Técnico**”) e parafusamos elas no local separado no próprio componente. Na extremidade sinalizada com a seta para cima, uma das tábuas será localizada acima do componente. Na extremidade contrária, a outra tábua de MDF será parafusada abaixo do componente. As duas últimas tábuas, de largura menor, formam uma base posicionada transversalmente em relação ás tábuas principais, dando contra-peso a estrutura.
 
-![image](./img/suporte celula 1.jpg)
+![suporte1](./img/suporte1.jpg)
 <i>Imagem frontal/lateral</i>
 
-![image](./img/suporte celula 2.jpg)
+![suporte2](./img/suporte2.jpg)
 <i>Imagem top-down</i>
 
 A placa de polietileno foi escolhida por possuir uma boa resistência e ser um material de fácil acesso para o grupo. As chapas que devem ser parafusadas a célula de carga já foram cortadas, mas ainda não foram fixadas, já que houve a falta dos parafusos e porcas necessárias.
 
-![image](./img/placas celula de carga.jpg)
+![placas](./img/placas.jpeg)
 <i>Placas de polietileno cortadas</i>
 
 ### Base suporte para Eletroímã
