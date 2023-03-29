@@ -100,7 +100,7 @@ class Dobot:
                 raspberry_instance.send_command("0")
             else:
                 raspberry_instance = Raspberry()
-                raspberry_instance.send_command("60000")
+                raspberry_instance.send_command(str(self.magneticForce))
 
             for cords in self.tray[self.stage]:
                 if self.stage != initial_stage:

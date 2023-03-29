@@ -31,7 +31,7 @@ def handle_start_cicle(sid, arguments):
     dobot_instance.magneticForce = arguments['magneticForce']
     
     raspberry_instance = Raspberry()
-    raspberry_instance.send_command("60000")
+    raspberry_instance.send_command(str(dobot_instance.magneticForce))
     
     while dobot_instance.cycle < dobot_instance.maxCycles:
         while dobot_instance.stage < 3: 
