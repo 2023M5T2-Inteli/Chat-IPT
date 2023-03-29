@@ -66,7 +66,7 @@ class _ProcessState extends State<Process> {
 
     print('Tentando se conectar...');
     // http://192.168.197.134:3001
-    socket = IO.io('http://localhosat:3001', <String, dynamic>{
+    socket = IO.io('http://localhost:3001', <String, dynamic>{
       'autoConnect': false,
       'transports': ['websocket'],
     });
