@@ -6,6 +6,8 @@ from pydobot.enums import PTPMode
 class Dobot:
     def __init__(self, _sio) -> None:
         self._cycle = 0
+        self.maxCycles = 20
+        self.magneticForce = 60000
         self._stage = 0
         self.pause = False
         self.sio = _sio

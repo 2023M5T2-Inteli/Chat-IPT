@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:gpt_robot/widgets/components/pageContainer.dart';
+import '../components/pageContainer.dart';
 import '../components/button.dart';
 import '../components/turnOffButton.dart';
+import '../components/configuration.dart';
 
-class Instructions extends StatelessWidget {
+class Instructions extends StatefulWidget {
   const Instructions({super.key});
+
+  @override
+  State<Instructions> createState() => _InstructionsState();
+}
+
+class _InstructionsState extends State<Instructions> {
+  void showModal() {
+    showModalBottomSheet(context: context, builder: (_) => Configuration());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +47,14 @@ class Instructions extends StatelessWidget {
         height: MediaQuery.of(context).size.width * 0.8,
       ),
       SizedBox(
-        height: 30,
+        height: 40,
       ),
       Button(
           buttonHandler: () {
-            Navigator.pushNamed(context, '/process');
+            showModal();
+            // Navigator.pushNamed(context, '/process');
           },
-          text: "Iniciar")
+          text: "Configurar")
     ]);
   }
 }

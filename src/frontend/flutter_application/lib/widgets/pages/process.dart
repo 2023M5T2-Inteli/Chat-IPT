@@ -58,10 +58,12 @@ class _ProcessState extends State<Process> {
   @override
   void initState() {
     super.initState();
-    initSocket();
   }
 
-  initSocket() {
+  initSocket(context) {
+    final arguments = (ModalRoute.of(context)?.settings.arguments ??
+        <String, dynamic>{}) as Map;
+
     print('Tentando se conectar...');
     // http://192.168.197.134:3001
     socket = IO.io('http://localhost:3001', <String, dynamic>{
@@ -89,7 +91,7 @@ class _ProcessState extends State<Process> {
         isConnected = true;
       });
       //  Começando processo de separação
-      socket.emit('start_cycle');
+      socket.emit('start_cycle', arguments);
     });
 
     socket.onConnect((_) {
@@ -150,6 +152,7 @@ class _ProcessState extends State<Process> {
   @override
   Widget build(BuildContext context) {
     if (!isConnected) {
+      initSocket(context);
       return Connection();
     }
     return PageContainer(
