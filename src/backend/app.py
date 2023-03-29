@@ -92,6 +92,8 @@ def handle_advance_stage(sid) -> None:
 @sio.event
 def disconnect(sid):
     print('Disconectado ao socket')
+    raspberry_instance = Raspberry()
+    raspberry_instance.send_command("0")
     dobot_instance.emergency_stop()
 
 if __name__ == '__main__':
