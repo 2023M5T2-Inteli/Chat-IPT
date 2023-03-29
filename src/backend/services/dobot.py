@@ -1,11 +1,14 @@
 import pydobot
 from serial.tools import list_ports
 from pydobot.enums import PTPMode
+from services.raspberry import Raspberry
 
 
 class Dobot:
     def __init__(self, _sio) -> None:
         self._cycle = 0
+        self.maxCycles = 20
+        self.magneticForce = 60000
         self._stage = 0
         self.pause = False
         self.sio = _sio
@@ -26,17 +29,18 @@ class Dobot:
              {"x": 237, "y": -70, "z": 28, "r": -16},
              {"x": 235, "y": 88, "z": 24, "r": 21},
              {"x": 237, "y": -70, "z": 28, "r": -16},
-             {"x": 235, "y": 88, "z": 24, "r": 21}],
-
-            [{"x": 228, "y": 0, "z": 151, "r": 0},
+             {"x": 235, "y": 88, "z": 24, "r": 21},
+             {"x": 228, "y": 0, "z": 151, "r": 0},
              {"x": 211, "y": 224, "z": 86, "r": 46},
-             {"x": 114, "y": 250, "z": 20, "r": 65},
-             {"x": -29, "y": 256, "z": 20, "r": 96},
-             {"x": 114, "y": 250, "z": 20, "r": 65},
-             {"x": -29, "y": 256, "z": 20, "r": 96},
-             {"x": 114, "y": 250, "z": 20, "r": 65},
-             {"x": -29, "y": 256, "z": 20, "r": 96},
-             {"x": 211, "y": 224, "z": 86, "r": 46}]
+             {"x": 114, "y": 250, "z": 20, "r": 65},],
+
+            [
+                {"x": -29, "y": 256, "z": 20, "r": 96},
+                {"x": 114, "y": 250, "z": 20, "r": 65},
+                {"x": -29, "y": 256, "z": 20, "r": 96},
+                {"x": 114, "y": 250, "z": 20, "r": 65},
+                {"x": -29, "y": 256, "z": 20, "r": 96},
+                {"x": 211, "y": 224, "z": 86, "r": 46}]
         ]
 
     @property
@@ -91,9 +95,16 @@ class Dobot:
         try:
             initial_stage = self.stage
 
+            if self.stage == 2:
+                raspberry_instance = Raspberry()
+                raspberry_instance.send_command("0")
+            else:
+                raspberry_instance = Raspberry()
+                raspberry_instance.send_command(str(self.magneticForce))
+
             for cords in self.tray[self.stage]:
                 if self.stage != initial_stage:
-                    
+
                     self.change_tray(self.tray[(self.stage) % 3][0])
                     raise NameError("Stage changed!")
                 while self.pause:
@@ -105,14 +116,13 @@ class Dobot:
                                     cords['r'],
                                     wait=True)
                 self.sio.sleep(0)
-            
+
             if (self.stage == 2):
                 self.cycle += 1
-            
+
             self.stage += 1
         except NameError as err:
             print(err)
-       
 
     def emergency_stop(self) -> bool:
         try:

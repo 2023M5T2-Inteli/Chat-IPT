@@ -24,12 +24,16 @@ def dobot_connect(sid):
 
 # Início do ensaio
 @sio.on('start_cycle')
-def handle_start_cicle(sid):
+def handle_start_cicle(sid, arguments):
     print("Ciclo começando")
-    raspberry_instance = Raspberry()
-    raspberry_instance.send_command("60000")
+
+    dobot_instance.maxCycles = arguments['cycles']
+    dobot_instance.magneticForce = arguments['magneticForce']
     
-    while dobot_instance.cycle < 20: # esse 20 deveria ser uma variável que o cliente deve escolher antes do ciclo
+    raspberry_instance = Raspberry()
+    raspberry_instance.send_command(str(dobot_instance.magneticForce))
+    
+    while dobot_instance.cycle < dobot_instance.maxCycles:
         while dobot_instance.stage < 3: 
             try:
                 dobot_instance.movement()
@@ -37,6 +41,7 @@ def handle_start_cicle(sid):
                 print("Botão de emergência acionado!")
                 return
         dobot_instance.stage = 0
+    dobot_instance.emergency_stop()
     
 @sio.on('stop')
 def stop(sid):
@@ -87,6 +92,8 @@ def handle_advance_stage(sid) -> None:
 @sio.event
 def disconnect(sid):
     print('Disconectado ao socket')
+    raspberry_instance = Raspberry()
+    raspberry_instance.send_command("0")
     dobot_instance.emergency_stop()
 
 if __name__ == '__main__':

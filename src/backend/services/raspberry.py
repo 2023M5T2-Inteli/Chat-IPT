@@ -6,10 +6,10 @@ class Raspberry:
         self.boud_rate = 115200
 
     def send_command(self, command: str) -> bool:
-        print(command)
         available_ports = serial.tools.list_ports.comports()
         
         for port in available_ports:
+            print(f"Porta = {port.device}, Descricao = {port.description}")
             try:
                 serial.Serial(str(port.device), self.boud_rate, timeout = self.wait_time).write(bytes(str(command).encode()) + b"\n")
                 # return True

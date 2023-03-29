@@ -19,7 +19,7 @@ class Stage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget middleIcon = Icon(Icons.stop);
+    Widget middleIcon = Icon(Icons.pause);
     if (!isActive) {
       middleIcon = Icon(Icons.play_arrow);
     }
