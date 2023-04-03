@@ -19,75 +19,92 @@ Concepção de sistema de automação industrial
 
 **Conteúdo**
 
--   [Autores](#autores)
--   [Visão Geral do Projeto](#visão-geral-do-projeto)
-    -   [Empresa](#empresa)
-    -   [O Problema](#o-problema)
-    -   [Objetivos](#objetivos)
-        -   [Objetivos gerais](#objetivos-gerais)
-        -   [Objetivos específicos](#objetivos-específicos)
-    -   [Partes interessadas](#partes-interessadas)
-    -   [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
-    -   [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
-    -   [Matriz de Risco](#matriz-de-risco)
-    -   [Oceano Azul](#oceano-azul)
-    -   [Análise Financeira](#análise-financeira)
--   [Requisitos do Sistema](#requisitos-do-sistema)
-    -   [Personas](#personas)
-    -   [Mapa de Jornada do Usuário](#mapa-de-jornada-do-usuário)
-    -   [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
--   [Arquitetura do Sistema](#arquitetura-do-sistema)
-    -   [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
-        -   [Croqui](#croqui)
-        -   [Diagrama da solução](#diagrama-da-solução)
-    -   [Descrição dos Subsistemas](#descrição-dos-subsistemas)
-        -   [Requisitos de software](#requisitos-de-software)
-    -   [Tecnologias Utilizadas](#tecnologias-utilizadas)
--   [UX e UI Design](#ux-e-ui-design)
-    -   [Frontend + Storyboard](#frontend--storyboard)
--   [Testes de Hardware](#testes-de-hardware)
-    -   [Braço robótico](#braço-robótico)
-        -   [Alcance do braço](#alcance-do-braço)
-        -   [Posicionamento das bandejas](#posicionamento-das-bandejas)
-        -   [Conexão com servidor](#conexão-com-servidor)
-    -   [Eletroímã](#eletroímã)
-        -   [Controle do eletroímã](#controle-do-eletroímã)
-        -   [Controle de potência do eletroímã](#controle-de-potência-do-eletroímã)
-    -   [Outros sensores](#outros-sensores)
-        -   [Célula de carga](#célula-de-carga)
-        -   [Mini Bomba Motor D'água](#mini-bomba-motor-dágua)
-        -   [Sensor de distância ultrassônico](#sensor-de-distância-ultrassônico)
-        -   [Buzzer](#buzzer)
--   [Backend](#backend)      
--   [Frontend](#frontend)      
--   [Requisitos de conectividade](#requisitos-de-conectividade)      
--   [Dispositivo Eletrônico](#dispositivo-eletrônico)
-    -   [Esquemático](#esquemático)
-        -   [Identificação das ligações](#identificação-das-ligações)
-    -   [Layout da placa](#layout-da-placa)
--   [Dispositivos Mecânicos](#dispositivos-mecânicos)
-    -   [Lista de Peças](#lista-de-peças)
-    -   [Lista de Materiais](#lista-de-materiais)
-    -   [Desenho Técnico](#desenho-técnico)
-        -   [Suporte para a Célula de Carga](#suporte-para-a-célula-de-carga)
-        -   [Suporte para o Eletroímã](#suporte-para-o-eletroímã)
-            -   [Base](#base)
-            -   [Tampa](#tampa)
-    -   [Modelagem 3D](#modelagem-3d)
-        -   [Suporte para Eletroímã](#suporte-para-eletroímã)
-            -   [Base](#base-1)
-            -   [Tampa](#tampa-1)
-    -   [Planejamento do Método de Fabricação](#planejamento-do-método-de-fabricação)
-        -   [Suporte Célula de Carga](#suporte-célula-de-carga)
-        -   [Base suporte para Eletroímã](#base-suporte-para-eletroímã)
-        -   [Tampa suporte para Eletroímã](#tampa-suporte-para-eletroímã)
-        -   [Base para os componentes eletrônicos](#base-para-os-componentes-eletrônicos)
-    -   [**Lista de Materiais**](#lista-de-materiais-1)
-    -   [](#)
--   [**Planejamento do Método de Fabricação**](#planejamento-do-método-de-fabricação-1)
-    -   [Manual do Usuário](#manual-do-usuário)
-    -   [Manual do Administrador](#manual-do-administrador)
--   [Referências](#referências)
+- [Autores](#autores)
+- [Visão Geral do Projeto](#visão-geral-do-projeto)
+  - [Empresa](#empresa)
+  - [O Problema](#o-problema)
+  - [Objetivos](#objetivos)
+    - [Objetivos gerais](#objetivos-gerais)
+    - [Objetivos específicos](#objetivos-específicos)
+  - [Partes interessadas](#partes-interessadas)
+  - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
+  - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
+  - [Matriz de Risco](#matriz-de-risco)
+  - [Oceano Azul](#oceano-azul)
+  - [Análise Financeira](#análise-financeira)
+- [Requisitos do Sistema](#requisitos-do-sistema)
+  - [Personas](#personas)
+  - [Mapa de Jornada do Usuário](#mapa-de-jornada-do-usuário)
+  - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
+- [Arquitetura do Sistema](#arquitetura-do-sistema)
+  - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
+    - [Croqui](#croqui)
+    - [Diagrama da solução](#diagrama-da-solução)
+  - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
+    - [Requisitos de software](#requisitos-de-software)
+  - [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [UX e UI Design](#ux-e-ui-design)
+  - [Frontend + Storyboard](#frontend--storyboard)
+- [Testes de Hardware](#testes-de-hardware)
+  - [Braço robótico](#braço-robótico)
+    - [Alcance do braço](#alcance-do-braço)
+    - [Posicionamento das bandejas](#posicionamento-das-bandejas)
+    - [Conexão com servidor](#conexão-com-servidor)
+  - [Eletroímã](#eletroímã)
+    - [Controle do eletroímã](#controle-do-eletroímã)
+    - [Controle de potência do eletroímã](#controle-de-potência-do-eletroímã)
+      - [_Controle de potência do eletroímã através de um servidor_](#controle-de-potência-do-eletroímã-através-de-um-servidor)
+  - [Outros sensores](#outros-sensores)
+    - [Célula de carga](#célula-de-carga)
+    - [Mini Bomba Motor D'água](#mini-bomba-motor-dágua)
+    - [Sensor de distância ultrassônico](#sensor-de-distância-ultrassônico)
+    - [Buzzer](#buzzer)
+- [Backend](#backend)
+- [Frontend](#frontend)
+- [Requisitos de conectividade](#requisitos-de-conectividade)
+- [Controle de movimentação](#controle-de-movimentação)
+- [Tabela de testes](#tabela-de-testes)
+- [Dispositivo Eletrônico](#dispositivo-eletrônico)
+  - [Esquemático](#esquemático)
+    - [Identificação das ligações](#identificação-das-ligações)
+  - [Layout da placa](#layout-da-placa)
+  - [Montagem placa de cobre](#montagem-placa-de-cobre)
+- [Dispositivos Mecânicos](#dispositivos-mecânicos)
+  - [Lista de Peças](#lista-de-peças)
+  - [Lista de Materiais](#lista-de-materiais)
+  - [Desenho Técnico](#desenho-técnico)
+    - [Suporte para a Célula de Carga](#suporte-para-a-célula-de-carga)
+    - [Suporte para o Eletroímã](#suporte-para-o-eletroímã)
+      - [Base](#base)
+      - [Tampa](#tampa)
+  - [Modelagem 3D](#modelagem-3d)
+    - [Suporte para Eletroímã](#suporte-para-eletroímã)
+      - [Base - 1° Versão](#base---1-versão)
+      - [Tampa - 1° Versão](#tampa---1-versão)
+      - [Base - 2° Versão](#base---2-versão)
+      - [Tampa - 2° Versão](#tampa---2-versão)
+  - [Planejamento do Método de Fabricação](#planejamento-do-método-de-fabricação)
+    - [Suporte Célula de Carga](#suporte-célula-de-carga)
+    - [Base suporte para Eletroímã](#base-suporte-para-eletroímã)
+    - [Tampa suporte para Eletroímã](#tampa-suporte-para-eletroímã)
+    - [Primeira versão construída do suporte para eletroímã](#primeira-versão-construída-do-suporte-para-eletroímã)
+    - [Segunda versão do suporte para eletroíma](#segunda-versão-do-suporte-para-eletroíma)
+    - [Base para os componentes eletrônicos](#base-para-os-componentes-eletrônicos)
+      - [Primeira versão base para os componentes eletrônicos](#primeira-versão-base-para-os-componentes-eletrônicos)
+    - [Segunda versão base para os componentes eletrônicos](#segunda-versão-base-para-os-componentes-eletrônicos)
+  - [Testes dispositivos mecânicos](#testes-dispositivos-mecânicos)
+    - [Primeira Versão](#primeira-versão)
+  - [**Lista de Materiais**](#lista-de-materiais-1)
+  - [](#)
+- [**Planejamento do Método de Fabricação**](#planejamento-do-método-de-fabricação-1)
+- [](#-1)
+- [](#-2)
+- [](#-3)
+- [](#-4)
+- [](#-5)
+  - [Manual do Usuário](#manual-do-usuário)
+  - [Manual do Administrador](#manual-do-administrador)
+- [Referências](#referências)
 
 # Autores
 
@@ -361,52 +378,54 @@ Segue a explicação de cada tópico:
   <li>Connect: apenas faz um print no console mostrando que o cliente (aplicativo) conseguiu se conectar com o socket</li>
   <li>
     dobot_connect: Responsável por se conectar com o robô, por meio da função start_connection() definida na classe Dobot. <br/>
-    Esse tópico é executado quando o usuário pressiona o botão "Iniciar" da segunda página:
+    <img src="./img/codigoServidorEmbarcado/backend-dobot_connect.png">
+    Esse tópico é executado quando o usuário pressiona o botão "Iniciar" no modal da segunda página, após todas as configurações do ciclo estarem alinhadas:
     <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
+    <img src="./img/frontend/Frontend_Modal.png" alt="Protótipo de interface"/>
     </a>
   </li>
    <li>
     start_cycle: Responsável por iniciar o processo de separação. Nesse tópico é feito um loop que executa a função movement definida na classe Dobot. Essa função é responsável por movimentar o robô por todos os seus estágios e ciclos.
-    <br/>
+    <img src="./img/codigoServidorEmbarcado/backend-start_cycle.png">
     Esse tópico é executado automaticamente quando o usuário entra na página 3:
     <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
+    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
     </a>
   </li>
   <li>
     stop: Responsável por pausar o processo de separação. 
-    <br/>
-    Esse tópico é executado quando o usuário pressiona o botão stop na página 3:
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
-    </a>
   </li>
   <li>
     reactivate: Responsável por retomar o processo de separação. 
-    <br/>
-    Esse tópico é executado quando o usuário pressiona o botão play na página 3:
+    <img src="./img/codigoServidorEmbarcado/backend-stop_reactivate.png">
+    Esses tópicos são executados quando o usuário pressiona o botão pause/play na página 3:
     <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
+    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
     </a>
   </li>
   <li>
     emergency_stop: Responsável por parar completamente o processo de separação. 
-    <br/>
-    Esse tópico é executado quando o usuário pressiona o botão "Parada de emergência" na página 3:
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
-    </a>
   </li>
+  <li>
+    disconnect: tópico executado quando o cliente se desconecta do socket. Nele, executamos a mesma função de parada de emergência do robô. 
+  </li>
+    <img src="./img/codigoServidorEmbarcado/backend-emergency_stop.png">
+    Esses tópicos são executados quando o usuário pressiona o botão "Parada de emergência" na página 3:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
+    </a>
   <li>
     advance_stage: Responsável por passar o processo de separação para o próximo ciclo. 
   </li>
   <li>
     previous_stage: Responsável por passar o processo de separação para o ciclo anterior. 
   </li>
-  <li>
-    disconnect: tópico executado quando o cliente se desconecta do socket. Nele, executamos a mesma função de parada de emergência do robô. 
-  </li>
+    <img src="./img/codigoServidorEmbarcado/backend-stage_change.png">
+    Esses tópicos são executados quando o usuário pressiona as setas para direita ou esquerda na página 3:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
+    </a>
+
 </ul>
 
 # Frontend
@@ -418,7 +437,7 @@ A segunda página é onde o usuário pode ver como deve ser posicionado o robô 
 
 A terceira página é o acompanhamento em tempo real do processo. Além disso, ela possui botões que permitem executar funções no robô que está realizando o processo, como a parada de emergência, pausa, play, passar o processo para o próximo estágio, voltar o estágio e desligar o robô. Esses botões são importantes para dar ao usuário o controle total sobre a operação e garantir que ele possa pará-la ou modificá-la a qualquer momento.
 
-Ao final da sprint 5, planejamos compilar o aplicativo e criar um APK para a utilização. Isso significa que o aplicativo será disponibilizado para download e poderá ser usado em dispositivos Android. Porém, é interessante ressaltar que aplicativos desenvolvidos em Flutter tem suporte tanto para IOS, quanto para Android. Cabe ao parceiro decidir qual formato é mais viável para o sistema em produção. Com o frontend bem desenvolvido e as funcionalidades implementadas, esperamos oferecer uma ótima experiência ao usuário e atender a todas as suas necessidades em relação ao processo de separação magnética.
+Ao final da sprint 5, planejamos compilar o aplicativo e criar um APK para a utilização. Isso significa que o aplicativo será disponibilizado para download e poderá ser usado em dispositivos Android. Ademais, é interessante ressaltar que aplicativos desenvolvidos em Flutter tem suporte tanto para IOS, quanto para Android. Cabe ao parceiro decidir qual formato é mais viável para o sistema em produção. Com o frontend bem desenvolvido e as funcionalidades implementadas, esperamos oferecer uma ótima experiência ao usuário e atender a todas as suas necessidades em relação ao processo de separação magnética.
 
 # Requisitos de conectividade
 O projeto apresentado requer uma conectividade estável e confiável entre todas as partes envolvidas, para garantir que as informações e comandos possam ser transmitidos de forma eficiente e segura.
