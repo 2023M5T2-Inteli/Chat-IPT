@@ -6,7 +6,6 @@ import eventlet
 import PySimpleGUI as sg
 import threading
 import os
-import html2text
 
 # setup do servidor
 sio = socketio.Server(async_handlers=True, logger=True,
