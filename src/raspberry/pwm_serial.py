@@ -1,11 +1,17 @@
 import sys
 from machine import Pin, PWM
 from time import sleep
+try:
+    import usocket as socket
+except:
+    import socket
+
+import network
 
 # Setting PWN pinout and frequence
 pwm = PWM(Pin(0))
 pwm.freq(1000)
-
+from machine import Pin
 # Function to turn on the PWM so then the electromagnetic magnet will turn on
 # Max value for the PWM is 65_000
 
@@ -30,8 +36,16 @@ def turn_off_PWM() -> bool:
 
 # Loop of execution
 if __name__ == "__main__":
+    station = network.WLAN(network.AP_IF)
+    station.config(ssid="Chat Ipt", key="12345678")
+    station.active(True)
+
+    led = Pin("LED", Pin.OUT)
+    led.on()
+    
     while True:
         try:
+            
             # Will read any information that was passed throught the standar pin of the raspberry pi pico w.
             call = sys.stdin.readline().strip()
 

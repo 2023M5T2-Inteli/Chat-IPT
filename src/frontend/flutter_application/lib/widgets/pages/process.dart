@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import '../components/connection.dart';
 import '../components/cycle.dart';
@@ -7,6 +9,7 @@ import '../components/button.dart';
 import '../components/turnOffButton.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:http/http.dart' as http;
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 class Process extends StatefulWidget {
   const Process({super.key});
@@ -60,13 +63,13 @@ class _ProcessState extends State<Process> {
     super.initState();
   }
 
-  initSocket(context) {
+  initSocket(context) async {
     final arguments = (ModalRoute.of(context)?.settings.arguments ??
         <String, dynamic>{}) as Map;
 
     print('Tentando se conectar...');
     // http://192.168.197.134:3001
-    socket = IO.io('http://localhost:3001', <String, dynamic>{
+    socket = IO.io('http://192.168.4.16:3001', <String, dynamic>{
       'autoConnect': false,
       'transports': ['websocket'],
     });

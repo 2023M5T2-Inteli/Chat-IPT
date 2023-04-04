@@ -1,6 +1,7 @@
 import socketio
 from services.dobot import Dobot
 from services.raspberry import Raspberry
+import socket
 import eventlet
 
 # setup do servidor
@@ -8,6 +9,15 @@ sio = socketio.Server(async_handlers=True, logger=True, ping_interval=120, ping_
 app = socketio.WSGIApp(sio)
 
 dobot_instance = Dobot(sio)
+
+def get_wifi_ip():
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+        try:
+            s.connect(('10.255.255.255', 1))
+            ip_address = s.getsockname()[0]
+        except:
+            ip_address = '127.0.0.1'
+    return ip_address
 
 @sio.event
 def connect(sid, environ):
@@ -97,4 +107,5 @@ def disconnect(sid):
     dobot_instance.emergency_stop()
 
 if __name__ == '__main__':
-    eventlet.wsgi.server(eventlet.listen(('127.0.0.1', 3001)), app)
+    ip = get_wifi_ip()
+    eventlet.wsgi.server(eventlet.listen((str(ip), 3001)), app)
