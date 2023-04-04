@@ -108,13 +108,13 @@ Concepção de sistema de automação industrial
 
 # Autores
 
--   Alysson Cordeiro
--   Giovana Rodrigues Araujo
--   Henrique Lemos Freire Matias
--   Lucas Henrique Sales de Souza
--   Lyorrei Shono Quintão
--   Mihaell Brenno Alves
--   Patricia Honorato Moreira
+-   Alysson Cordeiro 
+-   Giovana Rodrigues Araujo 
+-   Henrique Lemos Freire Matias 
+-   Lucas Henrique Sales de Souza 
+-   Lyorrei Shono Quintão 
+-   Mihaell Brenno Alves 
+-   Patricia Honorato Moreira 
 
 # Visão Geral do Projeto
 
@@ -388,10 +388,10 @@ Segue a explicação de cada tópico:
     start_cycle: Responsável por iniciar o processo de separação. Nesse tópico é feito um loop que executa a função movement definida na classe Dobot. Essa função é responsável por movimentar o robô por todos os seus estágios e ciclos.
     <img src="./img/codigoServidorEmbarcado/backend-start_cycle.png">
     Esse tópico é executado automaticamente quando o usuário entra na página 3:
+  </li>
     <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
     <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
     </a>
-  </li>
   <li>
     stop: Responsável por pausar o processo de separação. 
   </li>
@@ -399,10 +399,10 @@ Segue a explicação de cada tópico:
     reactivate: Responsável por retomar o processo de separação. 
     <img src="./img/codigoServidorEmbarcado/backend-stop_reactivate.png">
     Esses tópicos são executados quando o usuário pressiona o botão pause/play na página 3:
+  </li>
     <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
     <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
     </a>
-  </li>
   <li>
     emergency_stop: Responsável por parar completamente o processo de separação. 
   </li>
