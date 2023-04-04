@@ -8,8 +8,6 @@ import '../components/stage.dart';
 import '../components/button.dart';
 import '../components/turnOffButton.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
-import 'package:http/http.dart' as http;
-import 'package:connectivity_plus/connectivity_plus.dart';
 
 class Process extends StatefulWidget {
   const Process({super.key});
