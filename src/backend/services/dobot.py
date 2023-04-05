@@ -12,35 +12,41 @@ class Dobot:
         self._stage = 0
         self.pause = False
         self.sio = _sio
-        self.tray = [
-            [{"x": 228, "y": 0, "z": 151, "r": 0},
-             {"x": 203, "y": -283, "z": 109, "r": -53},
-             {"x": -94, "y": -333, "z": 85, "r": -105},
-             {"x": 112, "y": -331, "z": 75, "r": -71},
-             {"x": 112, "y": -254, "z": 82, "r": -65},
-             {"x": -96, "y": -261, "z": 80, "r": -110},
-             {"x": -96, "y": -198, "z": 90, "r": -115},
-             {"x": 113, "y": -212, "z": 87, "r": -61},
-             {"x": 203, "y": -283, "z": 109, "r": -53}],
+        self.raspberry_instance = Raspberry()
 
-            [{"x": 228, "y": 0, "z": 151, "r": 0},
-             {"x": 237, "y": -70, "z": 28, "r": -16},
-             {"x": 235, "y": 88, "z": 24, "r": 21},
-             {"x": 237, "y": -70, "z": 28, "r": -16},
-             {"x": 235, "y": 88, "z": 24, "r": 21},
-             {"x": 237, "y": -70, "z": 28, "r": -16},
-             {"x": 235, "y": 88, "z": 24, "r": 21},
-             {"x": 228, "y": 0, "z": 151, "r": 0},
-             {"x": 211, "y": 224, "z": 86, "r": 46},
-             {"x": 114, "y": 250, "z": 20, "r": 65},],
+        self.tray = [
+            [
+                {"x": 228, "y": 0, "z": 151, "r": 0, "joint": True},
+                {"x": 10.1398, "y": -246.7926, "z": 102.9670, "r": -103.5851, "joint": True},
+                {"x": -63.5785, "y": -295.5353, "z": -22.8625, "r": -101.3776, "joint": False},
+                {"x": 91.9302, "y": -295.5699, "z": -22.8625, "r": -72.9041, "joint": False},
+                {"x": -79.5393, "y": -268.1194, "z": -22.8625, "r": -103.1598, "joint": False},
+                {"x": 96.3855, "y": -271.6446, "z": -34.8625, "r": -70.8550, "joint": False},
+                {"x": -79.0650, "y": -208.2662, "z": -22.8625, "r": -110.3335, "joint": False},
+                {"x": 99.2751, "y": -209.8143, "z": -22.8625, "r": -64.2235, "joint": False},
+            ],
 
             [
-                {"x": -29, "y": 256, "z": 20, "r": 96},
-                {"x": 114, "y": 250, "z": 20, "r": 65},
-                {"x": -29, "y": 256, "z": 20, "r": 96},
-                {"x": 114, "y": 250, "z": 20, "r": 65},
-                {"x": -29, "y": 256, "z": 20, "r": 96},
-                {"x": 211, "y": 224, "z": 86, "r": 46}]
+                {"x": 10.1398, "y": -246.7926, "z": 102.9670, "r": -103.5851, "joint": True},
+                {"x": 228, "y": 0, "z": 151, "r": 0, "joint": True},
+                {"x": 200.7883, "y": -47.6883, "z": -25.4011, "r": -22.4403, "joint": True},
+                {"x": 200.7883, "y": 80, "z": -25.4011, "r": -22.4403, "joint": True},
+                {"x": 200.7883, "y": -47.6883, "z": -25.4011, "r": -22.4403, "joint": True},
+                {"x": 200.7883, "y": 80, "z": -25.4011, "r": -22.4403, "joint": True},
+                {"x": 200.7883, "y": -47.6883, "z": -25.4011, "r": -22.4403, "joint": True},
+                {"x": 200.7883, "y": 80, "z": -25.4011, "r": -22.4403, "joint": True},
+                {"x": 228, "y": 0, "z": 151, "r": 0, "joint": True},
+                {"x": -7.2212, "y": 234.4742, "z": 123.2508, "r": 82.6842, "joint": True},
+            ],
+
+            [
+                {"x": -7.2212, "y": 234.4742, "z": 123.2508, "r": 82.6842, "joint": True},
+                {"x": 64.0797, "y": 269.9920, "z": -20.7218, "r": 67.5687, "joint": True},
+                {"x": -70, "y": 269.9920, "z": -20.7218, "r": 67.5687, "joint": True},
+                {"x": 64.0797, "y": 269.9920, "z": -20.7218, "r": 67.5687, "joint": True},
+                {"x": -70, "y": 269.9920, "z": -20.7218, "r": 67.5687, "joint": True},
+                {"x": -7.2212, "y": 234.4742, "z": 123.2508, "r": 82.6842, "joint": True},
+            ]
         ]
 
     @property
@@ -96,25 +102,32 @@ class Dobot:
             initial_stage = self.stage
 
             if self.stage == 2:
-                raspberry_instance = Raspberry()
-                raspberry_instance.send_command("0")
+                self.raspberry_instance.send_command("0")
             else:
-                raspberry_instance = Raspberry()
-                raspberry_instance.send_command(str(self.magneticForce))
+                self.raspberry_instance.send_command(str(self.magneticForce))
 
             for cords in self.tray[self.stage]:
                 if self.stage != initial_stage:
-
-                    self.change_tray(self.tray[(self.stage) % 3][0])
+                    (x, y, x, r, j1, j2, j3, j4) = self.device.pose()
+                    self.change_tray({'x': x, 'y':  y, 'z': 151, 'r': r})
                     raise NameError("Stage changed!")
                 while self.pause:
                     self.sio.sleep(0)
                     continue
-                self.device.move_to(cords['x'],
-                                    cords['y'],
-                                    cords['z'],
-                                    cords['r'],
-                                    wait=True)
+
+                if cords['joint'] == True:
+                    self.device._set_ptp_cmd(cords['x'],
+                                             cords['y'],
+                                             cords['z'],
+                                             cords['r'],
+                                             mode=PTPMode.MOVJ_XYZ,
+                                             wait=True)
+                else:
+                    self.device.move_to(cords['x'],
+                                        cords['y'],
+                                        cords['z'],
+                                        cords['r'],
+                                        wait=True)
                 self.sio.sleep(0)
 
             if (self.stage == 2):
@@ -139,3 +152,4 @@ class Dobot:
         except Exception as err:
             print(f"This error occuried: {err}")
             return False
+
