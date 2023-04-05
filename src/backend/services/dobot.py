@@ -128,6 +128,8 @@ class Dobot:
         try:
             self.device.close()
             self.device = 0
+            self.cycle = 0
+            self.stage = 0
 
             self.sio.emit("response_emergency_stop",
                           "Emergency stop with success!")
