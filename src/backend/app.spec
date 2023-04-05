@@ -3,7 +3,7 @@ from PyInstaller.utils.hooks import collect_all
 
 datas = []
 binaries = []
-hiddenimports = ['eventlet.hubs.epolls', 'eventlet.hubs.kqueue', 'eventlet.hubs.selects', 'dns', 'dns.rdtypes', 'dns.rdtypes.ANY', 'dns.rdtypes.IN', 'dns.rdtypes.CH', 'dns.rdtypes.dnskeybase', 'gevent', 'eventlet.wsgi']
+hiddenimports = ['eventlet.hubs.epolls', 'eventlet.hubs.kqueue', 'eventlet.hubs.selects', 'dns', 'dns.rdtypes', 'dns.rdtypes.ANY', 'dns.rdtypes.IN', 'dns.rdtypes.CH', 'dns.rdtypes.dnskeybase', 'gevent']
 tmp_ret = collect_all('dns')
 datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
 
