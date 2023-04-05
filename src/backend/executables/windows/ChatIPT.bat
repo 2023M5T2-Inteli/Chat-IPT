@@ -4,10 +4,8 @@ REM Verifica se Chocolatey está instalado
 where choco >nul 2>&1
 if %errorlevel% neq 0 (
     echo Chocolatey não está instalado. Instalando...
-    powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command ^
-        "[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; " ^
-        "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" ^
-        " \"&\" refreshenv"
+    powershell.exe Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
 ) else (
     echo Chocolatey já está instalado.
 )
