@@ -7,7 +7,7 @@ if %errorlevel% neq 0 (
     powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command ^
         "[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; " ^
         "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" ^
-        " ^& refreshenv"
+        " \"&\" refreshenv"
 ) else (
     echo Chocolatey já está instalado.
 )
