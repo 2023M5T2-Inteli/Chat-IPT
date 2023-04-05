@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import './button.dart';
 
 class Configuration extends StatefulWidget {
@@ -15,6 +15,27 @@ class _ConfigurationState extends State<Configuration> {
   int cycles = 20;
   int magneticForce = 60000;
   String serverIp = '';
+  TextEditingController serverIpController = TextEditingController();
+
+  _loadSavedValue() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String savedValue = prefs.getString('serverIpValue') ?? 'p';
+    setState(() {
+      serverIpController.text = savedValue;
+      serverIp = savedValue;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedValue();
+  }
+
+  _saveValue(newValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('serverIpValue', newValue);
+  }
 
   void decrementCycle() {
     if (cycles > 1) {
@@ -111,10 +132,12 @@ class _ConfigurationState extends State<Configuration> {
               ),
               TextField(
                 onChanged: (text) {
+                  _saveValue(text);
                   setState(() {
                     serverIp = text;
                   });
                 },
+                controller: serverIpController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: 'Digite aqui o IP do servidor...',
