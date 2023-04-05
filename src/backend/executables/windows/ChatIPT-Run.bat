@@ -1,7 +1,7 @@
 @echo off
 
 REM Verifica se a pasta Chat-IPT existe
-if not exist "..\Chat-IPT" (
+if not exist ".\Chat-IPT" (
     echo Pasta 'Chat-IPT' não encontrada, favor seguir os passos de instalação!
     exit /b 1
 )
