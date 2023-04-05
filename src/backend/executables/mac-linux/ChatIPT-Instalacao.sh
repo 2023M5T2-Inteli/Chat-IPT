@@ -30,3 +30,5 @@ pip install -r requirements.txt
 
 # Desativa a venv
 deactivate
+
+exit 1
