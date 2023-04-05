@@ -1,0 +1,1 @@
+pyinstaller --onefile app.py --hidden-import=eventlet.hubs.epolls --hidden-import=eventlet.hubs.kqueue --hidden-import=eventlet.hubs.selects --hidden-import=dns --hidden-import=dns.rdtypes --hidden-import=dns.rdtypes.ANY --hidden-import=dns.rdtypes.IN --hidden-import=dns.rdtypes.CH --hidden-import=dns.rdtypes.dnskeybase --collect-all=dns --hidden-import=gevent

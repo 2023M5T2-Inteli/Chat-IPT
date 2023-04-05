@@ -2,10 +2,11 @@ import socketio
 from services.dobot import Dobot
 from services.raspberry import Raspberry
 import socket
-import eventlet
+from eventlet import wsgi, listen
 import PySimpleGUI as sg
 import threading
 import os
+from engineio.async_drivers import gevent
 
 # setup do servidor
 sio = socketio.Server(async_handlers=True, logger=True,
@@ -124,7 +125,7 @@ def disconnect(sid):
 
 def start_server():
     ip = get_wifi_ip()
-    eventlet.wsgi.server(eventlet.listen((str(ip), 3001)), app)
+    wsgi.server(listen((str(ip), 3001)), app)
 
 
 ip = get_wifi_ip()
