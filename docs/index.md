@@ -259,6 +259,9 @@ _Descrição do diagrama_
 
 ## Tecnologias Utilizadas
 
+![image](./img/tecnologias.png)
+<i>Tecnologias utilizadas</i>
+
 # UX e UI Design
 
 ## Frontend
