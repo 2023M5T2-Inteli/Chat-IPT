@@ -44,7 +44,7 @@ Concepção de sistema de automação industrial
     - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [UX e UI Design](#ux-e-ui-design)
-  - [Frontend + Storyboard](#frontend--storyboard)
+  - [Frontend](#frontend--storyboard)
 - [Testes de Hardware](#testes-de-hardware)
   - [Braço robótico](#braço-robótico)
     - [Alcance do braço](#alcance-do-braço)
@@ -145,8 +145,6 @@ Desenvolveremos um equipamento automatizado que tenha capacidade de aplicar um c
 -   IPT;
 -   Laboratório de Processos Metalúrgicos;
 -   Inteli.
-
-## Análise do cenário: Matriz SWOT
 
 ## Proposta de Valor: Value Proposition Canvas
 
@@ -263,7 +261,7 @@ _Descrição do diagrama_
 
 # UX e UI Design
 
-## Frontend + Storyboard
+## Frontend
 
 <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
 <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
@@ -297,8 +295,6 @@ Com o limite de operação do braço delimitado, posicionamos as bandejas dentro
 Logo em seguida, manualmente alterávamos no script as posições que o braço deveria trabalhar em cada canto da bandeja e a altura adequada também. A partir disso, consumíamos dessas demarcações dos cantos dos recipientes para realizar a movimentação adequada do braço simulando a passagem do imã.
 
 <!-- Vídeo dessa execução -->
-
-Após a primeira passagem, verificamos que seria necessário a elevação da bandeja para um melhor contato com o imã. Assim, colocamos uma outra bandeja debaixo da primeira. Dessa maneira, conseguimos também posicionar a célula de carga abaixo da bandeja para coletar os dados de massa futuramente também.
 
 <!-- Vídeos dessa nova execução -->
 
