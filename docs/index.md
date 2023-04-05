@@ -44,7 +44,7 @@ Concepção de sistema de automação industrial
     - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [UX e UI Design](#ux-e-ui-design)
-  - [Frontend + Storyboard](#frontend--storyboard)
+  - [Frontend](#frontend--storyboard)
 - [Testes de Hardware](#testes-de-hardware)
   - [Braço robótico](#braço-robótico)
     - [Alcance do braço](#alcance-do-braço)
@@ -146,8 +146,6 @@ Desenvolveremos um equipamento automatizado que tenha capacidade de aplicar um c
 -   Laboratório de Processos Metalúrgicos;
 -   Inteli.
 
-## Análise do cenário: Matriz SWOT
-
 ## Proposta de Valor: Value Proposition Canvas
 
 <br/>
@@ -181,20 +179,36 @@ OPORTUNIDADES
 -   Desenvolver uma tecnologia escalável - Probabilidade: Médio; Impacto: Muito Alta
 -   Curva de aprendizado do python ser muito simples - Probabilidade: Médio; Impacto: Alta
 
-## Oceano Azul
+## Matriz do Oceano Azul
 
 <img src="./img/Chat_IPT___Oceano_Azul.png"
 alt="Gráfico do oceano azul"/>
 
 Tendo em vista o gráfico acima, o qual compara nossa solução com o método tradicional e manual do IPT e com uma alternativa do mercado, a Grade Magnética, é necessário evidenciar 4 pontos importantes para nossa matriz de oceano azul:
 
-<ul> <li> Primeiro, __aumentaremos__ a __consistência__ em relação aos métodos comparados, tendo em vista que o braço robótico, embora ajustável, executará todos os processos de maneira igual e consistente; </li> <li> Além disso, é evidente que precisamos __criar__, também, __facilidade na manutenção__ do hardware e do código que compõem o projeto; </li> <li> Outrossim, visto que o __preço__ de nossa solução é alto, precisamos encontrar formas de __reduzir__ esse fator; </li> <li> Por fim, __eliminaremos__ a necessidade de um __técnico de instalação__ do braço robótico por meio de um manual de instalação limpo e simples de compreender.</li>  </ul>
+<ul> <li> Primeiro, <strong>aumentaremos</strong> a <strong>consistência</strong> em relação aos métodos comparados, tendo em vista que o braço robótico, embora ajustável, executará todos os processos de maneira igual e consistente; </li> <li> Além disso, é evidente que precisamos <strong>criar</strong>, também, <strong>facilidade na manutenção</strong> do hardware e do código que compõem o projeto; </li> <li> Outrossim, visto que o <strong>preço</strong> de nossa solução é alto, precisamos encontrar formas de <strong>reduzir</strong> esse fator; </li> <li> Por fim, <strong>eliminaremos</strong> a necessidade de um <strong>técnico de instalação</strong> do braço robótico por meio de um manual de instalação limpo e simples de compreender.</li>  </ul>
 
 ## Análise Financeira
 
-<img src="./img/Chat_IPT___Analise_Financeira.png" alt="Análise financeira do projeto"/>
+### Análise do custo do método atual
+
+Pensando no método atual, os custos existentes são pertinentes a compra dos ímãs de neodímio e a remuneração do operador, contudo, em relação aos ímas, não levaremos como valor relevante já que esse é investido apenas inicialmente e que não há custos operacionais a curto prazo. Portanto, focando no salário de um operador, estimamos um valor de R$2800,00/mês, logo, há o gasto de R$140,00/dia. Num dia, temos uma carga horária de 8 horas e, de acordo com informações adquiridas com o parceiro, cada ensaio possui a duração de 30 minutos, consequentemente, são 16 ensaios/dia. Dividindo o gasto diário pela quantidade de ensaios sabemos que cada operação terá um custo de R$8,75/ensaio.
+
+### Análise do custo do método ChatIPT
+
+| **Componente** | **Preço** |
+| :------------- | :-------- |
+| Magitian Lite | R$15.000,00 |
+| Eletroímã | R$53,96 |
+| Garra personalizada | R$10,00 |
+| Motor vibratório | R$8,40 |
+| Raspeberry Pi Pico W | R$49,90 |
 
 Nessa primeira análise, pode-se notar que, com um investimento inicial de R$15.112,26 (quinze mil, cento e doze reais e vinte e seis centavos), nossa solução pode já ser implementada no ambiente de separação de metais do IPT. Além disso, prevemos despesas operacionais que podem estar relacionadas com o valor da energia que os esquipamentos utilizam e com a reposição das peças que mais posuem chance de quebrar após um ano de uso com poucos cuidados.
+
+### ROI
+
+É calculado para estimar o tempo necessário para recuperar o montante investido inicialmente. Diante disso, levando em consideração o custo operacional no valor de R$2,15 (energia elétrica e eventuais reposições de peças), para alcançar o valor inicial, um total de de 2290 ensaios deverão ser realizados, se tomarmos em conta a quantia de 16 ensaios/dia, 144 dias serão necessários. 
 
 # Requisitos do Sistema
 
@@ -247,7 +261,7 @@ _Descrição do diagrama_
 
 # UX e UI Design
 
-## Frontend + Storyboard
+## Frontend
 
 <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
 <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
@@ -281,8 +295,6 @@ Com o limite de operação do braço delimitado, posicionamos as bandejas dentro
 Logo em seguida, manualmente alterávamos no script as posições que o braço deveria trabalhar em cada canto da bandeja e a altura adequada também. A partir disso, consumíamos dessas demarcações dos cantos dos recipientes para realizar a movimentação adequada do braço simulando a passagem do imã.
 
 <!-- Vídeo dessa execução -->
-
-Após a primeira passagem, verificamos que seria necessário a elevação da bandeja para um melhor contato com o imã. Assim, colocamos uma outra bandeja debaixo da primeira. Dessa maneira, conseguimos também posicionar a célula de carga abaixo da bandeja para coletar os dados de massa futuramente também.
 
 <!-- Vídeos dessa nova execução -->
 
