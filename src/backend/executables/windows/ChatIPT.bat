@@ -7,7 +7,7 @@ if %errorlevel% neq 0 (
     powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command ^
         "[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; " ^
         "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" ^
-        " && refreshenv"
+        " ^& refreshenv"
 ) else (
     echo Chocolatey já está instalado.
 )
@@ -36,9 +36,6 @@ REM Clona o projeto e entra no diretório backend
 git clone https://github.com/2023M5T2-Inteli/Chat-IPT Chat-IPT
 cd Chat-IPT\src\backend
 
-REM Cria e ativa a venv
+REM Cria a venv
 python -m venv .venv
-call .venv\Scripts\activate.bat
-
-REM Roda o app
-python app.py
+echo Chat IPT instalado com sucesso!
