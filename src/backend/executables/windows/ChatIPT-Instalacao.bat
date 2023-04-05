@@ -22,13 +22,13 @@ REM Navega para a pasta "Chat-IPT/src/backend"
 cd Chat-IPT\src\backend
 
 REM Cria a venv de Python com o nome ".venv"
-python -m venv .venv
+py -m venv .venv
 
 REM Ativa a venv
-call .venv\Scripts\activate.bat
+call .\.venv\Scripts\activate
 
 REM Instala as dependências do projeto a partir do arquivo "requirements.txt"
-pip install -r ..\..\requirements.txt
+pip install -r requirements.txt
 
 REM Desativa a venv
 deactivate
