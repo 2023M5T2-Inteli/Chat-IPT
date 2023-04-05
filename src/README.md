@@ -14,7 +14,7 @@ Este diretório é destinado para o armazenamento e versionamento dos arquivos f
 
 # Guia de Instalação
 
-Para rodar o projeto, é necessário ter um notebook com acesso à internet, o [Python 3.10](https://www.python.org/downloads/) (ou superior) instalado e o [Git](https://git-scm.com/downloads) instalado.
+Para rodar o projeto, é necessário ter um notebook com acesso à internet, o [Python 3.10](https://www.python.org/downloads/) (ou superior) instalado, o [Git](https://git-scm.com/downloads) instalado, um [Raspberry Pi Pico W](https://www.raspberrypi.com/products/raspberry-pi-pico/) conectado via USB/USB-C ao computador e um [Dobot Magician Lite](https://www.dobot-robots.com/products/education/magician-lite.html) conectado via USB/USB-C ao computador.
 
 ## Mac e Linux
 
