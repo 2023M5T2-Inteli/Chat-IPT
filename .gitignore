@@ -42,3 +42,7 @@
 *env
 *__pycache__
 
+
+# Flutter 
+*Runner 2.xcodeproj
+*Runner 2.xcworkspace

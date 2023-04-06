@@ -1,19 +1,22 @@
+# Importa bibliotecas necessárias
 import pydobot
 from serial.tools import list_ports
 from pydobot.enums import PTPMode
 from services.raspberry import Raspberry
 
-
+# Define a classe Dobot
 class Dobot:
+    # Constructor a classe
     def __init__(self, _sio) -> None:
-        self._cycle = 0
-        self.maxCycles = 20
-        self.magneticForce = 60000
-        self._stage = 0
-        self.pause = False
-        self.sio = _sio
-        self.raspberry_instance = Raspberry()
+        self._cycle = 0  # Inicializa contador de ciclos
+        self.maxCycles = 20  # Define o número máximo de ciclos
+        self.magneticForce = 60000  # Define a força magnética
+        self._stage = 0  # Inicializa a etapa atual
+        self.pause = False  # Inicializa a variável de pausa
+        self.sio = _sio  # Armazena a instância do Socket.IO
+        self.raspberry_instance = Raspberry()  # Cria uma instância da classe Raspberry
 
+        # Define a matriz de coordenadas para o movimento do braço robótico
         self.tray = [
             [
                 {"x": 228, "y": 0, "z": 151, "r": 0, "joint": True},
@@ -49,26 +52,31 @@ class Dobot:
             ]
         ]
 
+    # Retorna o ciclo atual
     @property
     def cycle(self):
         return self._cycle
 
+    # Define um novo valor para o ciclo e emite o evento 'cycle' pelo Socket.IO
     @cycle.setter
     def cycle(self, novo_valor):
         self._cycle = novo_valor
         self.sio.emit('cycle', novo_valor + 1)
         self.sio.sleep(0)
 
+    # Retorna a etapa atual
     @property
     def stage(self):
         return self._stage
 
+    # Define um novo valor para a etapa e emite o evento 'stage' pelo Socket.IO
     @stage.setter
     def stage(self, novo_valor):
         self._stage = novo_valor
         self.sio.emit('stage', novo_valor + 1)
         self.sio.sleep(0)
 
+    # Inicia a conexão com o dispositivo Dobot
     def start_connection(self) -> bool:
         available_ports = list_ports.comports()
         for port in available_ports:
@@ -82,6 +90,7 @@ class Dobot:
                 continue
         return False
 
+    # Altera a bandeja com base nas últimas coordenadas fornecidas
     def change_tray(self, last_cords):
         try:
             while self.pause:
@@ -97,6 +106,7 @@ class Dobot:
         except Exception as err:
             print(err)
 
+     # Realiza o movimento do braço robótico
     def movement(self) -> None:
         try:
             initial_stage = self.stage
@@ -137,6 +147,7 @@ class Dobot:
         except NameError as err:
             print(err)
 
+    # Executa a parada de emergência do dispositivo Dobot
     def emergency_stop(self) -> bool:
         try:
             self.device.close()
