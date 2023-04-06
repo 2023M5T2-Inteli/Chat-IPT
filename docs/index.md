@@ -255,21 +255,94 @@ alt="Diagrama da soluçao" />
 ![image](./img/tecnologias.png)
 <i>Tecnologias utilizadas</i>
 
-# UX e UI Design
 
 ## Frontend
+
+O frontend do projeto que desenvolvemos em Flutter e Dart é uma parte crucial do projeto. Ele é responsável por apresentar as informações e funcionalidades para o usuário de maneira clara e intuitiva, sendo composto por três páginas que desempenham diferentes funções.
+
+A primeira página é apenas uma página placeholder, ou seja, uma introdução que não apresenta nenhum conteúdo relevante. Ela serve apenas para dar uma ideia geral do que o aplicativo se trata.
+
+A segunda página é onde o usuário pode ver como deve ser posicionado o robô e as bandejas para o processo de separação magnética. Além disso, há um botão que inicia o processo. Ela é fundamental para o usuário entender como deve ser feita a montagem do equipamento e iniciar a operação.
+
+A terceira página é o acompanhamento em tempo real do processo. Além disso, ela possui botões que permitem executar funções no robô que está realizando o processo, como a parada de emergência, pausa, play, passar o processo para o próximo estágio, voltar o estágio e desligar o robô. Esses botões são importantes para dar ao usuário o controle total sobre a operação e garantir que ele possa pará-la ou modificá-la a qualquer momento.
+
+Finalmente, foi realizada a ação de compilar o aplicativo e criar um APK para a utilização. Isso significa que o aplicativo será disponibilizado para download e poderá ser usado em dispositivos Android. Ademais, é interessante ressaltar que aplicativos desenvolvidos em Flutter tem suporte tanto para IOS, quanto para Android. Cabe ao parceiro decidir qual formato é mais viável para o sistema em produção. Com o frontend bem desenvolvido e as funcionalidades implementadas, esperamos oferecer uma ótima experiência ao usuário e atender a todas as suas necessidades em relação ao processo de separação magnética.
 
 <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
 <img src="./img/Chat_IPT___Interface.png" alt="Protótipo de interface"/>
 </a>
 
-A nossa aplicação web consiste em 3 (três) páginas de um aplicativo desenvolvido em Flutter.
+# Backend
 
--   A primeira página funciona como uma página inicial para o aplicativo, em que há um botão "Ligar" que ligará o braço robótico;
--   A segunda página consiste em instruções para o usuário organizar as bandejas. Além disso, há um botão "iniciar" que começa o processo de separação de metais com o braço robótico.
--   Por último, a terceira constitui-se de uma página dinâmica que apresenta o status em tempo real do processo de separação magnética, com os seguintes botões para controlar o robô: pausar processo, voltar estágio, avançar estágio, parada de emergência e desligar.
+O backend da aplicação está localizado na pasta src/backend/app.py. Esse arquivo, quando executado, inicia um servidor socket na porta 3001. Nesse mesmo arquivo, criamos uma instância da classe "Dobot", a qual está localizada na pasta src/backend/services/dobot.py. Nessa classe, estão definidos diversas funções que utilizam da biblioteca "pydobot" para executar comandos no robô. No arquivo app.py, fazemos subscribe em diversos tópicos socket, cada um responsável por algum tipo de interação com o robô, ou seja, cada um chamando diferentes funções da classe Dobot.
+<br/>
+<br/>
+Segue a explicação de cada tópico:
 
-# Testes de Hardware
+<ul>
+  <li>Connect: apenas faz um print no console mostrando que o cliente (aplicativo) conseguiu se conectar com o socket</li>
+  <li>
+    dobot_connect: Responsável por se conectar com o robô, por meio da função start_connection() definida na classe Dobot. <br/>
+    <img src="./img/codigoServidorEmbarcado/backend-dobot_connect.png">
+    Esse tópico é executado quando o usuário pressiona o botão "Iniciar" no modal da segunda página, após todas as configurações do ciclo estarem alinhadas:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/frontend/Frontend_Modal.png" alt="Protótipo de interface"/>
+    </a>
+  </li>
+   <li>
+    start_cycle: Responsável por iniciar o processo de separação. Nesse tópico é feito um loop que executa a função movement definida na classe Dobot. Essa função é responsável por movimentar o robô por todos os seus estágios e ciclos.
+    <img src="./img/codigoServidorEmbarcado/backend-start_cycle.png">
+    Esse tópico é executado automaticamente quando o usuário entra na página 3:
+  </li>
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
+    </a>
+  <li>
+    stop: Responsável por pausar o processo de separação. 
+  </li>
+  <li>
+    reactivate: Responsável por retomar o processo de separação. 
+    <img src="./img/codigoServidorEmbarcado/backend-stop_reactivate.png">
+    Esses tópicos são executados quando o usuário pressiona o botão pause/play na página 3:
+  </li>
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
+    </a>
+  <li>
+    emergency_stop: Responsável por parar completamente o processo de separação. 
+  </li>
+  <li>
+    disconnect: tópico executado quando o cliente se desconecta do socket. Nele, executamos a mesma função de parada de emergência do robô. 
+  </li>
+    <img src="./img/codigoServidorEmbarcado/backend-emergency_stop.png">
+    Esses tópicos são executados quando o usuário pressiona o botão "Parada de emergência" na página 3:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
+    </a>
+  <li>
+    advance_stage: Responsável por passar o processo de separação para o próximo ciclo. 
+  </li>
+  <li>
+    previous_stage: Responsável por passar o processo de separação para o ciclo anterior. 
+  </li>
+    <img src="./img/codigoServidorEmbarcado/backend-stage_change.png">
+    Esses tópicos são executados quando o usuário pressiona as setas para direita ou esquerda na página 3:
+    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
+    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
+    </a>
+
+</ul>
+
+# Requisitos de conectividade
+O projeto apresentado requer uma conectividade estável e confiável entre todas as partes envolvidas, para garantir que as informações e comandos possam ser transmitidos de forma eficiente e segura.
+
+Em primeiro lugar, o backend do sistema precisa ser executado em um computador com recursos adequados para rotear a rede wifi e estabelecer uma conexão socket. É importante que o computador seja capaz de processar grandes quantidades de dados rapidamente, para garantir que as informações sejam transmitidas de forma eficiente entre o robô e o cliente.
+
+Em segundo lugar, o cliente precisa estar na mesma rede wifi que o servidor para se conectar por socket e emitir eventos. Isso significa que a rede wifi precisa ter uma conexão estável e forte o suficiente para permitir a comunicação entre os dois dispositivos sem interrupções ou perda de dados.
+
+Em síntese, é importante que todo o sistema esteja em uma rede local, que não precise estar conectada à internet para funcionar. Isso garante que as informações sejam mantidas seguras e protegidas, sem o risco de serem interceptadas por terceiros mal-intencionados. Com esses requisitos atendidos, o sistema poderá executar as tarefas de forma eficiente e segura, sem interrupções ou falhas na comunicação.
+
+# Desenvolvimento do Hardware e Testes
 
 ## Braço robótico
 
@@ -334,88 +407,6 @@ Assim, por meio do teste, infere-se a possibilidade de implementação do sistem
     ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_3.png)<i>Demonstração de como os dados eram enviados ao raspberry</i>  
     No teste realizado, obervasse o funcionamento do circuito com alimentação de 10V para ponte H. O eletroímã é acionado via valores enviados pelo backend, a conexão com o Rapsberry Pi Pico W é feita via cabo USB. 
 https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4
-
-
-# Backend
-
-O backend da aplicação está localizado na pasta src/backend/app.py. Esse arquivo, quando executado, inicia um servidor socket na porta 3001. Nesse mesmo arquivo, criamos uma instância da classe "Dobot", a qual está localizada na pasta src/backend/services/dobot.py. Nessa classe, estão definidos diversas funções que utilizam da biblioteca "pydobot" para executar comandos no robô. No arquivo app.py, fazemos subscribe em diversos tópicos socket, cada um responsável por algum tipo de interação com o robô, ou seja, cada um chamando diferentes funções da classe Dobot.
-<br/>
-<br/>
-Segue a explicação de cada tópico:
-
-<ul>
-  <li>Connect: apenas faz um print no console mostrando que o cliente (aplicativo) conseguiu se conectar com o socket</li>
-  <li>
-    dobot_connect: Responsável por se conectar com o robô, por meio da função start_connection() definida na classe Dobot. <br/>
-    <img src="./img/codigoServidorEmbarcado/backend-dobot_connect.png">
-    Esse tópico é executado quando o usuário pressiona o botão "Iniciar" no modal da segunda página, após todas as configurações do ciclo estarem alinhadas:
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Modal.png" alt="Protótipo de interface"/>
-    </a>
-  </li>
-   <li>
-    start_cycle: Responsável por iniciar o processo de separação. Nesse tópico é feito um loop que executa a função movement definida na classe Dobot. Essa função é responsável por movimentar o robô por todos os seus estágios e ciclos.
-    <img src="./img/codigoServidorEmbarcado/backend-start_cycle.png">
-    Esse tópico é executado automaticamente quando o usuário entra na página 3:
-  </li>
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
-    </a>
-  <li>
-    stop: Responsável por pausar o processo de separação. 
-  </li>
-  <li>
-    reactivate: Responsável por retomar o processo de separação. 
-    <img src="./img/codigoServidorEmbarcado/backend-stop_reactivate.png">
-    Esses tópicos são executados quando o usuário pressiona o botão pause/play na página 3:
-  </li>
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
-    </a>
-  <li>
-    emergency_stop: Responsável por parar completamente o processo de separação. 
-  </li>
-  <li>
-    disconnect: tópico executado quando o cliente se desconecta do socket. Nele, executamos a mesma função de parada de emergência do robô. 
-  </li>
-    <img src="./img/codigoServidorEmbarcado/backend-emergency_stop.png">
-    Esses tópicos são executados quando o usuário pressiona o botão "Parada de emergência" na página 3:
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
-    </a>
-  <li>
-    advance_stage: Responsável por passar o processo de separação para o próximo ciclo. 
-  </li>
-  <li>
-    previous_stage: Responsável por passar o processo de separação para o ciclo anterior. 
-  </li>
-    <img src="./img/codigoServidorEmbarcado/backend-stage_change.png">
-    Esses tópicos são executados quando o usuário pressiona as setas para direita ou esquerda na página 3:
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
-    </a>
-
-</ul>
-
-# Frontend
-O frontend do projeto que desenvolvemos em Flutter e Dart é uma parte crucial do projeto. Ele é responsável por apresentar as informações e funcionalidades para o usuário de maneira clara e intuitiva, sendo composto por três páginas que desempenham diferentes funções.
-
-A primeira página é apenas uma página placeholder, ou seja, uma introdução que não apresenta nenhum conteúdo relevante. Ela serve apenas para dar uma ideia geral do que o aplicativo se trata.
-
-A segunda página é onde o usuário pode ver como deve ser posicionado o robô e as bandejas para o processo de separação magnética. Além disso, há um botão que inicia o processo. Ela é fundamental para o usuário entender como deve ser feita a montagem do equipamento e iniciar a operação.
-
-A terceira página é o acompanhamento em tempo real do processo. Além disso, ela possui botões que permitem executar funções no robô que está realizando o processo, como a parada de emergência, pausa, play, passar o processo para o próximo estágio, voltar o estágio e desligar o robô. Esses botões são importantes para dar ao usuário o controle total sobre a operação e garantir que ele possa pará-la ou modificá-la a qualquer momento.
-
-Finalmente, foi realizada a ação de compilar o aplicativo e criar um APK para a utilização. Isso significa que o aplicativo será disponibilizado para download e poderá ser usado em dispositivos Android. Ademais, é interessante ressaltar que aplicativos desenvolvidos em Flutter tem suporte tanto para IOS, quanto para Android. Cabe ao parceiro decidir qual formato é mais viável para o sistema em produção. Com o frontend bem desenvolvido e as funcionalidades implementadas, esperamos oferecer uma ótima experiência ao usuário e atender a todas as suas necessidades em relação ao processo de separação magnética.
-
-# Requisitos de conectividade
-O projeto apresentado requer uma conectividade estável e confiável entre todas as partes envolvidas, para garantir que as informações e comandos possam ser transmitidos de forma eficiente e segura.
-
-Em primeiro lugar, o backend do sistema precisa ser executado em um computador com recursos adequados para rotear a rede wifi e estabelecer uma conexão socket. É importante que o computador seja capaz de processar grandes quantidades de dados rapidamente, para garantir que as informações sejam transmitidas de forma eficiente entre o robô e o cliente.
-
-Em segundo lugar, o cliente precisa estar na mesma rede wifi que o servidor para se conectar por socket e emitir eventos. Isso significa que a rede wifi precisa ter uma conexão estável e forte o suficiente para permitir a comunicação entre os dois dispositivos sem interrupções ou perda de dados.
-
-Em síntese, é importante que todo o sistema esteja em uma rede local, que não precise estar conectada à internet para funcionar. Isso garante que as informações sejam mantidas seguras e protegidas, sem o risco de serem interceptadas por terceiros mal-intencionados. Com esses requisitos atendidos, o sistema poderá executar as tarefas de forma eficiente e segura, sem interrupções ou falhas na comunicação.
 
 # Controle de movimentação
 
