@@ -275,63 +275,33 @@ Finalmente, foi realizada a ação de compilar o aplicativo e criar um APK para 
 # Backend
 
 O backend da aplicação está localizado na pasta src/backend/app.py. Esse arquivo, quando executado, inicia um servidor socket na porta 3001. Nesse mesmo arquivo, criamos uma instância da classe "Dobot", a qual está localizada na pasta src/backend/services/dobot.py. Nessa classe, estão definidos diversas funções que utilizam da biblioteca "pydobot" para executar comandos no robô. No arquivo app.py, fazemos subscribe em diversos tópicos socket, cada um responsável por algum tipo de interação com o robô, ou seja, cada um chamando diferentes funções da classe Dobot.
-<br/>
-<br/>
-Segue a explicação de cada tópico:
 
-<ul>
-  <li>Connect: apenas faz um print no console mostrando que o cliente (aplicativo) conseguiu se conectar com o socket</li>
-  <li>
-    dobot_connect: Responsável por se conectar com o robô, por meio da função start_connection() definida na classe Dobot. <br/>
-    <img src="./img/codigoServidorEmbarcado/backend-dobot_connect.png">
-    Esse tópico é executado quando o usuário pressiona o botão "Iniciar" no modal da segunda página, após todas as configurações do ciclo estarem alinhadas:
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Modal.png" alt="Protótipo de interface"/>
-    </a>
-  </li>
-   <li>
-    start_cycle: Responsável por iniciar o processo de separação. Nesse tópico é feito um loop que executa a função movement definida na classe Dobot. Essa função é responsável por movimentar o robô por todos os seus estágios e ciclos.
-    <img src="./img/codigoServidorEmbarcado/backend-start_cycle.png">
-    Esse tópico é executado automaticamente quando o usuário entra na página 3:
-  </li>
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
-    </a>
-  <li>
-    stop: Responsável por pausar o processo de separação. 
-  </li>
-  <li>
-    reactivate: Responsável por retomar o processo de separação. 
-    <img src="./img/codigoServidorEmbarcado/backend-stop_reactivate.png">
-    Esses tópicos são executados quando o usuário pressiona o botão pause/play na página 3:
-  </li>
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
-    </a>
-  <li>
-    emergency_stop: Responsável por parar completamente o processo de separação. 
-  </li>
-  <li>
-    disconnect: tópico executado quando o cliente se desconecta do socket. Nele, executamos a mesma função de parada de emergência do robô. 
-  </li>
-    <img src="./img/codigoServidorEmbarcado/backend-emergency_stop.png">
-    Esses tópicos são executados quando o usuário pressiona o botão "Parada de emergência" na página 3:
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
-    </a>
-  <li>
-    advance_stage: Responsável por passar o processo de separação para o próximo ciclo. 
-  </li>
-  <li>
-    previous_stage: Responsável por passar o processo de separação para o ciclo anterior. 
-  </li>
-    <img src="./img/codigoServidorEmbarcado/backend-stage_change.png">
-    Esses tópicos são executados quando o usuário pressiona as setas para direita ou esquerda na página 3:
-    <a href="https://www.figma.com/file/b6kygCfYtm0hWXsw0XNdXH/Figma-ChatIPT?node-id=0%3A1&t=wsF46PhOCzPIPRJS-1">
-    <img src="./img/frontend/Frontend_Pag3_Cycle_Control.png" alt="Protótipo de interface"/>
-    </a>
+__Bibliotecas importadas na aplicação:__
+_ _socketio:_ _ cria um servidor WebSocket para comunicação entre o servidor e cliente.
+_ _services.dobot:_ _ módulo responsável por controla o Dobot Magician.
+_ _services.raspberry:_ _ módulo para comunicação com o Raspberry Pi.
+_ _socket:_ _ fornece funcionalidades de rede de baixo nível.
+_ _eventlet:_ _ biblioteca para lidar com redes e concorrência.
+_ _PySimpleGUI:_ _ biblioteca para criar interfaces gráficas de usuário simples (GUI).
+_ _threading:_ _ permite trabalhar com threads em Python.
+_ _os:_ _  funções para interagir com o sistema operacional.
+_ _Configuração do servidor WebSocket usando socketio.Server e socketio.WSGIApp._ _ As opções de configuração incluem a ativação de manipuladores assíncronos, logs e intervalos de ping personalizados.
 
-</ul>
+A função __get_wifi_ip()__  obtém o endereço o IP da rede Wi-Fi do dispostivo que o código é executado por meio do __socket__. Na ocorrência de erros, é retornado o endereço IP local "127.0.0.1". Posteriormente, o endereço IP será usado para iniciar o servidor Flask. Após isso, a classe Dobot é instanciada para conexão do robô com o cliente, localmente, para envio e recebimento das informações que serão realizadas na rota do robô.
+
+O conjunto de funções __@sio.event__, __@sio.on__ e __@sio.eventlet__ se referem ao conjunto de eventos que deverão acontecer após o servidor receber os comandos realizados pelo cliente na interface, que em seguida, são executados no robô e dispostivo eletrônico. Como descrito a seguir:
+
+_ _connect:_ _ exibe uma mensagem quando o cliente se conecta ao servidor.
+_ _dobot_connect:_ _ inicia conexão com o robô.
+_ _handle_start_cicle_ _: inicia os ciclos de movimentos do braço robótico e controla o número de ciclos. 
+_ _stop:_ _ pausa o movimento do robô.
+_ _reactivate:_ _ retoma o movimento do robô. 
+_ _handle_emergency_stop:_ _ interrompe o movimento do robô em caso de emergência. 
+_ _handle_advance_stage e handle_previous_stage:_ _ avançam ou retornam os estágios do ciclo de movimento do robô.
+_ _disconnect:_ _ desconecta o cliente e para a execução do robô.
+_ _Início do servidor:_ _ a função _ _start_server_ _ é usada para iniciar a aplicação em flask no servidor, na porta 3001.
+
+Após execução do código, o servidor em flask abre uma interface web para o cliente e quando o usuário clica no botão "ENCERRAR" a aplicação é encerrada. 
 
 # Requisitos de conectividade
 O projeto apresentado requer uma conectividade estável e confiável entre todas as partes envolvidas, para garantir que as informações e comandos possam ser transmitidos de forma eficiente e segura.
