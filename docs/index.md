@@ -278,28 +278,28 @@ O backend da aplicação está localizado na pasta src/backend/app.py. Esse arqu
 
 __Bibliotecas importadas na aplicação:__
 - _socketio:_ cria um servidor WebSocket para comunicação entre o servidor e cliente.
-- _services.dobot:_módulo responsável por controla o Dobot Magician.
+- _services.dobot:_ módulo responsável por controla o Dobot Magician.
 - _services.raspberry:_ módulo para comunicação com o Raspberry Pi.
 - _socket:_ fornece funcionalidades de rede de baixo nível.
 - _eventlet:_ biblioteca para lidar com redes e concorrência.
 - _PySimpleGUI:_ biblioteca para criar interfaces gráficas de usuário simples (GUI).
-- _threading:_permite trabalhar com threads em Python.
+- _threading:_ permite trabalhar com threads em Python.
 - _os:_  funções para interagir com o sistema operacional.
 - _Configuração do servidor WebSocket usando socketio.Server e socketio.WSGIApp._ As opções de configuração incluem a ativação de manipuladores assíncronos, logs e intervalos de ping personalizados.
 
 A função __get_wifi_ip()__  obtém o endereço o IP da rede Wi-Fi do dispostivo que o código é executado por meio do __socket__. Na ocorrência de erros, é retornado o endereço IP local "127.0.0.1". Posteriormente, o endereço IP será usado para iniciar o servidor Flask. Após isso, a classe Dobot é instanciada para conexão do robô com o cliente, localmente, para envio e recebimento das informações que serão realizadas na rota do robô.
 
 O conjunto de funções __@sio.event__, __@sio.on__ e __@sio.eventlet__ se referem ao conjunto de eventos que deverão acontecer após o servidor receber os comandos realizados pelo cliente na interface, que em seguida, são executados no robô e dispostivo eletrônico. Como descrito a seguir:
-
--_connect:_ exibe uma mensagem quando o cliente se conecta ao servidor.
--_dobot_connect:_ inicia conexão com o robô.
--_handle_start_cicle_: inicia os ciclos de movimentos do braço robótico e controla o número de ciclos. 
--_stop:_ pausa o movimento do robô.
--_reactivate:_retoma o movimento do robô. 
--_handle_emergency_stop:_interrompe o movimento do robô em caso de emergência. 
--_handle_advance_stage e handle_previous_stage:_ avançam ou retornam os estágios do ciclo de movimento do robô.
--_disconnect:_ desconecta o cliente e para a execução do robô.
--_Início do servidor:_ _ a função _ _start_server_ é usada para iniciar a aplicação em flask no servidor, na porta 3001.
+<br>
+- _connect:_ exibe uma mensagem quando o cliente se conecta ao servidor.
+- _dobot_connect:_ inicia conexão com o robô.
+- _handle_start_cicle_: inicia os ciclos de movimentos do braço robótico e controla o número de ciclos. 
+- _stop:_ pausa o movimento do robô.
+- _reactivate:_retoma o movimento do robô. 
+- _handle_emergency_stop:_interrompe o movimento do robô em caso de emergência. 
+- _handle_advance_stage e handle_previous_stage:_ avançam ou retornam os estágios do ciclo de movimento do robô.
+- _disconnect:_ desconecta o cliente e para a execução do robô.
+- _Início do servidor:_ _ a função _ _start_server_ é usada para iniciar a aplicação em flask no servidor, na porta 3001.
 
 Após execução do código, o servidor em flask abre uma interface web para o cliente e quando o usuário clica no botão "ENCERRAR" a aplicação é encerrada. 
 
@@ -565,48 +565,6 @@ Os funcionamento completo da primeira versão do dispositivo mecânico pode ser 
 ##
 
 # **Planejamento do Método de Fabricação**
-
-No planejamento do método de fabricação, vamos dividir 3 etapas: a etapa número 1 será para componentes relacionados ao PCI, a etapa número 2 será para a ponte H e a etapa 3, montagem final dos hardwares.
-
-1. Primeira etapa: pegue a placa de circuito impresso (PCI) de 12cm x 18cm. E coloque um conector para que possa conectar o Raspberry Pi Pico W. Veja o exemplo da imagem abaixo:
-
-![image](./img/manual/com-conector.jpg)
-<i>Imagem 3.1: placa de circuito impresso (PCI) com conector.<i>
-
-![image](./img/manual/rapsberry-conector.jpg)
-<i>Imagem 3.2: PCI com o Raspberry Pi Pico W<i>
-![image](./img/manual/raps-conector-2.jpg)
-<i>Imagem 3.3<i>
-
-2. Em segundo passo, após encaixar o PCI na placa, solde o conector na placa com um jumper: um na entrada; outro para o GND.
-
-3. Agora, vamos para a etapa número 2: primeiro, pegue a ponte H conecte um jumper no pino de entrada 5V. Em seguida, coloque um jumper no VCC, um no GND e outro no VLOGIC. E por fim, um fio na porta do OUT 1 na parte do MOTOR A. Veja o exemplo na imagem 3.4 e imagem 3.5:
-
-![image](<./img/manual/Imagem2023-03-12%20à(s)%2022.38.23.jpg>)
-<i>imagem 3.4<i>
-
-![image](./img/manual/ponte2.jpg)
-
-4. Agora, conecte os eletroímãs solenóides com o “_conector”_ de canetas do braço robótico.
-
-![image](./img/manual/sensor-separado.jpg)
-<i>Imagem 3.8: eletroímãs desconectados.<i>
-
-![image](./img/manual/sensor-junto.jpg)
-<i>Imagem 3.9: eletroímãs conectados com o suporte de canetas do braço robótico.<i>
-![image](./img/manual/sensor-junto2.jpg)
-<i>Imagem 3.10<i>
-
-#
-
-1. Conecte soldando a ponte H com os eletroímãs. Lembrando que a fiação que sai de um eletroimã deve estar conectado com VCC e GND juntos e outro eletroímã deve estar conectado com o fio do motor A: OUT 1.
-
-![image](./img/manual/ponte-junto-h.jpg)
-<i>Imagem 3.10: conectando eletroímãs com a ponte H.<i>
-
-## Manual do Usuário
-
-## Manual do Administrador
 
 # Referências
 
