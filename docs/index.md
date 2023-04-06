@@ -277,29 +277,29 @@ Finalmente, foi realizada a ação de compilar o aplicativo e criar um APK para 
 O backend da aplicação está localizado na pasta src/backend/app.py. Esse arquivo, quando executado, inicia um servidor socket na porta 3001. Nesse mesmo arquivo, criamos uma instância da classe "Dobot", a qual está localizada na pasta src/backend/services/dobot.py. Nessa classe, estão definidos diversas funções que utilizam da biblioteca "pydobot" para executar comandos no robô. No arquivo app.py, fazemos subscribe em diversos tópicos socket, cada um responsável por algum tipo de interação com o robô, ou seja, cada um chamando diferentes funções da classe Dobot.
 
 __Bibliotecas importadas na aplicação:__
-- _ _socketio:_ _ cria um servidor WebSocket para comunicação entre o servidor e cliente.
-- _ _services.dobot:_ _ módulo responsável por controla o Dobot Magician.
-- _ _services.raspberry:_ _ módulo para comunicação com o Raspberry Pi.
-- _ _socket:_ _ fornece funcionalidades de rede de baixo nível.
-- _ _eventlet:_ _ biblioteca para lidar com redes e concorrência.
-- _ _PySimpleGUI:_ _ biblioteca para criar interfaces gráficas de usuário simples (GUI).
-- _ _threading:_ _ permite trabalhar com threads em Python.
-- _ _os:_ _  funções para interagir com o sistema operacional.
-- _ _Configuração do servidor WebSocket usando socketio.Server e socketio.WSGIApp._ _ As opções de configuração incluem a ativação de manipuladores assíncronos, logs e intervalos de ping personalizados.
+- _socketio:_ cria um servidor WebSocket para comunicação entre o servidor e cliente.
+- _services.dobot:_módulo responsável por controla o Dobot Magician.
+- _services.raspberry:_ módulo para comunicação com o Raspberry Pi.
+- _socket:_ fornece funcionalidades de rede de baixo nível.
+- _eventlet:_ biblioteca para lidar com redes e concorrência.
+- _PySimpleGUI:_ biblioteca para criar interfaces gráficas de usuário simples (GUI).
+- _threading:_permite trabalhar com threads em Python.
+- _os:_  funções para interagir com o sistema operacional.
+- _Configuração do servidor WebSocket usando socketio.Server e socketio.WSGIApp._ As opções de configuração incluem a ativação de manipuladores assíncronos, logs e intervalos de ping personalizados.
 
 A função __get_wifi_ip()__  obtém o endereço o IP da rede Wi-Fi do dispostivo que o código é executado por meio do __socket__. Na ocorrência de erros, é retornado o endereço IP local "127.0.0.1". Posteriormente, o endereço IP será usado para iniciar o servidor Flask. Após isso, a classe Dobot é instanciada para conexão do robô com o cliente, localmente, para envio e recebimento das informações que serão realizadas na rota do robô.
 
 O conjunto de funções __@sio.event__, __@sio.on__ e __@sio.eventlet__ se referem ao conjunto de eventos que deverão acontecer após o servidor receber os comandos realizados pelo cliente na interface, que em seguida, são executados no robô e dispostivo eletrônico. Como descrito a seguir:
 
-_ _connect:_ _ exibe uma mensagem quando o cliente se conecta ao servidor.
-_ _dobot_connect:_ _ inicia conexão com o robô.
-_ _handle_start_cicle_ _: inicia os ciclos de movimentos do braço robótico e controla o número de ciclos. 
-_ _stop:_ _ pausa o movimento do robô.
-_ _reactivate:_ _ retoma o movimento do robô. 
-_ _handle_emergency_stop:_ _ interrompe o movimento do robô em caso de emergência. 
-_ _handle_advance_stage e handle_previous_stage:_ _ avançam ou retornam os estágios do ciclo de movimento do robô.
-_ _disconnect:_ _ desconecta o cliente e para a execução do robô.
-_ _Início do servidor:_ _ a função _ _start_server_ _ é usada para iniciar a aplicação em flask no servidor, na porta 3001.
+-_connect:_ exibe uma mensagem quando o cliente se conecta ao servidor.
+-_dobot_connect:_ inicia conexão com o robô.
+-_handle_start_cicle_: inicia os ciclos de movimentos do braço robótico e controla o número de ciclos. 
+-_stop:_ pausa o movimento do robô.
+-_reactivate:_retoma o movimento do robô. 
+-_handle_emergency_stop:_interrompe o movimento do robô em caso de emergência. 
+-_handle_advance_stage e handle_previous_stage:_ avançam ou retornam os estágios do ciclo de movimento do robô.
+-_disconnect:_ desconecta o cliente e para a execução do robô.
+-_Início do servidor:_ _ a função _ _start_server_ é usada para iniciar a aplicação em flask no servidor, na porta 3001.
 
 Após execução do código, o servidor em flask abre uma interface web para o cliente e quando o usuário clica no botão "ENCERRAR" a aplicação é encerrada. 
 
