@@ -277,15 +277,15 @@ Finalmente, foi realizada a ação de compilar o aplicativo e criar um APK para 
 O backend da aplicação está localizado na pasta src/backend/app.py. Esse arquivo, quando executado, inicia um servidor socket na porta 3001. Nesse mesmo arquivo, criamos uma instância da classe "Dobot", a qual está localizada na pasta src/backend/services/dobot.py. Nessa classe, estão definidos diversas funções que utilizam da biblioteca "pydobot" para executar comandos no robô. No arquivo app.py, fazemos subscribe em diversos tópicos socket, cada um responsável por algum tipo de interação com o robô, ou seja, cada um chamando diferentes funções da classe Dobot.
 
 __Bibliotecas importadas na aplicação:__
-_ _socketio:_ _ cria um servidor WebSocket para comunicação entre o servidor e cliente.
-_ _services.dobot:_ _ módulo responsável por controla o Dobot Magician.
-_ _services.raspberry:_ _ módulo para comunicação com o Raspberry Pi.
-_ _socket:_ _ fornece funcionalidades de rede de baixo nível.
-_ _eventlet:_ _ biblioteca para lidar com redes e concorrência.
-_ _PySimpleGUI:_ _ biblioteca para criar interfaces gráficas de usuário simples (GUI).
-_ _threading:_ _ permite trabalhar com threads em Python.
-_ _os:_ _  funções para interagir com o sistema operacional.
-_ _Configuração do servidor WebSocket usando socketio.Server e socketio.WSGIApp._ _ As opções de configuração incluem a ativação de manipuladores assíncronos, logs e intervalos de ping personalizados.
+- _ _socketio:_ _ cria um servidor WebSocket para comunicação entre o servidor e cliente.
+- _ _services.dobot:_ _ módulo responsável por controla o Dobot Magician.
+- _ _services.raspberry:_ _ módulo para comunicação com o Raspberry Pi.
+- _ _socket:_ _ fornece funcionalidades de rede de baixo nível.
+- _ _eventlet:_ _ biblioteca para lidar com redes e concorrência.
+- _ _PySimpleGUI:_ _ biblioteca para criar interfaces gráficas de usuário simples (GUI).
+- _ _threading:_ _ permite trabalhar com threads em Python.
+- _ _os:_ _  funções para interagir com o sistema operacional.
+- _ _Configuração do servidor WebSocket usando socketio.Server e socketio.WSGIApp._ _ As opções de configuração incluem a ativação de manipuladores assíncronos, logs e intervalos de ping personalizados.
 
 A função __get_wifi_ip()__  obtém o endereço o IP da rede Wi-Fi do dispostivo que o código é executado por meio do __socket__. Na ocorrência de erros, é retornado o endereço IP local "127.0.0.1". Posteriormente, o endereço IP será usado para iniciar o servidor Flask. Após isso, a classe Dobot é instanciada para conexão do robô com o cliente, localmente, para envio e recebimento das informações que serão realizadas na rota do robô.
 
