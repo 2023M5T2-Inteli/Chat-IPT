@@ -17,8 +17,6 @@ app = socketio.WSGIApp(sio)
 dobot_instance = Dobot(sio)  # Create an instance of the Dobot object
 
 # Function to get the server's IP address
-
-
 def get_wifi_ip():
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
         try:
@@ -29,15 +27,11 @@ def get_wifi_ip():
     return ip_address
 
 # Socket connection event
-
-
 @sio.event
 def connect(sid, environ):
     print('Connected to socket')
 
 # Dobot connection event
-
-
 @sio.on('dobot_connect')
 def dobot_connect(sid):
     response = dobot_instance.start_connection()
@@ -48,8 +42,6 @@ def dobot_connect(sid):
         print('Error connecting to the robot')
 
 # Event to start the cycle
-
-
 @sio.on('start_cycle')
 def handle_start_cicle(sid, arguments):
     print("Cycle starting")
@@ -71,8 +63,6 @@ def handle_start_cicle(sid, arguments):
     dobot_instance.emergency_stop()
 
 # Stop event
-
-
 @sio.on('stop')
 def stop(sid):
     dobot_instance.pause = True
@@ -80,8 +70,6 @@ def stop(sid):
     sio.sleep(0)
 
 # Reactivate event
-
-
 @sio.on('reactivate')
 def reactivate(sid):
     sio.emit("response_reactivate")
@@ -89,16 +77,12 @@ def reactivate(sid):
     dobot_instance.pause = False
 
 # Emergency stop event
-
-
 @sio.on('emergency_stop')
 def handle_emergency_stop(sid) -> None:
     print("Emergency stop triggered!")
     dobot_instance.emergency_stop()
 
 # Tray advance event
-
-
 @sio.on('advance_stage')
 def handle_advance_stage(sid) -> None:
     match dobot_instance.stage:
@@ -114,8 +98,6 @@ def handle_advance_stage(sid) -> None:
     sio.emit("response_advance_stage")
 
 # Event to go to the previous tray
-
-
 @sio.on('previous_stage')
 def handle_advance_stage(sid) -> None:
     match dobot_instance.stage:
@@ -132,8 +114,6 @@ def handle_advance_stage(sid) -> None:
     sio.emit("response_previous_stage")
 
 # Socket disconnection event
-
-
 @sio.event
 def disconnect(sid):
     print('Disconnected from socket')
@@ -142,8 +122,6 @@ def disconnect(sid):
     dobot_instance.emergency_stop()
 
 # Function to start the server
-
-
 def start_server():
     ip = get_wifi_ip()
     wsgi.server(listen((str(ip), 3001)), app)
