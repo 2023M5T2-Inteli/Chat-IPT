@@ -90,7 +90,7 @@ Concepção de sistema de automação industrial
   - [Testes dispositivos mecânicos](#testes-dispositivos-mecânicos)
 - [**Planejamento do Método de Fabricação**](#planejamento-do-método-de-fabricação-1)
 - [**Lista de Materiais**](#lista-de-materiais-1)
-- [**Resultados integração do projeto**] (#resultados-integração-do-projeto)
+- **Resultados integração do projeto** (#resultados-integração-do-projeto)
 - [Referências](#referências)
 
 # Autores
