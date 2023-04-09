@@ -439,9 +439,11 @@ A construção do um dispositivo eletrônico foi feito em uma placa de cobre, na
 
 A montagem da placa utilizada nesse projeto apresenta Raspberry Pi Pico W e ponte H soldados na placa. Também contém dois plugs banana fêmea que recebem VCC e GND para alimentar o circuito da ponte H. 
 
-![IMG_20230327_113725](https://user-images.githubusercontent.com/99269584/227995930-658e5e51-d1d3-4ea8-9571-769f59a470f0.jpg)
 
-No teste realizado, o funcionamento do circuito é feito por meio da alimentação de 10V para ponte H e com conexão via cabo USB com o Rapsberry Pi Pico W. https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4
+
+No teste realizado, o funcionamento do circuito é feito por meio da alimentação de 10V para ponte H e com conexão via cabo USB com o Rapsberry Pi Pico W. 
+
+[video](https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4)
 
 # Dispositivos Mecânicos
 
@@ -512,11 +514,13 @@ A tampa suporte para o eletroímã é a parte superior do conjunto de peças de 
  
  ![WhatsApp Image 2023-03-27 at 4 49 43 PM](https://user-images.githubusercontent.com/99269584/228051480-8b6ef59c-575f-4d1b-86fe-8c3d50003c03.jpeg)
 
- ### Segunda versão do suporte para eletroímã
+### Segunda versão do suporte para eletroímã
 
  A segunda versão do suporte já foi impressa a partir da segunda versão do modelo 3D. O modelo foi pensado para sustentar até 4 imãs, havendo o espaço exato para encaixe, não necessitando parafusos além da tampa. Há 4 espaços entre os encaixes para os imãs e a haste do suporte para que a fiação passe por dentro da haste, facilitando o manuseio deles. Já a haste nessa versão foi passada para a própria base, isso foi pensado para facilitar a sustentação do conjunto da peça pelo robô (na outra versão ela estava localizada na tampa). Há também 4 buracos para parafusos M3 para vedação da tampa e do suporte, evitando que entre água no momento da separação magnética. Devido a alguns erros de medidas em relação a tampa, essa versão ainda não foi testada acoplada ao braço robótico.
 
  ![Foto do conjunto Base e Tampa impresso em 3D](./img/disp_mecanicos/ft-part-impressa.jpg)
+
+### Terceira versão do suporte para eletroímã
 
 ### Base para os componentes eletrônicos
 
@@ -531,6 +535,10 @@ A primeira versão da base foi feita sem a soldagem dos componentes na placa de 
 Na segunda versão da base, perfuramos a placa e parafusamos os componentes que não poderiam ser soldados. Também adicionamos dois conectores de plug banana para recebimento de alimentação na ponte H. E utilizamos um pote de plástico para proteger a placa de cobre perfurada. Os próximos incluem tampar o pote com uma tampa e realizar furos de diâmetro pequeno para passagem dos cabos de rede, fonte de alimentação dos plugs e cabo USB que conecta-se com o Rapsberry Pi Pico W.
 
 ![IMG_20230327_113725](https://user-images.githubusercontent.com/99269584/228053083-7250744f-570f-4b9f-8a60-1a458787f18a.jpg)
+
+### Terceira versão base para os componentes eletrônicos
+
+Na versão final da base, a placa de cobre de fenolite foi reduzida e foram mantidos apenas a ponte H e Raspberry Pi Pico W soldados. O pote de plástico foi perfurado para passagem dos cabos USB e do fio de ligação da ponte H com o eletroímã. Os conectores de plug de banana também foram parafusados na lateral do pote para alimentação do sistema com a fonte. Nessa versão, objetivou-se assegurar que o protótipo final não tivesse falhas dos componentes com umidade por estarem próximos às bandejas. O funcionamento desse sistema pode ser visto na seção de integração desse protótipo. 
 
 ## Testes dispositivos mecânicos
 
