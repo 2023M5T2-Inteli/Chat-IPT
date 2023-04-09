@@ -274,7 +274,7 @@ Finalmente, foi realizada a ação de compilar o aplicativo e criar um APK para 
 
 # Backend
 
-O backend da aplicação está localizado na pasta src/backend/app.py. Esse arquivo, quando executado, inicia um servidor socket na porta 3001. Nesse mesmo arquivo, criamos uma instância da classe "Dobot", a qual está localizada na pasta src/backend/services/dobot.py. Nessa classe, estão definidos diversas funções que utilizam da biblioteca "pydobot" para executar comandos no robô. No arquivo app.py, fazemos subscribe em diversos tópicos socket, cada um responsável por algum tipo de interação com o robô, ou seja, cada um chamando diferentes funções da classe Dobot.
+O backend da aplicação está localizado na pasta src/backend/app.py. Esse arquivo, quando executado, inicia um servidor socket na porta 3001. Nesse mesmo arquivo, criamos uma instância da classe "Dobot", a qual está localizada na pasta ´src/backend/services/dobot.py´. Nessa classe, estão definidos diversas funções que utilizam da biblioteca "pydobot" para executar comandos no robô. No arquivo app.py, fazemos subscribe em diversos tópicos socket, cada um responsável por algum tipo de interação com o robô, ou seja, cada um chamando diferentes funções da classe Dobot.
 
 __Bibliotecas importadas na aplicação:__
 - _socketio:_ cria um servidor WebSocket para comunicação entre o servidor e cliente.
@@ -321,21 +321,29 @@ O primeiro item que analisamos no braço foi seu tipo de conexão. A forma de co
 ### Alcance do braço
 
 Primeiramente, seguindo o esquema de conexão mencionado anteriormente, testamos se o braço robótico possui alcance suficiente para trabalhar nas três bandejas. Para esse teste, alteramos manualmente no script a posição que estávamos solicitando para que o braço fosse sem alterar a sua altura. Assim que encontrávamos o ponto máximo para cada lado de movimento do braço, realizávamos a sua demarcação na mesa com uma caneta.
-Os testes foram bem sucedidos, como pode ser visto no vídeo abaixo: [Teste sobre o alcance do braço.](https://user-images.githubusercontent.com/99269584/221435514-a22eae79-256b-4c16-8d6d-9cd2edccdae1.mp4)
+Os testes foram bem sucedidos, como pode ser visto no vídeo: 
 
-<!-- vídeo com o teste -->
+[Teste sobre o alcance do braço.](https://user-images.githubusercontent.com/99269584/221435514-a22eae79-256b-4c16-8d6d-9cd2edccdae1.mp4)
 
 ### Posicionamento das bandejas
 
-Com o limite de operação do braço delimitado, posicionamos as bandejas dentro desse espaço e marcamos a distância que as bandejas deveriam ficar do braço para futuros teste.
+As bandejas são dispostas lateralmente no entorno do braço robótico. 
 
-<!-- Foto das bandejas -->
+![SPRINT 5 CHAT GPT ](https://user-images.githubusercontent.com/99269584/230797724-b26a5411-fc41-4ad0-840b-2584c4af3e12.png)
 
-Logo em seguida, manualmente alterávamos no script as posições que o braço deveria trabalhar em cada canto da bandeja e a altura adequada também. A partir disso, consumíamos dessas demarcações dos cantos dos recipientes para realizar a movimentação adequada do braço simulando a passagem do imã.
+# Controle de movimentação
 
-<!-- Vídeo dessa execução -->
+O controle de movimentação do braço robótico permite que o sistema determine a trajetória ideal do braço robótico com base nas dimensões da bandeja de amostras e suas posições na bancada. Com base no escopo do projeto descrito, podemos entender que o Magician Lite é usado para manusear três bandejas diferentes, cada uma com um conjunto diferente de tarefas a serem executadas.
 
-<!-- Vídeos dessa nova execução -->
+Na primeira bandeja, o braço robótico é programado para passar com o eletroímã três vezes para garantir que todos os materiais magnéticos sejam coletados. Na segunda bandeja, o braço robótico passa apenas uma vez, mas é utilizado para limpar o material. Por fim, na terceira bandeja, o braço robótico despeja o material magnético coletado anteriormente na primeira bandeja. O objetivo é armanezar esse material para o técnico realizar análises posteriormente. 
+
+No escopo descrito, o controle do Magician Lite é realizado por meio do front end, que permite que um técnico controle cada etapa do processo de manuseio das bandejas de amostras. No teste realizado, é possível observar a integração do sistema, com a passagem do braço robótico nas amostras e o controle feito pelo usuário via interface web.
+
+### Primeira versão da execução
+[Primeira versão dessa execução](https://user-images.githubusercontent.com/99269584/228046923-2ec1882a-0378-4bec-870e-582873d45abb.mp4)
+
+### Segunda versão da execução
+[Segunda versão dessa execução] (
 
 ### Conexão com servidor
 
@@ -353,8 +361,9 @@ O primeiro teste realizado com eletroímã controlado pelo raspberry pi pico W, 
 
 Ademais, nesse circuito, o eletroímã conectado a ponte H, é controlado pelo pino 0 do rapsberry pi pico W. Ao definir-se o valor de 0 no código, o eletroímã liga, e com 1, o eletroímã é desligado. Nesse ciclo o eletroímã liga por 1s e depois desliga por 1s. Na montagem realizada para este projeto, a ponte H recebe alimentação por uma fonte de 5v.
 
-No vídeo a seguir, se é demonstrado o teste realizado com uma moeda, que consistiu na montagem do eletroímã no braço robótico:
-https://user-images.githubusercontent.com/99269584/221374609-9ee725ef-596e-4a0a-968d-72518479a653.mp4
+No vídeo é demonstrado o teste realizado com uma moeda, que consistiu na montagem do eletroímã no braço robótico.
+
+[vídeo](https://user-images.githubusercontent.com/99269584/221374609-9ee725ef-596e-4a0a-968d-72518479a653.mp4) 
 
 ### Controle de potência do eletroímã
 
@@ -364,27 +373,24 @@ No teste realizado com uma moeda, o intervalo de tempo aplicado foi de 1ms, e ob
 
 Assim, por meio do teste, infere-se a possibilidade de implementação do sistema de controle da intensidade do eletroímã por meio da interface web desenvolvida, visto que os materiais magnéticos necessitam da aplicabilidade de diferentes intensidades no eletroímã para melhor aderência.
 
-#### _Controle de potência do eletroímã através de um servidor_
+#### Controle de potência do eletroímã através de um servidor
 
--   Foi desenvolvido um servidor embarcado no Raspberry Pi Pico W, o qual recebia uma chamada http em uma porta que decidimos (no exemplo abaixo é a 80) um JSON. O código consistia em ficar em um while loop procurando por chamadas. Quando a recebia, fazia um loop para pegar os últimos caracteres das informações contidas na chamada http. Esse últimos caracteres eram delimitados entre '{' e '}', os quais representam o ínicio e o fim do JSON transmitido. Assim, armazenamos um JSON em formato de string em uma variável e utilizamos o método `.loads` da biblioteca `json` para converter a string em um JSON.  
-     ![image](../docs/img/codigoServidorEmbarcado/Captura_de%20_tela.png)
-    <i>Demonstração do código recebendo e estraindo o valor inserido no JSON</i>  
-     A partir desse valor recebido, o passamos para o pwm o qual foi configurado da seguinte forma:
-    ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_1.png)
-    E o imã então é ligado a partir desse linha:
-    ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_2.png)  
-     Nos teste que executamos, utilizamos o `Postman` para mandar os valores que queríamos que o imã fosse ligado.
-    ![image](./img/codigoServidorEmbarcado/Captura_de_Tela_3.png)<i>Demonstração de como os dados eram enviados ao raspberry</i>  
-    No teste realizado, obervasse o funcionamento do circuito com alimentação de 10V para ponte H. O eletroímã é acionado via valores enviados pelo backend, a conexão com o Rapsberry Pi Pico W é feita via cabo USB. 
-https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4
+O controle de potência do eletroímã pelo servidor é realizado por meio de um código que implementa a funcionalidade da frequência PWM para o eletroímã, e conecta o microcontrolador Raspberry Pi Pico W a rede wifi para se comunicar com o backend, que recebe comandos do usuário via interface gráfica.
 
-# Controle de movimentação
+No [*código*](https://github.com/2023M5T2-Inteli/Chat-IPT/blob/main/src/raspberry/pwm_serial.py) é importada as bibliotecas: _sys, machine, time, socket e network_. Em seguida, existe a tentativa de importar a biblioteca _usocket_, se esta biblioteca não estiver disponível, é importada a biblioteca padrão socket.
 
-O controle de movimentação do braço robótico permite que o sistema determine a trajetória ideal do braço robótico com base nas dimensões da bandeja de amostras e suas posições na bancada. Com base no escopo do projeto descrito, podemos entender que o Magician Lite é usado para manusear três bandejas diferentes, cada uma com um conjunto diferente de tarefas a serem executadas.
+Após isso, o código define o pino PWM e a frequência PWM. A função "turn_on_PWM" é criada para ligar o PWM eletroímã. Ela recebe um valor inteiro (entre 0 e 65_000) como parâmetro e tenta definir a intensidade do PWM para esse valor. A função retorna True se for bem sucedida e False caso contrário.
 
-Na primeira bandeja, o braço robótico é programado para passar com o eletroímã três vezes para garantir que todos os materiais magnéticos sejam coletados. Na segunda bandeja, o braço robótico passa apenas uma vez, mas é utilizado para limpar o material. Por fim, na terceira bandeja, o braço robótico despeja o material magnético coletado anteriormente na primeira bandeja. O objetivo é armanezar esse material para o técnico realizar análises posteriormente. 
+A função "turn_off_PWM" é criada para desligar o eletroímã. Ela não recebe nenhum parâmetro e define a intensidade do PWM para 0. A função retorna True se for bem sucedida e False caso contrário.
 
-No escopo descrito, o controle do Magician Lite é realizado por meio do front end, que permite que um técnico controle cada etapa do processo de manuseio das bandejas de amostras. No teste realizado, é possível observar a integração do sistema, com a passagem do braço robótico nas amostras e o controle feito pelo usuário via interface web: https://user-images.githubusercontent.com/99269584/228046923-2ec1882a-0378-4bec-870e-582873d45abb.mp4
+O loop de execução começa verificando se o programa está sendo executado diretamente (e não como um módulo importado). Em seguida, ele configura a placa Wi-Fi para criar um ponto de acesso SSID e a senha. O LED é definido como um pino de saída e é ligado.
+
+Em seguida, o código entra em um loop infinito que lê qualquer informação que foi passada através do pino padrão da Raspberry Pi Pico. Se o valor passado for 0, o eletroímã é desligado chamando a função "turn_off_PWM". Se o valor passado for um número entre 1 e 65_000, o eletroímã é ligado com a intensidade definida pelo valor passado, chamando a função "turn_on_PWM".
+
+No *teste realizado*, obervasse o funcionamento do circuito com alimentação de 10V para ponte H. O eletroímã é acionado via valores enviados pelo backend, a conexão com o Rapsberry Pi Pico W é feita via cabo USB. 
+
+[teste realizado](https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4)
+
 
 # Tabela de testes
 
