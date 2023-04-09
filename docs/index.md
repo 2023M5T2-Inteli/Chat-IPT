@@ -83,7 +83,7 @@ Concepção de sistema de automação industrial
    - [Primeira versão base para os componentes eletrônicos](#primeira-versão-base-para-os-componentes-eletrônicos)
    - [Segunda versão base para os componentes eletrônicos](#segunda-versão-base-para-os-componentes-eletrônicos)
   - [Testes dispositivos mecânicos](#testes-dispositivos-mecânicos)
-- [**Planejamento do Método de Fabricação**](#planejamento-do-método-de-fabricação-1)
+- [**Planejamento do Método de Fabricação Dispositivo Eletrônico**](#planejamento-do-método-de-fabricação-1)
 - [**Lista de Materiais**](#lista-de-materiais-1)
 - [**Fabricação Dispostivo Eletrônico](#fabricação-dispostivo-eletrônico)
 - [**Resultados integração do projeto**](#resultados-integração-do-projeto)
@@ -534,7 +534,7 @@ O principal objetivo do sistema é controlar o eletroímã e assegurar que o dis
 
 **O funcionamento completo do dispositivo mecânico pode ser visto na seção de resultados da integração desse documento.**
 
-# **Planejamento do Método de Fabricação**
+# **Planejamento do Método de Fabricação Dispositivo Eletrônico**
 
 ## **Lista de Materiais**
 
