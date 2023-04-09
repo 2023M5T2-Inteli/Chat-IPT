@@ -27,10 +27,8 @@ Concepção de sistema de automação industrial
  	- [Objetivos gerais](#objetivos-gerais)
   	- [Objetivos específicos](#objetivos-específicos)
   - [Partes interessadas](#partes-interessadas)
-  - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
-  - [Oceano Azul](#oceano-azul)
   - [Análise Financeira](#análise-financeira)
 - [Requisitos do Sistema](#requisitos-do-sistema)
   - [Personas](#personas)
@@ -41,23 +39,20 @@ Concepção de sistema de automação industrial
    - [Croqui](#croqui)
     - [Diagrama da solução](#diagrama-da-solução)
   - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
-   - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [UX e UI Design](#ux-e-ui-design)
-  - [Frontend](#frontend--storyboard)
-- [Testes de Hardware](#testes-de-hardware)
+ - [Backend](#backend)
+- [Frontend](#frontend)
+- [Desenvolvimento do Hardware e Testes](#desenvolvimento-do-hardware-e-testes)
   - [Braço robótico](#braço-robótico)
    - [Alcance do braço](#alcance-do-braço)
     - [Posicionamento das bandejas](#posicionamento-das-bandejas)
+    - [Controle de movimentação](#controle-de-movimentação)
     - [Conexão com servidor](#conexão-com-servidor)
   - [Eletroímã](#eletroímã)
    - [Controle do eletroímã](#controle-do-eletroímã)
     - [Controle de potência do eletroímã](#controle-de-potência-do-eletroímã)
      - [_Controle de potência do eletroímã através de um servidor_](#controle-de-potência-do-eletroímã-através-de-um-servidor)
-- [Backend](#backend)
-- [Frontend](#frontend)
 - [Requisitos de conectividade](#requisitos-de-conectividade)
-- [Controle de movimentação](#controle-de-movimentação)
 - [Tabela de testes](#tabela-de-testes)
 - [Dispositivo Eletrônico](#dispositivo-eletrônico)
   - [Esquemático](#esquemático)
@@ -90,7 +85,8 @@ Concepção de sistema de automação industrial
   - [Testes dispositivos mecânicos](#testes-dispositivos-mecânicos)
 - [**Planejamento do Método de Fabricação**](#planejamento-do-método-de-fabricação-1)
 - [**Lista de Materiais**](#lista-de-materiais-1)
-- **Resultados integração do projeto** (#resultados-integração-do-projeto)
+- [**Fabricação Dispostivo Eletrônico](#fabricação-dispostivo-eletrônico)
+- [**Resultados integração do projeto**](#resultados-integração-do-projeto)
 - [Referências](#referências)
 
 # Autores
@@ -235,15 +231,13 @@ alt="Diagrama da soluçao" />
 
 ## Descrição dos Subsistemas
 
-### Requisitos de software
-
 ## Tecnologias Utilizadas
 
 ![image](./img/tecnologias.png)
 <i>Tecnologias utilizadas</i>
 
 
-## Frontend
+# Frontend
 
 O frontend do projeto que desenvolvemos em Flutter e Dart é uma parte crucial do projeto. Ele é responsável por apresentar as informações e funcionalidades para o usuário de maneira clara e intuitiva, sendo composto por três páginas que desempenham diferentes funções.
 
@@ -591,7 +585,9 @@ Outra funcionalidade presente na interface é o controle de intensidade do eletr
 
 Por fim, no teste realizado também observou-se que o robô executa com sucesso a passagem do dispositivo mecânico com os eletroímãs nas amostras e o dispositivo eletrônico cumpre sua função em se conectar com o computador e controlar o eletroímã, não apresentando falhas. 
 
-O video abaixo mostra todos os passos a serem realizados pelo usuário na interface e a rota executada pelo braõ robótico.
+O video abaixo mostra todos os passos a serem realizados pelo usuário na interface e a rota executada pelo braço robótico.
+
+(https://youtu.be/_d4odR4Bkc4)
 
 
 # Referências
