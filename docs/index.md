@@ -9,7 +9,8 @@
 </table>
 
 <font size="+12"><center>
-Concepção de sistema de automação industrial
+
+Construção de um sistema de automação industrial para o processo de separação de materiais magnéticos utilizando eletroímãs e braço robótico Dobot Magician
 
 **Conteúdo**
 
