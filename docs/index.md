@@ -54,11 +54,6 @@ Concepção de sistema de automação industrial
     - [Controle do eletroímã](#controle-do-eletroímã)
     - [Controle de potência do eletroímã](#controle-de-potência-do-eletroímã)
       - [_Controle de potência do eletroímã através de um servidor_](#controle-de-potência-do-eletroímã-através-de-um-servidor)
-  - [Outros sensores](#outros-sensores)
-    - [Célula de carga](#célula-de-carga)
-    - [Mini Bomba Motor D'água](#mini-bomba-motor-dágua)
-    - [Sensor de distância ultrassônico](#sensor-de-distância-ultrassônico)
-    - [Buzzer](#buzzer)
 - [Backend](#backend)
 - [Frontend](#frontend)
 - [Requisitos de conectividade](#requisitos-de-conectividade)
@@ -551,7 +546,7 @@ O principal objetivo do sistema é controlar o eletroímã e assegurar que o dis
 | Placa de Cobre Base | É a base do sistema, na qual os componentes são fixados. Foi-se avaliado a resistência da placa e sua estabilidade para comportar os componentes, com uma conexão elétrica confiável, evitando-se possíveis problemas de curto. No teste realizado o sistema apresentou curto circuito no regulador de tensão de eletricidade da ponte H. Com isso, foi-se descartado esse componente e optou-se por realizar ligação do VCC de 10V diretamente na ponte H. A ponte H não apresentou falhas após essa alteração e apresentou os resultados esperados no eletroímã. A conexão com o Raspberry Pi Pico W também não apresentou falhas. | O teste foi realizado conectando os componentes à placa de cobre base e realizando as conexões elétricas. Foram realizados testes de resistência e estabilidade da placa, bem como testes de curto circuito, após a alteração na conexão elétrica da ponte H. |
 | Base do Eletroímã | Esse componente é ativado pela passagem de energia elétrica por ele. Avaliou-se às alterações de corrente elétrica controladas pela ponte H, exercendo a força magnética esperada no dispositivo eletromecânico. Além disso, o eletroímã foi parafusado na placa de cobre de modo que não alterasse a sua força magnética. Para acoplamento no braço robótico, foi utilizada uma caneta em uma peça do próprio braço robótico. | O teste foi realizado aplicando diferentes correntes elétricas no eletroímã e avaliando a força magnética gerada no dispositivo eletromecânico. Também foi avaliada a fixação do eletroímã na placa de cobre e o acoplamento do dispositivo ao braço robótico. |
 
-**Os funcionamento completo da primeira versão do dispositivo mecânico pode ser visto na seção de resultados da integração desse documento.**
+**O funcionamento completo do dispositivo mecânico pode ser visto na seção de resultados da integração desse documento.**
 
 # **Planejamento do Método de Fabricação**
 
@@ -594,6 +589,15 @@ A figura a seguir contém identificação dos conjuntos de passos a serem seguid
 	
 # Resultados integração do projeto
 
+Durante a realização dos testes de integração do sistema do braço robótico com controle do eletroímã via interface gráfica, foram obtidos resultados satisfatórios que indicam um alto potencial de eficiência e precisão do processo realizado pelo IPT.
+
+Através da interface gráfica, é possível controlar o braço robótico e enviar comandos específicos para que ele execute tarefas complexas com maior facilidade e precisão, reduzindo assim os erros e aumentando a eficiência do processo.
+
+Outra funcionalidade presente na interface é o controle de intensidade do eletroímã, que permite ao usuário delimitar a intensidade com que o processo de separação dos materiais magnéticos deve ser realizado, tornando-o mais preciso e eficiente.
+
+Além disso, o robô é capaz de realizar rotas planejadas com base nas informações fornecidas pela interface gráfica, permitindo ao usuário delimitar quais rotas deseja que o robô realize e pausar o sistema caso seja necessário.
+
+Com os resultados obtidos, é possível perceber o grande potencial do sistema integrado do braço robótico com controle do eletroímã via interface gráfica para a realização de processos de separação de materiais magnéticos com eficiência e precisão.
 
 
 # Referências
