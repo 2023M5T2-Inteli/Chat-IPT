@@ -364,7 +364,7 @@ No teste realizado com uma moeda, o intervalo de tempo aplicado foi de 1ms, e ob
 
 Assim, por meio do teste, infere-se a possibilidade de implementação do sistema de controle da intensidade do eletroímã por meio da interface web desenvolvida, visto que os materiais magnéticos necessitam da aplicabilidade de diferentes intensidades no eletroímã para melhor aderência.
 
-#### Controle de potência do eletroímã através de um servidor
+### Controle de potência do eletroímã através de um servidor
 
 O controle de potência do eletroímã pelo servidor é realizado por meio de um código que implementa a funcionalidade da frequência PWM para o eletroímã, e conecta o microcontrolador Raspberry Pi Pico W a rede wifi para se comunicar com o backend, que recebe comandos do usuário via interface gráfica.
 
@@ -582,22 +582,24 @@ A figura a seguir contém identificação dos conjuntos de passos a serem seguid
   Nessa placa são soldados os componentes: Raspberry Pi Pico W e Ponte H. São também inseridas as trilhas de ligação que foram definidas anteriormente na montagem do circuito virtual no software Easy Eda. Em seguida, essa placa é disposta no centro de um pote plástico.
 
 **2. Instalação dos fios** 
+
   No pote plástico são perfuradas duas passagens para os conectores de plug de banana, um conector é alimentado com 12V e o outro é o GND. Também são perfuradas entradas para passagem dos fio conector do eletroímã e do cabo USB do microcontrolador. 
 
 **3. Conexão dos componentes do circuito**
+
   A ponte H se conecta à ligação dos conectores de plug de bananas. O Raspberry Pi Pico W é conectado ao computador via cabo USB. Por fim, a ponte H recebe dois fios que são conectados aos polos dos eletroímãs. Os eletroímas são conectados a base do braço robótico e o fio de ligação passa por cima. 
 	
 # Resultados integração do projeto
 
 Durante a realização dos testes de integração do sistema do braço robótico com controle do eletroímã via interface gráfica, foram obtidos resultados satisfatórios que indicam um alto potencial de eficiência e precisão do processo realizado pelo IPT.
 
-Através da interface gráfica, é possível controlar o braço robótico e enviar comandos específicos para que ele execute tarefas complexas com maior facilidade e precisão, reduzindo assim os erros e aumentando a eficiência do processo.
+Através da interface gráfica, é possível controlar o braço robótico para realizar rotas planejadas com base nas informações fornecidas pela interface gráfica, permitindo ao usuário delimitar quais rotas deseja que o robô realize e pausar o sistema caso seja necessário.
 
 Outra funcionalidade presente na interface é o controle de intensidade do eletroímã, que permite ao usuário delimitar a intensidade com que o processo de separação dos materiais magnéticos deve ser realizado, tornando-o mais preciso e eficiente.
 
-Além disso, o robô é capaz de realizar rotas planejadas com base nas informações fornecidas pela interface gráfica, permitindo ao usuário delimitar quais rotas deseja que o robô realize e pausar o sistema caso seja necessário.
+Por fim, no teste realizado também observou-se que o robô executa com sucesso a passagem do dispositivo mecânico com os eletroímãs nas amostras e o dispositivo eletrônico cumpre sua função em se conectar com o computador e controlar o eletroímã, não apresentando falhas. 
 
-Com os resultados obtidos, é possível perceber o grande potencial do sistema integrado do braço robótico com controle do eletroímã via interface gráfica para a realização de processos de separação de materiais magnéticos com eficiência e precisão.
+O video abaixo mostra todos os passos a serem realizados pelo usuário na interface e a rota executada pelo braõ robótico.
 
 
 # Referências
