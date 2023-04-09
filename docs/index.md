@@ -339,11 +339,7 @@ Na primeira bandeja, o braço robótico é programado para passar com o eletroí
 
 No escopo descrito, o controle do Magician Lite é realizado por meio do front end, que permite que um técnico controle cada etapa do processo de manuseio das bandejas de amostras. No teste realizado, é possível observar a integração do sistema, com a passagem do braço robótico nas amostras e o controle feito pelo usuário via interface web.
 
-### Primeira versão da execução
 [Primeira versão dessa execução](https://user-images.githubusercontent.com/99269584/228046923-2ec1882a-0378-4bec-870e-582873d45abb.mp4)
-
-### Segunda versão da execução
-[Segunda versão dessa execução] (
 
 ### Conexão com servidor
 
@@ -439,11 +435,9 @@ A construção do um dispositivo eletrônico foi feito em uma placa de cobre, na
 
 A montagem da placa utilizada nesse projeto apresenta Raspberry Pi Pico W e ponte H soldados na placa. Também contém dois plugs banana fêmea que recebem VCC e GND para alimentar o circuito da ponte H. 
 
+![SPRINT 5 CHAT GPT  (1)](https://user-images.githubusercontent.com/99269584/230798846-39709bf4-6899-41b8-8cbb-9083fc1af6f4.png)
 
-
-No teste realizado, o funcionamento do circuito é feito por meio da alimentação de 10V para ponte H e com conexão via cabo USB com o Rapsberry Pi Pico W. 
-
-[video](https://user-images.githubusercontent.com/99269584/227998601-90640557-b044-4615-bfa4-ae840086af07.mp4)
+No teste realizado, o funcionamento do circuito é feito por meio da alimentação de 12V para ponte H e com conexão via cabo USB com o Rapsberry Pi Pico W ao computador. **O teste pode ser visualizado na seção de resultados da integração desse documento.**
 
 # Dispositivos Mecânicos
 
@@ -516,11 +510,15 @@ A tampa suporte para o eletroímã é a parte superior do conjunto de peças de 
 
 ### Segunda versão do suporte para eletroímã
 
- A segunda versão do suporte já foi impressa a partir da segunda versão do modelo 3D. O modelo foi pensado para sustentar até 4 imãs, havendo o espaço exato para encaixe, não necessitando parafusos além da tampa. Há 4 espaços entre os encaixes para os imãs e a haste do suporte para que a fiação passe por dentro da haste, facilitando o manuseio deles. Já a haste nessa versão foi passada para a própria base, isso foi pensado para facilitar a sustentação do conjunto da peça pelo robô (na outra versão ela estava localizada na tampa). Há também 4 buracos para parafusos M3 para vedação da tampa e do suporte, evitando que entre água no momento da separação magnética. Devido a alguns erros de medidas em relação a tampa, essa versão ainda não foi testada acoplada ao braço robótico.
+ A segunda versão do suporte já foi impressa a partir da segunda versão do modelo 3D. O modelo foi pensado para sustentar até 4 imãs, havendo o espaço exato para encaixe, não necessitando parafusos além da tampa. Há 4 espaços entre os encaixes para os imãs e a haste do suporte para que a fiação passe por dentro da haste, facilitando o manuseio deles. Já a haste nessa versão foi passada para a própria base, isso foi pensado para facilitar a sustentação do conjunto da peça pelo robô (na outra versão ela estava localizada na tampa). Há também 4 buracos para parafusos M3 para vedação da tampa e do suporte, evitando que entre água no momento da separação magnética. Devido a alguns erros de medidas em relação a tampa, essa versão não foi testada acoplada ao braço robótico.
 
  ![Foto do conjunto Base e Tampa impresso em 3D](./img/disp_mecanicos/ft-part-impressa.jpg)
 
 ### Terceira versão do suporte para eletroímã
+
+A versão final do suporte do eletroímã foi impressa em modelo 3D. Essa versão é igual a segunda versão mas possui as medidas corretas para encaixe do eletroímã. **O teste realizado com essa versão se encontra na seção de integração desse projeto.**
+
+![SPRINT 5 CHAT GPT  (2)](https://user-images.githubusercontent.com/99269584/230799037-3ca5bb3e-02d4-4ef7-af06-5f79c4677821.png)
 
 ### Base para os componentes eletrônicos
 
@@ -538,11 +536,11 @@ Na segunda versão da base, perfuramos a placa e parafusamos os componentes que 
 
 ### Terceira versão base para os componentes eletrônicos
 
-Na versão final da base, a placa de cobre de fenolite foi reduzida e foram mantidos apenas a ponte H e Raspberry Pi Pico W soldados. O pote de plástico foi perfurado para passagem dos cabos USB e do fio de ligação da ponte H com o eletroímã. Os conectores de plug de banana também foram parafusados na lateral do pote para alimentação do sistema com a fonte. Nessa versão, objetivou-se assegurar que o protótipo final não tivesse falhas dos componentes com umidade por estarem próximos às bandejas. O funcionamento desse sistema pode ser visto na seção de integração desse protótipo. 
+Na versão final da base, a placa de cobre de fenolite foi reduzida e foram mantidos apenas a ponte H e Raspberry Pi Pico W soldados. O pote de plástico foi perfurado para passagem dos cabos USB e do fio de ligação da ponte H com o eletroímã. Os conectores de plug de banana também foram parafusados na lateral do pote para alimentação do sistema com a fonte. Nessa versão, objetivou-se assegurar que o protótipo final não tivesse falhas dos componentes com umidade por estarem próximos às bandejas. **O funcionamento desse sistema pode ser visto na seção de resultados de integração desse protótipo.**
+
+![SPRINT 5 CHAT GPT  (1)](https://user-images.githubusercontent.com/99269584/230798846-39709bf4-6899-41b8-8cbb-9083fc1af6f4.png)
 
 ## Testes dispositivos mecânicos
-
-### Primeira Versão
 
 O protótipo possui uma base com uma placa de cobre que contém os seguintes componentes: Raspberry Pi Pico W, ponte H e dois plugs banana fêmea. Além disso, há um dispositivo eletromecânico feito para um eletroímã com placa de cobre, que está acoplado no braço robótico por meio de uma caneta. A ponte H se interliga ao dispositivo eletromecânico do eletroímã por meio de um cabo de rede.
 
@@ -553,16 +551,16 @@ O principal objetivo do sistema é controlar o eletroímã e assegurar que o dis
 | Placa de Cobre Base | É a base do sistema, na qual os componentes são fixados. Foi-se avaliado a resistência da placa e sua estabilidade para comportar os componentes, com uma conexão elétrica confiável, evitando-se possíveis problemas de curto. No teste realizado o sistema apresentou curto circuito no regulador de tensão de eletricidade da ponte H. Com isso, foi-se descartado esse componente e optou-se por realizar ligação do VCC de 10V diretamente na ponte H. A ponte H não apresentou falhas após essa alteração e apresentou os resultados esperados no eletroímã. A conexão com o Raspberry Pi Pico W também não apresentou falhas. | O teste foi realizado conectando os componentes à placa de cobre base e realizando as conexões elétricas. Foram realizados testes de resistência e estabilidade da placa, bem como testes de curto circuito, após a alteração na conexão elétrica da ponte H. |
 | Base do Eletroímã | Esse componente é ativado pela passagem de energia elétrica por ele. Avaliou-se às alterações de corrente elétrica controladas pela ponte H, exercendo a força magnética esperada no dispositivo eletromecânico. Além disso, o eletroímã foi parafusado na placa de cobre de modo que não alterasse a sua força magnética. Para acoplamento no braço robótico, foi utilizada uma caneta em uma peça do próprio braço robótico. | O teste foi realizado aplicando diferentes correntes elétricas no eletroímã e avaliando a força magnética gerada no dispositivo eletromecânico. Também foi avaliada a fixação do eletroímã na placa de cobre e o acoplamento do dispositivo ao braço robótico. |
 
+**Os funcionamento completo da primeira versão do dispositivo mecânico pode ser visto na seção de resultados da integração desse documento.**
 
-Os funcionamento completo da primeira versão do dispositivo mecânico pode ser visto em: https://user-images.githubusercontent.com/99269584/228059827-2232d2e0-df46-40ca-83af-213a52a6a68e.mp4
-
+# **Planejamento do Método de Fabricação**
 
 ## **Lista de Materiais**
 
 1. **MICROCONTROLADOR:** o microcontrolador responsável pela atuação é o RASPBERRY PI PICO W com Wi-Fi RP2040 133MHZ detensão de alimentação é de 1.8-5.5v dc, cuja fabricante é a Newark Corporation, RS Components, Farnell element14. O microcontrolador será responsável pela intervenção entre a interface amigável e o braço robótico e seus adjacentes.
 2. **PONTE H:** módulo ponte H L298N; 2 canais de 2A DC. Permite controlar a direção, velocidade e sentido de rotação de um motor elétrico. Servirá para controlar as rotações do braço robótico.
 3. **ELETROÍMÃ:** usado eletroímã solenóide redondo de.\*\* Atrai e separa o material ferromagnético do restante da amostra.
-4. **PCI:** a placa de circuito impresso (PCB) usada para conectar os componentes eletrônicos, como resistores, capacitores e, inclusive, usado para o microcontrolador. Vale ressaltar que a placa é universal e inflexível. Além do mais, no protótipo, foi usado a placa perfurada de 12cm x 18cm de material fenolite; marca: _piscaled_.
+4. **PCB:** a placa de circuito impresso (PCB) usada para conectar os componentes eletrônicos, como resistores, capacitores e, inclusive, usado para o microcontrolador. Vale ressaltar que a placa é universal e inflexível. Além do mais, no protótipo, foi usado a placa perfurada de 12cm x 18cm de material fenolite; marca: _piscaled_.
 5. **COMPONENTE MOBILE:** será necessária, para interação com o robô, um celular com interface amigável.
 6. **BANDEJA:** deve ser usado 3 bandejas de plástico seco para não ter interferência no eletroímã.
 7. **BRAÇO ROBÓTICO:** automação responsável pela separação diretamente dos sedimentos magnéticos. É usado o braço robótico DOBOT MAGICIAN LITE da empresa Dobot company.
@@ -578,7 +576,25 @@ Os funcionamento completo da primeira versão do dispositivo mecânico pode ser 
 |             Plug Fêmea Banana             | 2              | Usados para a alimentação.                                |
 ##
 
-# **Planejamento do Método de Fabricação**
+## Fabricação Dispostivo Eletrônico
+
+A figura a seguir contém identificação dos conjuntos de passos a serem seguidos para a construção do dispositivo eletrônico e suas ligações com o computador e dispositivos mecânicos que se conectam ao computador.
+
+![SPRINT 5 CHAT GPT  (1)](https://user-images.githubusercontent.com/99269584/230799652-26b24fae-0843-40e7-b7dd-c8c6cfa395d7.png)
+
+**1. Montagem da Placa PCB**
+
+  Nessa placa são soldados os componentes: Raspberry Pi Pico W e Ponte H. São também inseridas as trilhas de ligação que foram definidas anteriormente na montagem do circuito virtual no software Easy Eda. Em seguida, essa placa é disposta no centro de um pote plástico.
+
+**2. Instalação dos fios** 
+  No pote plástico são perfuradas duas passagens para os conectores de plug de banana, um conector é alimentado com 12V e o outro é o GND. Também são perfuradas entradas para passagem dos fio conector do eletroímã e do cabo USB do microcontrolador. 
+
+**3. Conexão dos componentes do circuito**
+  A ponte H se conecta à ligação dos conectores de plug de bananas. O Raspberry Pi Pico W é conectado ao computador via cabo USB. Por fim, a ponte H recebe dois fios que são conectados aos polos dos eletroímãs. Os eletroímas são conectados a base do braço robótico e o fio de ligação passa por cima. 
+	
+# Resultados integração do projeto
+
+
 
 # Referências
 
