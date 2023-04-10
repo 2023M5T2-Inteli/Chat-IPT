@@ -113,7 +113,7 @@ class _ConfigurationState extends State<Configuration> {
                 height: 10,
               ),
               Text(
-                "2- Execute o arquivo \"ChatIpt.exe\" no computador.",
+                "2- Coloque o servidor para rodar no computador.",
                 style: TextStyle(fontSize: 18),
               ),
               SizedBox(
