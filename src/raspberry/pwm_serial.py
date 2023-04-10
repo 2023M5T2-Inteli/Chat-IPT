@@ -1,3 +1,4 @@
+# Import necessary libraries
 import sys
 from machine import Pin, PWM
 from time import sleep
@@ -11,11 +12,10 @@ import network
 # Setting PWN pinout and frequence
 pwm = PWM(Pin(0))
 pwm.freq(1000)
-from machine import Pin
+
+
 # Function to turn on the PWM so then the electromagnetic magnet will turn on
 # Max value for the PWM is 65_000
-
-
 def turn_on_PWM(value: int) -> bool:
     try:
         pwm.duty_u16(value)
@@ -24,8 +24,6 @@ def turn_on_PWM(value: int) -> bool:
         return False
 
 # Function to turn off(fixed value of 0) the PWM so then the electromagnetic magnet will turn on
-
-
 def turn_off_PWM() -> bool:
     try:
         pwm.duty_u16(0)
